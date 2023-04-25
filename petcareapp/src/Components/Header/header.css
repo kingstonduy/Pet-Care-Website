@@ -1,0 +1,49 @@
+
+header{
+
+    min-height: 80px;
+    background-color: rgba(255,250,245);
+    display: flex;
+    
+}
+
+
+.header_nav{
+    width: 1150px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_nav_list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 500px;
+    
+}
+
+.header_nav_items{
+    font-family: 'Poppins', sans-serif;
+    margin-right: 48px;
+    font-size: 16px;
+    color: #48496A;
+    
+}
+
+.nav__btn-signup{
+    width: 117px;
+    height: 50px;
+    background-color:rgba(255,250,245) ;
+    border: 1px solid #000958;
+    border-radius: 5px;
+    color: #000958;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header_nav_logo{
+    font-family: 'Slackey', cursive;
+}

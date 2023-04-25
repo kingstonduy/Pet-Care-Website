@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Slackey&display=swap');
+
+@import 'normalize.css';
+
+
+*{
+  margin: 0;
+  padding: 0;
+
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+}
+
+/* p{
+  font-family: 'Slackey', cursive;
+} */
