@@ -1,0 +1,716 @@
+.accountframe-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .accountframe-accountframe {
+    width: 100%;
+    height: 2097px;
+    display: flex;
+    overflow: hidden;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .accountframe-background {
+    top: 0px;
+    left: 0px;
+    width: 1440px;
+    height: 2097px;
+    display: flex;
+    position: absolute;
+    box-shadow: 5px 5px 10px 0px #d4d4d4;
+    background-size: cover;
+    background-color: var(--dl-color-gray-900);
+    background-position: center;
+  }
+  .accountframe-table {
+    top: 528px;
+    left: 235px;
+    width: 1187px;
+    height: 929.2671508789062px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-text {
+    left: 222.21595764160156px;
+    color: rgba(0, 0, 0, 1);
+    width: 102px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text02 {
+    left: 1052.59130859375px;
+    color: rgba(0, 0, 0, 1);
+    width: 102px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text04 {
+    left: 839.0281982421875px;
+    color: rgba(0, 0, 0, 1);
+    width: 102px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text06 {
+    left: 625.46533203125px;
+    color: rgba(0, 0, 0, 1);
+    width: 102px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-line1 {
+    top: 33.16192626953125px;
+    left: 6px;
+    width: 1181px;
+    height: 0px;
+    position: absolute;
+  }
+  .accountframe-row3 {
+    top: 672px;
+    left: 0px;
+    width: 1184px;
+    height: 257.2671813964844px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-btn {
+    top: 145.26708984375px;
+    left: 936px;
+    width: 248px;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(255, 91, 46, 1);
+  }
+  .accountframe-text08 {
+    top: 22px;
+    left: 52.4615364074707px;
+    color: rgba(255, 255, 255, 1);
+    width: 143px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-btn1 {
+    top: 145.26708984375px;
+    left: 559px;
+    width: 248px;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(255, 91, 46, 1);
+  }
+  .accountframe-text10 {
+    top: 22px;
+    left: 52.4615364074707px;
+    color: rgba(255, 255, 255, 1);
+    width: 143px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-line2 {
+    top: 257.26708984375px;
+    left: 0px;
+    width: 1181px;
+    height: 0px;
+    position: absolute;
+  }
+  .accountframe-product1 {
+    top: 0px;
+    left: 24.2236328125px;
+    width: 267.9485778808594px;
+    height: 119.3830337524414px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-unsplashm-w0libb-nd-e {
+    top: 0px;
+    left: 0px;
+    width: 119px;
+    height: 119px;
+    position: absolute;
+  }
+  .accountframe-text12 {
+    top: 59.691131591796875px;
+    left: 127.3418960571289px;
+    color: rgba(0, 0, 0, 1);
+    width: 141px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text14 {
+    top: -0.00002160536496376153px;
+    left: 127.3418960571289px;
+    color: rgba(0, 0, 0, 1);
+    width: 141px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text16 {
+    top: 42.446834564208984px;
+    left: 594.6092529296875px;
+    color: rgba(0, 0, 0, 1);
+    width: 159px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text18 {
+    top: 42.446834564208984px;
+    left: 1021.7351684570312px;
+    color: rgba(0, 0, 0, 1);
+    width: 159px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-row2 {
+    top: 360.9999694824219px;
+    left: 0px;
+    width: 1184px;
+    height: 257.2671813964844px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-btn2 {
+    top: 145.26708984375px;
+    left: 936px;
+    width: 248px;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(255, 91, 46, 1);
+  }
+  .accountframe-text20 {
+    top: 22px;
+    left: 52.4615364074707px;
+    color: rgba(255, 255, 255, 1);
+    width: 143px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-btn3 {
+    top: 145.26708984375px;
+    left: 559px;
+    width: 248px;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(255, 91, 46, 1);
+  }
+  .accountframe-text22 {
+    top: 22px;
+    left: 52.4615364074707px;
+    color: rgba(255, 255, 255, 1);
+    width: 143px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-line21 {
+    top: 257.26708984375px;
+    left: 0px;
+    width: 1181px;
+    height: 0px;
+    position: absolute;
+  }
+  .accountframe-product11 {
+    top: 0px;
+    left: 24.2236328125px;
+    width: 267.9485778808594px;
+    height: 119.3830337524414px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-unsplashm-w0libb-nd-e1 {
+    top: 0px;
+    left: 0px;
+    width: 119px;
+    height: 119px;
+    position: absolute;
+  }
+  .accountframe-text24 {
+    top: 59.691131591796875px;
+    left: 127.3418960571289px;
+    color: rgba(0, 0, 0, 1);
+    width: 141px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text26 {
+    top: -0.00002160536496376153px;
+    left: 127.3418960571289px;
+    color: rgba(0, 0, 0, 1);
+    width: 141px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text28 {
+    top: 42.446834564208984px;
+    left: 594.6092529296875px;
+    color: rgba(0, 0, 0, 1);
+    width: 159px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text30 {
+    top: 42.446834564208984px;
+    left: 1021.7351684570312px;
+    color: rgba(0, 0, 0, 1);
+    width: 159px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-row1 {
+    top: 51.732879638671875px;
+    left: 3.0000038146972656px;
+    width: 1184px;
+    height: 257.2671813964844px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-btn4 {
+    top: 145.26708984375px;
+    left: 936px;
+    width: 248px;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(255, 91, 46, 1);
+  }
+  .accountframe-text32 {
+    top: 22px;
+    left: 52.4615364074707px;
+    color: rgba(255, 255, 255, 1);
+    width: 143px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-btn5 {
+    top: 145.26708984375px;
+    left: 559px;
+    width: 248px;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(255, 91, 46, 1);
+  }
+  .accountframe-text34 {
+    top: 22px;
+    left: 52.4615364074707px;
+    color: rgba(255, 255, 255, 1);
+    width: 143px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-line22 {
+    top: 257.26708984375px;
+    left: 0px;
+    width: 1181px;
+    height: 0px;
+    position: absolute;
+  }
+  .accountframe-product12 {
+    top: 0px;
+    left: 24.2236328125px;
+    width: 267.9485778808594px;
+    height: 119.3830337524414px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-unsplashm-w0libb-nd-e2 {
+    top: 0px;
+    left: 0px;
+    width: 119px;
+    height: 119px;
+    position: absolute;
+  }
+  .accountframe-text36 {
+    top: 59.691131591796875px;
+    left: 127.3418960571289px;
+    color: rgba(0, 0, 0, 1);
+    width: 141px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text38 {
+    top: -0.00002160536496376153px;
+    left: 127.3418960571289px;
+    color: rgba(0, 0, 0, 1);
+    width: 141px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text40 {
+    top: 42.44683837890625px;
+    left: 594.6092529296875px;
+    color: rgba(0, 0, 0, 1);
+    width: 159px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text42 {
+    top: 42.44683837890625px;
+    left: 1021.7351684570312px;
+    color: rgba(0, 0, 0, 1);
+    width: 159px;
+    height: auto;
+    position: absolute;
+    font-size: 15px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-searchbargroup {
+    top: 314px;
+    left: 240px;
+    width: 1182px;
+    height: 214px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-rectangle129 {
+    top: 72px;
+    left: 0px;
+    width: 1182px;
+    height: 70px;
+    position: absolute;
+    border-radius: 180px;
+  }
+  .accountframe-text44 {
+    left: 10.727723121643066px;
+    color: rgba(0, 0, 0, 1);
+    width: 1160px;
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-btn6 {
+    top: 79px;
+    left: 1017px;
+    width: 152px;
+    height: 55px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(255, 91, 46, 1);
+  }
+  .accountframe-frameiconmagnifyingglass {
+    top: 3.0000228881835938px;
+    left: 60.94337463378906px;
+    width: 30.11320686340332px;
+    height: 51.912620544433594px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-vector {
+    top: 0px;
+    left: 0px;
+    width: 30px;
+    height: 52px;
+    position: absolute;
+  }
+  .accountframe-text46 {
+    top: 103px;
+    left: 188px;
+    color: rgba(0, 0, 0, 1);
+    width: 584px;
+    height: auto;
+    position: absolute;
+    font-size: 42px;
+    font-style: Bold;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-ellipse61 {
+    top: 305px;
+    left: 0px;
+    width: 79px;
+    height: 81px;
+    position: absolute;
+    border-color: rgba(255, 255, 255, 1);
+    border-style: solid;
+    border-width: 2px;
+  }
+  .accountframe-text48 {
+    top: 406px;
+    left: 57px;
+    color: rgba(0, 0, 0, 1);
+    width: 151px;
+    height: auto;
+    position: absolute;
+    font-size: 13px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-text50 {
+    top: 326px;
+    left: 96px;
+    color: rgba(0, 0, 0, 1);
+    width: 126px;
+    height: auto;
+    position: absolute;
+    font-size: 13px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 16px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .accountframe-frameiconpencil {
+    top: 415px;
+    left: 17px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-vector1 {
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+  }
+  .accountframe-frameiconchevronbottom {
+    top: 1574px;
+    left: 676px;
+    width: 87.52484893798828px;
+    height: 60.17333221435547px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .accountframe-vector2 {
+    top: 0px;
+    left: 0px;
+    width: 88px;
+    height: 60px;
+    position: absolute;
+  }
+  
