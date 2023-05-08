@@ -1,0 +1,161 @@
+
+.body{
+    background: #EEDDCE;
+    padding-bottom: 30px;
+}
+
+.body_title_wrap{
+    text-align: center;
+    padding-top: 65px;
+}
+
+.body_title{
+   
+    font-family: 'Slackey';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 55px;
+    /* or 122% */
+
+    color: #000958;
+
+
+}
+
+.body_description{
+
+    width: 482px;
+   
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: #656689;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.body_service_wrap{
+    display: flex;
+    margin-top: 55px;
+}
+
+.body_service_list{
+    width: 1075px;
+    display: flex;
+    margin: auto;
+    
+}
+
+
+
+.body_service_item_background{
+    width: 63px;
+    height: 63px;
+    background: #FFFFFF;
+    border-radius: 15px;   
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body_service_item_img{
+    width: 62px;
+    height: 46px;
+}
+
+
+.body_service_item_odd{
+    background: #FB901A;
+    box-shadow: -17px 14px 68px -4px rgba(207, 174, 132, 0.25);
+    border-radius: 44px;
+    width: 25%;
+    margin-left: 12px;
+    margin-right: 12px;
+    padding: 35px;
+    text-align: center;
+}
+
+.body_service_item_odd > .body_service_item_information > h3{
+    font-family: 'Slackey';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+    text-decoration-line: underline;
+
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+
+.body_service_item_odd > .body_service_item_information > p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+    
+
+    color: #F3F3F3;
+
+    margin-top: 25px;
+}
+
+.body_service_item_even_wrap{
+    position: relative;
+    width: 25%;
+    margin-left: 12px;
+    margin-right: 12px;
+    padding: 35px;
+}
+
+.body_service_item_even{
+    position: absolute;
+    text-align: center;
+    
+    background: #FFFAF5;
+    box-shadow: -17px 14px 68px -4px rgba(207, 174, 132, 0.25);
+    border-radius: 44px;
+    padding: 35px;
+    
+    right: 0;
+}
+
+
+.body_service_item_even > .body_service_item_information > h3{
+  
+    font-family: 'Slackey';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+    margin-top: 30px;
+    color: #656689;
+}
+
+.body_service_item_even > .body_service_item_information > p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+    text-align: center;
+    color: #656689;
+    margin-top: 25px;
+}
+
+
+.body_btn_book{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
