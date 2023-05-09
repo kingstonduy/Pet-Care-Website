@@ -11,8 +11,6 @@ import Account from './Components/Body/account/Account';
 export default function MainApp(){
     return (
         <div>
-            
-    
             <BrowserRouter>
                 <Header/>
                 <Routes>

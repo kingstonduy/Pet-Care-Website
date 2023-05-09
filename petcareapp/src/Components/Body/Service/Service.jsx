@@ -13,6 +13,8 @@ export default function Service(){
     const background2 = cs['body_service_item_background'] + ' ' + 'background2'
     const background3 = cs['body_service_item_background'] + ' ' + 'background3'
     const background4 = cs['body_service_item_background'] + ' ' + 'background4'
+
+    
     return(
         <div className={cs['body']}>
             <div  className={cs['body_title_wrap']} >
