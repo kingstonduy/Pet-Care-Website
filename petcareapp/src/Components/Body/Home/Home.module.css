@@ -184,17 +184,13 @@
     border-top-right-radius: 35px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-
     position: absolute;
-    
-
     background: linear-gradient(110.59deg, #009F97 7.32%, #00C8BD 98.68%);
     width: 420px;
-    height: 180px;
+    height: 238px;
     right: 15px;
-    bottom: -10px;
-
-    padding: 30px 35px;
+    bottom: -22px;
+    padding: 28px 35px;
 }
 
 .body_statis_item_profess > p{
@@ -213,7 +209,7 @@
 
 .spacer_line{
     border-bottom: 1px solid #ccc;
-    width: 300px;
+    width: 250px;
 }
 
 .body_statis_item_profess_detail{
@@ -239,7 +235,7 @@
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin: 8px 10px 0 0;
 }
 
 .body_contact{

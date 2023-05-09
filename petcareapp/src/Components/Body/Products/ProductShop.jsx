@@ -17,7 +17,7 @@ export default function ProductShop(){
         },
         {
             id: 2,
-            Name: 'Iams Proactive' ,
+            Name: 'Iams Proactive aaaaa boitjasdjk biaset asdasdv asdbasdqweasd dasdasdcasd' ,
             Category: 'food',
             Price: '100',
             url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
