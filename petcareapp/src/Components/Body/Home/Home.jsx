@@ -16,28 +16,32 @@ export default function Home(){
     
     return(
        <div className={cs['body']}>
-            <div className={cs['body_intro']}>
-                <div className={cs['body_intro_img']}>
-                    <img src={meowpicture} className={cs['body_intro_imgMeo']} alt="" />
-                    <img src={dogpicture} className={cs['body_intro_imgDog']} alt="" />
-                </div>
-
-                <div className={cs['body_intro_title']}>
-                    <h1 >We take care of your pet and help them to grow</h1>
-                    <p>Best pets are waiting for adoption. Find out the the perfect one you will like it. It’s our promise.</p>
-
-                    <div className={cs['body_intro_title_contact']} >
-                        <a href="" className='btn-normal'>Contact us</a>
-                        <div className={cs['intro-contact_ava_wrap']}>
-                            <a href="https://www.facebook.com/zetnguyen172/"><img src={avaNghia} alt="" className={cs['contact_ava']} /></a>
-                            <a href="https://www.facebook.com/kduyyy"><img src={avaDuy} alt="" className={cs['contact_ava']} /></a>
-                            <a href="https://www.facebook.com/YinLin04"><img src={avaDinh} alt="" className={cs['contact_ava']} /></a>
+            <div className="grid">
+                <div className="row">
+                    <div className={cs['body_intro']}>
+                        <div className={cs['body_intro_img']}>
+                            <img src={meowpicture} className={cs['body_intro_imgMeo']} alt="" />
+                            <img src={dogpicture} className={cs['body_intro_imgDog']} alt="" />
                         </div>
-                    </div>
-                    
-                    <div className={cs['body_intro_title_slogun']}>
-                        <h3> <FontAwesomeIcon icon={faPaw} className={cs['faPawicon']} /> How to take care</h3>
-                        <p>perfect one you will like it. it's our promise.</p>
+
+                        <div className={cs['body_intro_title']}>
+                            <h1 >We take care of your pet and help them to grow</h1>
+                            <p>Best pets are waiting for adoption. Find out the the perfect one you will like it. It’s our promise.</p>
+
+                            <div className={cs['body_intro_title_contact']} >
+                                <a href="" className='btn-normal'>Contact us</a>
+                                <div className={cs['intro-contact_ava_wrap']}>
+                                    <a href="https://www.facebook.com/zetnguyen172/"><img src={avaNghia} alt="" className={cs['contact_ava']} /></a>
+                                    <a href="https://www.facebook.com/kduyyy"><img src={avaDuy} alt="" className={cs['contact_ava']} /></a>
+                                    <a href="https://www.facebook.com/YinLin04"><img src={avaDinh} alt="" className={cs['contact_ava']} /></a>
+                                </div>
+                            </div>
+                            
+                            <div className={cs['body_intro_title_slogun']}>
+                                <h3> <FontAwesomeIcon icon={faPaw} className={cs['faPawicon']} /> How to take care</h3>
+                                <p>perfect one you will like it. it's our promise.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

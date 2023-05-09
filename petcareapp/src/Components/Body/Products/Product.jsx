@@ -18,17 +18,17 @@ export default function Product({data}){
 
     return(
         <div className="column4">
-            <div className={cs['product_item']}>
+            <Link to ='/' className={cs['product_item']}>
                 
                 <div  className={cs['product_img_wrap']} >
-                    <Link style={linkStyle} className={cs['product_item_img']}></Link>
+                    <div style={linkStyle} className={cs['product_item_img']}></div>
                     <div onClick={handleAddToCart} className={cs['product_item_add_btn']} >Add To Cart</div>
                 </div>
-                <p className={cs['product_item_name']}>{Name} bllballbalblalballballbalalblabblbalblalablalbalbllalballbalal</p>
-                <p className={cs['product_item_name']}>{Category}</p>
-                <p className={cs['product_item_name']}>{Price}$</p>
+                <p className={cs['product_item_name']}> {Name.length > 20 ? `${Name.slice(0, 30)}...` : Name}</p>
+                <p className={cs['product_item_description']}>{Category}</p>
+                <p className={cs['product_item_price']}>{Price}$</p>
 
-            </div>
+            </Link>
         </div>
     );
 }
