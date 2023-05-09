@@ -104,6 +104,7 @@ header{
 
 .nav_left_item:hover > .nav__list-pet{
     display: block;
+    z-index: 1;
 }
 
 .nav__list-pet{
