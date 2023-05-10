@@ -1,12 +1,23 @@
 import './header.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
+import CartComponent from '../Body/sidebar.cart/CartComponent'
+import { useState } from 'react'
 export default function Header(){
 
+
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    function handleCartClick() {
+        setIsCartOpen(!isCartOpen);
+        console.log(isCartOpen)
+    }
+
+
+    
 
     return(
         <header>
@@ -51,7 +62,9 @@ export default function Header(){
                     <ul className="nav_right_list">
                     
                         <li className="nav_right_item">
-                            <Link><FontAwesomeIcon icon={faCartShopping} className="nav_logo_cart"/></Link>
+                            <button className='btn-cart' onClick={handleCartClick}>
+                                <FontAwesomeIcon icon={faCartShopping} className="nav_logo_cart"/>
+                            </button>
                         </li>
                         <li className="nav_right_item">
                             <div className="signUp_wrap">
@@ -63,7 +76,7 @@ export default function Header(){
                 </div>
                
             </nav>
-            
+            { isCartOpen && <CartComponent isCartOpen={isCartOpen} />}
         </header>
     )
 }

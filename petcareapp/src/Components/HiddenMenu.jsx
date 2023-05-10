@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import cs from './CartComponent.module.css';
+import cs from './HiddenMenu.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
-const CartComponent = ({isCartOpen}) => {
-  const [isOpen, setIsOpen] = useState(isCartOpen);
-  console.log(isCartOpen);
+const HiddenMenu = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    isCartOpen = !isCartOpen;
     if (!isOpen) {
       document.documentElement.style.overflow = 'hidden';
     } else {
@@ -84,6 +83,10 @@ const CartComponent = ({isCartOpen}) => {
 
   return (
     <div className={cs.container}>
+      hihi
+      <button onClick={toggleMenu}>
+        Click me
+      </button>
       <div className={`${cs['hidden-menu']} ${isOpen ? cs.open : ''}`}>
         <div className={cs['header']}>
             <button className={cs['menu-toggle']} onClick={toggleMenu}>
@@ -93,7 +96,6 @@ const CartComponent = ({isCartOpen}) => {
                 <h3>Shopping cart</h3>
             </div>
         </div>
-
         <div className={cs['product-table']}>
             {
                 products.map(
@@ -148,4 +150,4 @@ const CartComponent = ({isCartOpen}) => {
   );
 };
 
-export default CartComponent;
+export default HiddenMenu;

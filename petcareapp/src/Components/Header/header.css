@@ -177,3 +177,9 @@ header{
     color: var(--text-color-bold);
     font-weight: 700;
 }
+
+.btn-cart{
+    background-color: var(--header-color);
+    border: none;
+    cursor: pointer;
+}
