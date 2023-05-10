@@ -61,13 +61,13 @@ export default function Home(){
                         <span>1300+</span>
                     </div>
                     <div className={cs['body_statis_item_profess']}>
-                            <p>Lorem ipsum dolor sit amet, consectetur ipcing elit, 
-                                sed do eiusmod tempor incididu ut labore et quis nostrud sed do eius .....</p>
+                            <p>Dr. Zet Nguyen: A compassionate vet providing exceptional care to animals, 
+                                building strong bonds with humans. </p>
 
                             <div className={cs['spacer_line']}></div>
 
                             <div className={cs['body_statis_item_profess_detail']}>
-                                <span>Daniel Kahneman</span>
+                                <span>Zet Nguyen</span>
                                 <img src={avaNghia} alt="" />
                             </div>
                     </div>

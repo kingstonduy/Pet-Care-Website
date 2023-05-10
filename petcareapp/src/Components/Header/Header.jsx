@@ -22,7 +22,7 @@ export default function Header(){
                     
                     <ul className="nav_left_list">
                         <li className="nav_left_item"> <Link className='nav_left_link' to='/'>Home</Link> </li>
-                        <li className="nav_left_item"> <Link className='nav_left_link' to='/'>About</Link> </li>
+                        <li className="nav_left_item"> <Link className='nav_left_link' to='/About'>About</Link> </li>
                         <li className="nav_left_item"> <Link className='nav_left_link' to='/Service'>Services</Link> </li>
                         <li className="nav_left_item"> <Link className='nav_left_link' to='/Products'>Products</Link> </li>
                         <li className="nav_left_item nav_left_item-bridge">

@@ -1,5 +1,5 @@
 .body{
-    background-color: #FFF4EA;
+    background-color: var(--header-color);
 }
 
 .container{
@@ -36,4 +36,9 @@
 
 
     color: #656689;
+}
+
+.link{
+    color: #656689;
+    text-decoration: underline;
 }

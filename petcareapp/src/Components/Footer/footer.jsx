@@ -51,26 +51,26 @@ const Footer = () => {
                             <div className={cs["body-explore"]}>
                                 
                                 <li>
-                                    <a href="/Home">About us</a>
+                                    <a className={cs['link']} href="/About">About us</a>
                                 </li>
 
                                 <li>
-                                    <a href="/Service">Services</a>
+                                    <a className={cs['link']} href="/Service">Services</a>
                                 </li>
 
                                 <li>
-                                    <a href="https://github.com/kingstonduy/Pet-Care-Website/pulse">Our Team</a>
+                                    <a className={cs['link']} href="https://github.com/kingstonduy/Pet-Care-Website/pulse">Our Team</a>
                                 </li>
 
                                 <li>
-                                    <a href="/Products">Products</a>
+                                    <a className={cs['link']} href="/Products">Products</a>
                                 </li>
                             </div>
 
                             <div className={cs["body-contact-info"]}>
-                                <li>Trường Đại học Quốc Tế - Đại học Quốc gia TP.HCM</li>
-                                <li>Địa chỉ: Khu phố 6, Phường Linh Trung, Thành phố Thủ Đức, Thành phố Hồ Chí Minh</li>
-                                <li>Điện thoại: (028) 37244270</li>
+                                <li>International University - Vietnam National University HCM City</li>
+                                <li>Address: Quarter 6, Linh Trung Ward, Thu Duc City, Ho Chi Minh City</li>
+                                <li>Phone: (028) 37244270</li>
                                 <li>Fax: (028) 37244271</li>
                                 <li>Email: info@hcmiu.edu.vn</li>
                             </div>
