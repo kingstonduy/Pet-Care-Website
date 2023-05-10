@@ -1,0 +1,173 @@
+.body{
+    background-color: #EEDDCE;;
+    
+}
+
+
+.home_item > h2{
+    width: 506px;
+
+    
+    font-family: 'Pangolin', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 55px;
+    letter-spacing: 0.05em;
+    
+    color: #000000;
+}
+
+.home_item_description{
+
+    width: 432.13px;
+    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 137.9%;
+    /* or 26px */
+    letter-spacing: 0.05em;
+    
+    color: #181817;   
+    margin-top:15px
+}
+
+.home_btn_Explore{
+    display: block;
+    width: 192.69px;
+    height: 59.6px;
+
+    background: #124C5F;
+    border-radius: 5px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+
+    color: #FFFFFF;
+    text-decoration: none;
+
+    padding: 20px 30px; 
+    margin-top: 60px;
+}
+
+.logo_wrap{
+    text-align: center;
+}
+
+.form-group{
+    margin: 15px 0;
+    width: 340px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-group > input{
+    width: 100%;
+    height: 40px;
+   
+
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    
+    padding: 15px 15px 15px 15px;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    outline: none;
+    background-color: #EEDDCE;
+}
+
+::placeholder { 
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+#form_login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link_forgotPassword{
+    width: 340px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: right;
+    
+    color: #000000;
+    text-decoration: none;
+}
+
+.btn_form{
+    width: 100%;
+    background: #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    height: 45px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* or 125% */
+    
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFF4EA;
+}
+
+.form_logo_wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.logo_petcare{
+    font-family: 'Slackey', cursive;
+    font-size: 45px;
+    width: 100px;
+    text-align: center;
+}
+
+.home_item{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dogImg_wrap{
+    width: 500px;
+    height: 500px;
+    position:relative;
+}
+
+.dog_backGround{
+    background-image: url('../../../assests/loginpage/backgroundDog.png');
+
+    background-size: contain;
+    padding-top: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.dog_img{
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+

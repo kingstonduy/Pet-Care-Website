@@ -48,6 +48,7 @@ header{
 
 .nav_left_link{
     text-decoration: none;
+    color: var(--text-color-light)
     
 }
 
@@ -84,11 +85,12 @@ header{
 
 .nav_logo_cart{
     font-size: 200%;
+    color: #181817; 
 }
 
 
 
-.signUp_wrap > a{
+.login_btn{
     text-decoration: none;
     color: var(--text-color--bold);
     
@@ -169,4 +171,9 @@ header{
     left: 0;
     top: 15px;
     opacity: 0;
+}
+
+.login_btn{
+    color: var(--text-color-bold);
+    font-weight: 700;
 }
