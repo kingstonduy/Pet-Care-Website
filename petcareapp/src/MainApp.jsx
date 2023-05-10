@@ -10,6 +10,7 @@ import Account from './Components/Body/account/Account';
 import ProductShop from './Components/Body/Products/ProductShop';
 import Login from './Components/Body/Login/Login';
 import Footer from './Components/Footer/Footer';
+import About from './Components/Body/about/About';
 
 export default function MainApp(){
     return (
@@ -27,6 +28,7 @@ export default function MainApp(){
                     <Route path='/Account' element={<Account/>}/>
                     <Route path='/Products' element={<ProductShop/>}/>
                     <Route path='/login' element={<Login/>}/>
+                    <Route path='About' element={<About/>}/>
                 </Routes>
                 <Footer/>
             </BrowserRouter>

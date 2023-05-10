@@ -29,6 +29,8 @@ export default function Product({data}){
                 <p className={cs['product_item_price']}>{Price}$</p>
 
             </Link>
+            
+        
         </div>
     );
 }

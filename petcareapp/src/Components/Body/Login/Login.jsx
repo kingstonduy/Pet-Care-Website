@@ -15,10 +15,7 @@ export default function Login(){
 
     const [checkInput,setCheckInput]= useState('')
 
-    var a = document.querySelector('#username')
-    a.onblur = function(e){
-        console.log(e.target.value)
-    }
+   
 
     function handleOnchangeUsername(e){
         setUsername(e.target.value)
@@ -30,11 +27,15 @@ export default function Login(){
 
 
     function handleLogin(){
-
+        alert('login clicked')
     }
 
     function handleRegister(){
+        alert('register clicked')
+    }
 
+    function handleForgotPassword(){
+        alert('good luck next time')
     }
 
     return (
@@ -73,7 +74,7 @@ export default function Login(){
                                         onChange={handleOnchangePassword}/>
                                         
                                     </div>
-                                    <Link className={cs['link_forgotPassword']}>Forgot password?</Link>
+                                    <Link className={cs['link_forgotPassword']} onClick={handleForgotPassword}>Forgot password?</Link>
                                     
                                     
 
