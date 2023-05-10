@@ -8,6 +8,8 @@ import Bird from './Components/Body/petInformation/Bird'
 import Hamster from './Components/Body/petInformation/Hamster'
 import Account from './Components/Body/account/Account';
 import ProductShop from './Components/Body/Products/ProductShop';
+import Footer from './Components/Footer/Footer';
+
 
 export default function MainApp(){
     return (
@@ -16,6 +18,7 @@ export default function MainApp(){
                 <Header/>
                 <Routes>
                     <Route path='/' element={<Home/>}/>
+                    <Route path='/Home' element={<Home/>}/>
                     <Route path='/Service' element={<Service/>}/>
                     <Route path='/Cat' element={<Cat/>}/>
                     <Route path='/Dog' element={<Dog/>}/>
@@ -24,6 +27,7 @@ export default function MainApp(){
                     <Route path='/Account' element={<Account/>}/>
                     <Route path='/Products' element={<ProductShop/>}/>
                 </Routes>
+                <Footer/>
             </BrowserRouter>
         </div>    
     );
