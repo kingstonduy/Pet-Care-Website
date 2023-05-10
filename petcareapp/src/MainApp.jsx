@@ -9,6 +9,8 @@ import Hamster from './Components/Body/petInformation/Hamster'
 import Account from './Components/Body/account/Account';
 import ProductShop from './Components/Body/Products/ProductShop';
 import Login from './Components/Body/Login/Login';
+import Footer from './Components/Footer/Footer';
+
 export default function MainApp(){
     return (
         <div>
@@ -16,6 +18,7 @@ export default function MainApp(){
                 <Header/>
                 <Routes>
                     <Route path='/' element={<Home/>}/>
+                    <Route path='/Home' element={<Home/>}/>
                     <Route path='/Service' element={<Service/>}/>
                     <Route path='/Cat' element={<Cat/>}/>
                     <Route path='/Dog' element={<Dog/>}/>
@@ -25,6 +28,7 @@ export default function MainApp(){
                     <Route path='/Products' element={<ProductShop/>}/>
                     <Route path='/login' element={<Login/>}/>
                 </Routes>
+                <Footer/>
             </BrowserRouter>
         </div>    
     );

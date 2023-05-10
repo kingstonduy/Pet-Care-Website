@@ -48,7 +48,19 @@ const Account= () => {
 
 
     function  handleRatting() {
-        alert("clicked")
+        alert("clicked rating")
+    }
+
+    function handleSearching(){
+        alert("clicked searching")
+    }
+
+    function handleBuyAgain(){
+        alert("clicked buy again")
+    }
+
+    function handleChangeInformation(){
+        alert("clicked change information")
     }
 
     return(
@@ -63,11 +75,15 @@ const Account= () => {
                 </div>
 
                 <div className={cs['change-information-icon']}>
-                    <img src='https://www.svgrepo.com/show/512628/pen-1319.svg' alt=''/>
+                    <button onClick={handleChangeInformation}>
+                        <img src='https://www.svgrepo.com/show/512628/pen-1319.svg' alt=''/>
+                    </button>
                 </div>
 
                 <div className={cs['change-information-label']}>
-                    Change information
+                    <button onClick={handleChangeInformation}>
+                        Change information
+                    </button>
                 </div>
             </div>
 
@@ -81,7 +97,7 @@ const Account= () => {
                         <input type="text" name="" id="" placeholder='search' />
 
                         <div className={cs["searching-icon"]}>
-                            <button>
+                            <button onClick={handleSearching}>
                                 <span className={cs['magnifying-image']}>
                                     <img src="https://www.svgrepo.com/show/479452/magnifying-glass-for-search.svg" alt="" />
                                 </span>
@@ -96,21 +112,19 @@ const Account= () => {
                 <div className={cs["products-table"]}>
                     <div className={cs["table-header"]}>
 
-                        <div className={cs["product-main-group"]}>
-                            <center>
-                                Product
-                            </center>
+                        <div className={`${cs["product-main-header"]} ${cs["centered-text"]}`}>
+                            Product
                         </div>
 
-                        <div className={cs["product-price-group"]}>
+                        <div className={`${cs["product-header-price"]} ${cs["centered-text"]}`}>
                             Price
                         </div>
 
-                        <div className={cs["product-quantity"]}>
+                        <div className={`${cs["product-header-quantity"]} ${cs["centered-text"]}`}>
                             Quantity
                         </div>
 
-                        <div className={cs["product-price-group"]}>
+                        <div className={`${cs["product-header-total"]} ${cs["centered-text"]}`}>
                             Total
                         </div>
 
@@ -121,7 +135,6 @@ const Account= () => {
                             (item, index) => {
                                 return(
                                     <>
-
                                         <div className={cs["table-row"]}>
                                             <div className={cs["product-main-group"]}>
                                                 <div className={cs["avatar-img"]}>
@@ -137,7 +150,7 @@ const Account= () => {
                                                 </div>
                                             </div>
 
-                                            <div className={cs["product-price-group"]}>
+                                            <div className={cs["table-col"]}>
                                                 <div className={cs["product-price"]}>
                                                     {item.productPrice}
                                                 </div>
@@ -150,17 +163,21 @@ const Account= () => {
                                                 
                                             </div>
 
-                                            <div className={cs["product-quantity"]}>
-                                                {item.productQuantity}
+                                            <div className={cs["table-col"]}>
+                                                <div className={cs["product-quantity"]}>
+                                                    {item.productQuantity}
+                                                </div>
+                                                
                                             </div>
+                                            
 
-                                            <div className={cs["product-total-group"]}>
+                                            <div className={cs["table-col"]}>
                                                 <div className={cs["product-price"]}>
                                                     {item.productPrice}
                                                 </div>
 
                                                 <div className={cs["btn-div"]}>
-                                                <button onClick={handleRatting}>
+                                                <button onClick={handleBuyAgain}>
                                                     BUY AGAIN
                                                 </button>
                                                 </div>
