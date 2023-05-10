@@ -49,15 +49,13 @@ export default function Header(){
 
                 <div className="nav_wrap_right">
                     <ul className="nav_right_list">
+                    
                         <li className="nav_right_item">
-                            <FontAwesomeIcon icon={faMagnifyingGlass} className="nav_logo_find"/>
-                        </li>
-                        <li className="nav_right_item">
-                            <FontAwesomeIcon icon={faCartShopping} className="nav_logo_cart"/>
+                            <Link><FontAwesomeIcon icon={faCartShopping} className="nav_logo_cart"/></Link>
                         </li>
                         <li className="nav_right_item">
                             <div className="signUp_wrap">
-                                <a href="" >Sign up</a>
+                                <Link to='/login' className='login_btn'>Sign up</Link>
                             </div>
                         </li>
                     </ul>
