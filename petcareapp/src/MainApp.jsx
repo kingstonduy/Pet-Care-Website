@@ -9,6 +9,7 @@ import Hamster from './Components/Body/petInformation/Hamster'
 import Account from './Components/Body/account/Account';
 import ProductShop from './Components/Body/Products/ProductShop';
 import Login from './Components/Body/Login/Login';
+import Register from './Components/Body/Login/Register'
 import Footer from './Components/Footer/Footer';
 import About from './Components/Body/about/About';
 import HiddenMenu from './Components/HiddenMenu';
@@ -28,12 +29,9 @@ export default function MainApp(){
                     <Route path='/Hamster' element={<Hamster/>}/>
                     <Route path='/Account' element={<Account/>}/>
                     <Route path='/Products' element={<ProductShop/>}/>
-                    <Route path='/login' element={<Login/>}/>
-                    <Route path='/About' element={<About/>}/>
-
-
-                    <Route path='/HiddenMenu' element={<HiddenMenu/>} />
-
+                    <Route path='/Login' element={<Login/>}/>
+                    <Route path='/Register' element={<Register/>}/>
+                    <Route path='About' element={<About/>}/>
                 </Routes>
                 <Footer/>
 
