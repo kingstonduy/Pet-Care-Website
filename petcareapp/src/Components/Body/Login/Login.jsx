@@ -5,7 +5,7 @@ import Dog from '../../../assests/loginpage/doglogo.png'
 import DogBackGround from '../../../assests/loginpage/backgroundDog.png'
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function Login(){
@@ -15,10 +15,12 @@ export default function Login(){
 
     const [checkInput,setCheckInput]= useState('')
 
-    var a = document.querySelector('#username')
+    useEffect(() => {
+        var a = document.querySelector('#username')
     a.onblur = function(e){
         console.log(e.target.value)
     }
+    },[])
 
     function handleOnchangeUsername(e){
         setUsername(e.target.value)
