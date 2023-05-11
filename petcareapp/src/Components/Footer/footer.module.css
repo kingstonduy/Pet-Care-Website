@@ -1,0 +1,44 @@
+.body{
+    background-color: var(--header-color);
+}
+
+.container{
+    padding: 30px;
+}
+
+.container-row{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    column-gap: 30px;
+}
+
+.container-header{
+    font-family: 'Slackey';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.cursorable{
+    cursor: pointer;
+}
+
+.container-body, li{
+    list-style-type: none;
+    margin-bottom: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    /* or 188% */
+
+
+    color: #656689;
+}
+
+.link{
+    color: #656689;
+    text-decoration: underline;
+}

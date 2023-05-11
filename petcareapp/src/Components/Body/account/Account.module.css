@@ -28,8 +28,8 @@
 
 .avatar-image > img{
     /* background-color: yellow; */
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
 
 }
@@ -43,12 +43,22 @@
 }
 
 .change-information-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* background-color: blueviolet; */
 }
 
-.change-information-icon > img{
-    width: 60%;
-    height: 60%;
+.change-information-icon > button{
+    width: 40%;
+    height: 40%;
+    background-color: #FFF4EA;
+    border: none;
+}
+
+.change-information-icon > button > img{
+    width: 100%;
+    height: 100%;
 }
 
 .change-information-label{
@@ -56,6 +66,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.change-information-label > button{
+    width: 100%;
+    height: 100%;
+    background-color: #FFF4EA;
+    border: none;
+    font-family: 'Poppins', sans-serif; 
 }
 
 .grid-column-right{
@@ -67,21 +85,24 @@
 }
 .searching-bar
 {
-    min-height: 100px;
+    height: 50px;
+    width: 80%;
     /* background-color: orange; */
     margin-bottom: 50px;
 }
 
 .input-searching{
     position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 .input-searching > input{
     width: 100%;
-    height: 70px;
+    height: 100%;
     z-index: 1;
     text-align: center;
-    font-size: 2em;
+    font-size: 20px;
     background: #FDE6E6;
     border-radius: 180px;
 
@@ -100,8 +121,8 @@
     background: #FF5B2E;
     width: 15%;
     height: 80%;
-    top: 7px;
-    right: 3px;
+    top: 5px;
+    right: 5px;
     box-shadow: 0px 13px 26px -8px rgba(255, 91, 46, 0.42);
     border-radius: 180px;
 }
@@ -133,6 +154,12 @@
     row-gap: 30px;
 }
 
+.table-col{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 30px
+}
+
 .avatar-img{
     grid-area: 1/1 / 3/2;
     display: flex;
@@ -159,13 +186,14 @@
     /* background-color: rgb(255, 4, 234); */
 }
 
-.product-price-group{
-    /* background-color: blue; */
+.talbe-col{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+
 
 .product-price{
     /* background-color: darkcyan; */
@@ -176,10 +204,12 @@
 }
 
 .btn-div{
-    position: relative;
-    top: 25%;
-    width: 50%;
-    height: 25%;
+    display: flex;
+    justify-self: center;
+    
+    grid-row: 2;
+    width: 75%;
+    height: 50%;
 }
 
 .btn-div > button{
@@ -195,21 +225,28 @@
 
 .product-quantity{
     /* background-color: darkgreen; */
+    width: 100%;
+    height: 100%;
+    grid-row: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.product-total-group{
-    /* background-color: darkgoldenrod; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 
 .magnifying-image > img{
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
 }
+
+.tabble-header{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.centered-text {
+    text-align: center;
+  }
+  

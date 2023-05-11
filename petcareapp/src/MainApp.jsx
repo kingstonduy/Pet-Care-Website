@@ -9,7 +9,12 @@ import Hamster from './Components/Body/petInformation/Hamster'
 import Account from './Components/Body/account/Account';
 import ProductShop from './Components/Body/Products/ProductShop';
 import Login from './Components/Body/Login/Login';
+<<<<<<< HEAD
 import Register from './Components/Body/Login/Register'
+=======
+import Footer from './Components/Footer/Footer';
+import About from './Components/Body/about/About';
+>>>>>>> 175b307b59951f89b70ca221747cbb374f0293c8
 
 export default function MainApp(){
     return (
@@ -18,6 +23,7 @@ export default function MainApp(){
                 <Header/>
                 <Routes>
                     <Route path='/' element={<Home/>}/>
+                    <Route path='/Home' element={<Home/>}/>
                     <Route path='/Service' element={<Service/>}/>
                     <Route path='/Cat' element={<Cat/>}/>
                     <Route path='/Dog' element={<Dog/>}/>
@@ -25,9 +31,15 @@ export default function MainApp(){
                     <Route path='/Hamster' element={<Hamster/>}/>
                     <Route path='/Account' element={<Account/>}/>
                     <Route path='/Products' element={<ProductShop/>}/>
+<<<<<<< HEAD
                     <Route path='/Login' element={<Login/>}/>
                     <Route path='/Register' element={<Register/>}/>
+=======
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='About' element={<About/>}/>
+>>>>>>> 175b307b59951f89b70ca221747cbb374f0293c8
                 </Routes>
+                <Footer/>
             </BrowserRouter>
         </div>    
     );

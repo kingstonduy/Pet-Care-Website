@@ -31,6 +31,7 @@ export default function Login(){
             }
         },setUsername,setPassword);
 
+<<<<<<< HEAD
         
     },[])
 
@@ -40,6 +41,9 @@ export default function Login(){
     //         a.classList.add('input-error')
     //     }
     // })
+=======
+   
+>>>>>>> 175b307b59951f89b70ca221747cbb374f0293c8
 
     function handleOnchangeUsername(e){
         setUsername(e.target.value)
@@ -53,11 +57,15 @@ export default function Login(){
 
 
     function handleLogin(){
-
+        alert('login clicked')
     }
 
     function handleRegister(){
+        alert('register clicked')
+    }
 
+    function handleForgotPassword(){
+        alert('good luck next time')
     }
 
     return (
@@ -97,7 +105,7 @@ export default function Login(){
                                          onChange={handleOnchangePassword}/>
                                         <span className='form-message'></span>
                                     </div>
-                                    <Link className={cs['link_forgotPassword']}>Forgot password?</Link>
+                                    <Link className={cs['link_forgotPassword']} onClick={handleForgotPassword}>Forgot password?</Link>
                                     
                 
 
