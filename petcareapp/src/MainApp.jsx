@@ -12,6 +12,7 @@ import Login from './Components/Body/Login/Login';
 import Register from './Components/Body/Login/Register'
 import Footer from './Components/Footer/Footer';
 import About from './Components/Body/about/About';
+import HiddenMenu from './Components/HiddenMenu';
 
 export default function MainApp(){
     return (
@@ -33,6 +34,9 @@ export default function MainApp(){
                     <Route path='About' element={<About/>}/>
                 </Routes>
                 <Footer/>
+
+
+
             </BrowserRouter>
         </div>    
     );
