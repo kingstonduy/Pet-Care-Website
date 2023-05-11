@@ -1,4 +1,5 @@
 .container {
+  height: 1000px;
   position: relative;
   overflow: hidden;
 }
@@ -102,6 +103,7 @@ input.input-quantity::-webkit-outer-spin-button {
 
 .hidden-menu-btn{
   border: none;
+  cursor: pointer;
 }
 
 .product-action{
@@ -113,7 +115,6 @@ input.input-quantity::-webkit-outer-spin-button {
   margin-left: 30px;
   border: none;
   text-decoration: underline;
-  cursor: pointer;
 }
 
 .header{

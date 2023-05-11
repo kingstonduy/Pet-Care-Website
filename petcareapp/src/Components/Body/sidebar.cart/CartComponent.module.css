@@ -7,12 +7,12 @@
   position: fixed;
   top: 0;
   right: -100%;
-  width: 40%;
+  width: 30%;
   height: 100vh;
   background-color: #f1f1f1;
   transition: right 0.3s ease-in-out;
   z-index: 9999;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .hidden-menu.open {
@@ -102,6 +102,7 @@ input.input-quantity::-webkit-outer-spin-button {
 
 .hidden-menu-btn{
   border: none;
+  cursor: pointer;
 }
 
 .product-action{
@@ -110,7 +111,7 @@ input.input-quantity::-webkit-outer-spin-button {
 }
 
 .remove-btn{
-  margin-left: 30px;
+  margin-left: 20px;
   border: none;
   text-decoration: underline;
   cursor: pointer;
@@ -138,4 +139,8 @@ input.input-quantity::-webkit-outer-spin-button {
   background: #FF5B2E;
   box-shadow: 0px 13px 26px -8px rgba(255, 91, 46, 0.42);
   border-radius: 10px;
+}
+
+.product-main-group{
+  margin-left: 20px;
 }

@@ -12,8 +12,7 @@ export default function Header(){
     const [isCartOpen, setIsCartOpen] = useState(false);
 
     function handleCartClick() {
-        setIsCartOpen(!isCartOpen);
-        console.log(isCartOpen)
+        setIsCartOpen(true);
     }
 
 
@@ -76,7 +75,8 @@ export default function Header(){
                 </div>
                
             </nav>
-            { isCartOpen && <CartComponent isCartOpen={isCartOpen} />}
+            {console.log(isCartOpen)}
+            <CartComponent isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
         </header>
     )
 }
