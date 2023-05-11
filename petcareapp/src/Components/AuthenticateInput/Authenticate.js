@@ -1,7 +1,0 @@
-
-
-function handleAuthenticate(array){
-    
-
- 
-}

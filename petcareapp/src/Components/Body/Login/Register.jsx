@@ -13,17 +13,33 @@ export default function Login(){
 
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
+    const [email,setEmail] = useState('');
+    const [fullname,setFullname] = useState('');
+    const [confirmPassword,setConfirmPassword] = useState('');
+
+
+
+
 
     const [checkInput,setCheckInput]= useState('')
     useEffect(() => {
         Validator({
-            form: '#form_login',
+            form: '#form_register',
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
                 Validator.isRequired('#username', 'It can not be empty'),
                 Validator.isRequired('#password', 'It can not be empty'),
+                Validator.isRequired('#confirmPassword', 'It can not be empty'),
+                Validator.isRequired('#email', 'It can not be empty'),
+                Validator.isRequired('#fullname', 'It can not be empty'),
+
                 Validator.minLength('#password',6),
+                Validator.isConfirmed('#confirmPassword', function(){
+                    return document.querySelector('#form_register #confirmPassword').value
+                },'Its incorrect'),
+                Validator.isEmail('#email', 'It should be email'),
+    
             ],
             onSubmit: function (data) {
                 // Call API
@@ -51,14 +67,23 @@ export default function Login(){
         e.target.classList.remove('input-error')
     }
 
-
-    function handleLogin(){
-
+    function handleOnchangeConfirmPassword(e){
+        setConfirmPassword(e.target.value)
+        e.target.classList.remove('input-error')
     }
 
-    function handleRegister(){
-
+    function handleOnchangeFullname(e){
+        setFullname(e.target.value)
+        e.target.classList.remove('input-error')
     }
+
+    function handleOnchangeEmail(e){
+        setEmail(e.target.value)
+        e.target.classList.remove('input-error')
+    }
+
+
+
 
     return (
         <div className={cs['body']}>
@@ -86,28 +111,47 @@ export default function Login(){
 
                                 
 
-                                <form action="" id='form_login' className='form'>
+                                <form action="" id='form_register' className='form'>
                                     <div className='form-group'>
-                                        <input value={username}  type="text" placeholder='USERNAME' name="username" className='form-control' id="username" 
+                                        <label htmlFor="fullname" className="form-label">Full Name</label>
+                                        <input value={fullname}  type="text" placeholder='Ex: Nguyen Trong Nghia' name="fullname" className='form-control' id="fullname" 
+                                        onChange={handleOnchangeFullname}/>
+                                        <span className='form-message'></span>
+                                    </div>
+
+                                    <div className='form-group'>
+                                        <label htmlFor="username" className="form-label">Username</label>
+                                        <input value={username}  type="text" placeholder='Ex: sakurahaha123' name="username" className='form-control' id="username" 
                                         onChange={handleOnchangeUsername}/>
                                         <span className='form-message'></span>
                                     </div>
                                     <div className='form-group'>
-                                        <input value={password}  type="password" placeholder='PASSWORD' name="password" className='form-control' id="password" 
+                                        <label htmlFor="password" className="form-label">Password</label>
+                                        <input value={password}  type="password" placeholder='Ex: 123456' name="password" className='form-control' id="password" 
                                          onChange={handleOnchangePassword}/>
                                         <span className='form-message'></span>
+                                    </div>    
+
+                                    <div className='form-group'>
+                                        <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                                        <input value={confirmPassword}  type="password" placeholder='Ex: 123456' name="confirmPassword" className='form-control' id="confirmPassword" 
+                                        onChange={handleOnchangeConfirmPassword}/>
+                                        <span className='form-message'></span>
                                     </div>
-                                    <Link className={cs['link_forgotPassword']}>Forgot password?</Link>
+
+                                    <div className='form-group'>
+                                        <label htmlFor="email" className="form-label">Email</label>
+                                        <input value={email}  type="email" placeholder='EMAIL' name="email" className='form-control' id="email" 
+                                        onChange={handleOnchangeEmail}/>
+                                        <span className='form-message'></span>
+                                        
+                                    </div> 
+                                    <Link to='/login' className={cs['link_forgotPassword']}>Already have account?</Link>
+                                    <div className='form-group'>
+                                        <button type="submit" className='btn_form'>Submit</button>
+                                    </div>
+
                                     
-                
-
-                                    <div className='form-group'>
-                                        <button  type="submit" className='btn_form'>LOGIN</button>
-                                    </div>
-
-                                    <div className='form-group'>
-                                        <Link to='/Register' className='btn_form' > REGISTER</Link>
-                                    </div>
 
                                 </form>
                             </div>                      
