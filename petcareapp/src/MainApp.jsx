@@ -20,7 +20,7 @@ import About from './Components/Body/about/About';
 import Register from './Components/Body/Login/Register'
 import Footer from './Components/Footer/Footer';
 import About from './Components/Body/about/About';
->>>>>>> 025b20cd4fc0bfe65715ff394e9bfd27999a4a0c
+import HiddenMenu from './Components/HiddenMenu';
 
 export default function MainApp(){
     return (
@@ -52,6 +52,9 @@ export default function MainApp(){
 >>>>>>> 025b20cd4fc0bfe65715ff394e9bfd27999a4a0c
                 </Routes>
                 <Footer/>
+
+
+
             </BrowserRouter>
         </div>    
     );
