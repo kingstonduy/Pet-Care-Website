@@ -30,11 +30,28 @@ export default function Login(){
                 console.log(data)
             }
         },setUsername,setPassword);
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+        
+    },[])
+
+    // useEffect(() => {
+    //     const a = document.querySelector('#username')
+    //     a.onblur = function(){
+    //         a.classList.add('input-error')
+    //     }
+    // })
+=======
+   
+>>>>>>> 175b307b59951f89b70ca221747cbb374f0293c8
+=======
         
     },[])
 
     
    
+>>>>>>> 025b20cd4fc0bfe65715ff394e9bfd27999a4a0c
 
     function handleOnchangeUsername(e){
         setUsername(e.target.value)
