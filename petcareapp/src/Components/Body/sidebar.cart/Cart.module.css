@@ -1,0 +1,37 @@
+.cart-component {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100vh;
+    background-color: #fff;
+    transition: right 0.3s ease-in-out;
+  }
+  
+  .cart-component.open {
+    right: 0;
+  }
+  
+  .cart-component-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f1f1;
+  }
+  
+  .cart-component-header h3 {
+    margin: 0;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .cart-component-content {
+    padding: 20px;
+  }
+  
