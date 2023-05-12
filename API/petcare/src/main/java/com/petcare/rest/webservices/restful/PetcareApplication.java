@@ -11,3 +11,34 @@ public class PetcareApplication {
 	}
 
 }
+
+/*
+	/users
+	get tat ca users
+
+
+
+	/user/{username},{password}
+	neu co thang nao exist <=> 200 <=> then
+	else <=> !200 <=> catch
+
+	product
+
+
+	/products
+	get tat ca products
+
+
+	/product/{id}
+	get cu the product nao
+
+	/products/{category}
+	get product theo category
+
+	/products/inStock
+
+	/product/outStock
+
+
+	/coments/{userId}/{oderedProductId}
+*/
