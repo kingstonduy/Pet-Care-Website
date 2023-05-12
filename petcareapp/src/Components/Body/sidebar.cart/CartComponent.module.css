@@ -10,7 +10,7 @@
   width: 30%;
   height: 100vh;
   background-color: #f1f1f1;
-  transition: right 0.3s ease-in-out;
+  transition: right 0.8s ease-in-out;
   z-index: 9999;
   overflow-y: scroll;
 }
