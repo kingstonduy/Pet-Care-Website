@@ -1,6 +1,18 @@
 package com.petcare.rest.webservices.restful.product;
 
+import com.petcare.rest.webservices.restful.cart.Cart;
+import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue
     private Integer productId;
     private String productName;
     private Integer productQuantity;
@@ -8,6 +20,13 @@ public class Product {
     private Float productPrice;
     private String productDescription;
     private String productImageUrl;
+
+    @OneToMany(mappedBy = "Product")
+    List<Cart> cartList;
+
+    @OneToMany(mappedBy = "Product")
+    List<OrderedProduct> orderedProductList;
+
 
     protected Product(){}
 

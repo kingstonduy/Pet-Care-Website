@@ -1,12 +1,32 @@
 package com.petcare.rest.webservices.restful.user;
 
+import com.petcare.rest.webservices.restful.cart.Cart;
+import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
+@Entity(name= "User")
 public class User {
+
+    @Id
+    @GeneratedValue
     private Integer userId;
     private String  userUserName;
     private  String userFullName;
     private String userPassword;
     private  String userEmail;
     private String userRole;
+
+    @OneToMany(mappedBy = "User")
+    private List<Cart> cartList;
+
+    @OneToMany(mappedBy = "User")
+    private List<OrderedProduct> orderedProductsList;
+
 
     public User(){
 

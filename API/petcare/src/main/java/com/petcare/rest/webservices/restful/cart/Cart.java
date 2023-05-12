@@ -1,14 +1,31 @@
-package com.petcare.rest.webservices.restful.cartitem;
+package com.petcare.rest.webservices.restful.cart;
 
-public class CartItem {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.petcare.rest.webservices.restful.product.Product;
+import com.petcare.rest.webservices.restful.user.User;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity(name= "Cart")
+public class Cart {
+    @Id
+    @GeneratedValue
     private Integer cartItemId;
     private Integer userId;
     private Integer productId;
     private Integer cartItemQuantity;
 
-    protected CartItem() {}
+    @ManyToOne
+    private User user;
+    @ManyToOne
+    private Product product;
 
-    public CartItem(Integer cartItemId, Integer userId, Integer productId, Integer cartItemQuantity) {
+
+    protected Cart() {}
+
+    public Cart(Integer cartItemId, Integer userId, Integer productId, Integer cartItemQuantity) {
         this.cartItemId = cartItemId;
         this.userId = userId;
         this.productId = productId;

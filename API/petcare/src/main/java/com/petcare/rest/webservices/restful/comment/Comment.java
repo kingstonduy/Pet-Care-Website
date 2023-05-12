@@ -1,10 +1,16 @@
 package com.petcare.rest.webservices.restful.comment;
 
+import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
+import jakarta.persistence.ManyToOne;
+
 public class Comment {
     private Integer commentId;
     private Integer userId;
     private Integer orderedProductId;
     private Integer commentDescription;
+
+    @ManyToOne
+    private OrderedProduct orderedProduct;
 
     protected Comment () {}
 
