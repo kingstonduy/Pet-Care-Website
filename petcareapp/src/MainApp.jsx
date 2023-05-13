@@ -13,10 +13,13 @@ import Register from './Components/Body/Login/Register'
 import Footer from './Components/Footer/Footer';
 import About from './Components/Body/about/About';
 import HiddenMenu from './Components/HiddenMenu';
+import AuthProvider from './Components/security/AuthContext';
+import ProductDetail from './Components/Body/Products/ProductDetail';
 
 export default function MainApp(){
     return (
         <div>
+            <AuthProvider>
             <BrowserRouter>
                 <Header/>
                 <Routes>
@@ -33,12 +36,14 @@ export default function MainApp(){
                     <Route path='/Register' element={<Register/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/About' element={<About/>}/>
+                    <Route path='/Product/:id' element={<ProductDetail/>}/>
                 </Routes>
                 <Footer/>
 
 
 
             </BrowserRouter>
+            </AuthProvider>
         </div>    
     );
 }

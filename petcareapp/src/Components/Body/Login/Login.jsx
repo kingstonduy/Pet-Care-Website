@@ -1,20 +1,25 @@
 import cs from './login.module.css'
 import { Link } from 'react-router-dom'
-
+import {useNavigate} from 'react-router-dom'
 import Dog from '../../../assests/loginpage/doglogo.png'
 import DogBackGround from '../../../assests/loginpage/backgroundDog.png'
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Validator } from '../../Validator/Validator';
+import { useAuth } from '../../security/AuthContext';
 
 export default function Login(){
+    const navigate = useNavigate()
     
+    const authContext = useAuth();
 
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
 
     const [checkInput,setCheckInput]= useState('')
+    
+
     useEffect(() => {
         Validator({
             form: '#form_login',
@@ -25,14 +30,23 @@ export default function Login(){
                 Validator.isRequired('#password', 'It can not be empty'),
                 Validator.minLength('#password',6),
             ],
-            onSubmit: function (data) {
-                // Call API
-                console.log(data)
-            }
-        },setUsername,setPassword);        
+            onSubmit: async function (data) {
+                const user={
+                    'id': 1,
+                    'name': data.username
+                }
+                console.log(user)
+                if(await authContext.login(user)){
+                    navigate('/Home')
+                }else{
+                    
+                }
+        }
+        });        
     },[])
 
     
+
 
     
    
@@ -47,13 +61,6 @@ export default function Login(){
     }
 
 
-    function handleLogin(){
-        alert('login clicked')
-    }
-
-    function handleRegister(){
-        alert('register clicked')
-    }
 
     function handleForgotPassword(){
         alert('good luck next time')
@@ -85,7 +92,7 @@ export default function Login(){
 
                                 
 
-                                <form action="" id='form_login' className='form'>
+                                <form   id='form_login' className='form'>
                                     <div className='form-group'>
                                         <input value={username}  type="text" placeholder='USERNAME' name="username" className='form-control' id="username" 
                                         onChange={handleOnchangeUsername}/>
@@ -101,7 +108,7 @@ export default function Login(){
                 
 
                                     <div className='form-group'>
-                                        <button  type="submit" className='btn_form'>LOGIN</button>
+                                        <button type="submit" className='btn_form'>LOGIN</button>
                                     </div>
 
                                     <div className='form-group'>
