@@ -13,14 +13,14 @@ public class  PetcareApplication {
 }
 
 /*
-	/users
+	"/users"
 	get tat ca users
 
 
 
 	dung de login
 	method= Post
-	/user/{username},{password}
+	"/user/login"
 	neu co thang nao exist <=> 200 <=> then
 	else <=> !200 <=> catch
 	springboot thows exception
@@ -28,22 +28,23 @@ public class  PetcareApplication {
 	product
 
 
-	/products
+	"/products"
 	get tat ca products
 
 
 	method= Get
 	dung de chon product va bo vao cart
-	/product/{id}
+	"/product/{id}"
 	get cu the product nao
 
 	method= Get
-	/products/{category}
+	"/products/{category}"
 	get product theo category
 
-	/products/inStock
+	"/products/inStock"
 
-	/product/outStock
+	"/product/outStock"
+
 
 
 	/coments/{userId}/{oderedProductId}
