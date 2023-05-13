@@ -1,5 +1,8 @@
 package com.petcare.rest.webservices.restful.product;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.petcare.rest.webservices.restful.cart.Cart;
 import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
 import jakarta.persistence.*;
@@ -7,12 +10,14 @@ import lombok.Data;
 
 import java.util.List;
 
-@Entity (name="Product")
 @Data
+@Entity
+@Table(name="Product")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Product {
     @Id
     @GeneratedValue
-    private Integer productId;
+    private Integer id;
     private String productName;
     private Integer productQuantity;
     private String productCategory;
@@ -21,14 +26,14 @@ public class Product {
     private String productDescription;
     private String productImageUrl;
 
-    @OneToMany(mappedBy = "Product")
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     List<Cart> cartList;
 
-//    @OneToMany(mappedBy = "Product")
-//    List<OrderedProduct> orderedProductList;
-
-
-    protected Product(){}
+    @JsonIgnore
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    List<OrderedProduct> orderedProductList;
 
 
 }

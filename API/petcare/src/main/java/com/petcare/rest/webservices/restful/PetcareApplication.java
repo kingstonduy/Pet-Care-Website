@@ -18,9 +18,12 @@ public class  PetcareApplication {
 
 
 
+	dung de login
+	method= Post
 	/user/{username},{password}
 	neu co thang nao exist <=> 200 <=> then
 	else <=> !200 <=> catch
+	springboot thows exception
 
 	product
 
@@ -29,9 +32,12 @@ public class  PetcareApplication {
 	get tat ca products
 
 
+	method= Get
+	dung de chon product va bo vao cart
 	/product/{id}
 	get cu the product nao
 
+	method= Get
 	/products/{category}
 	get product theo category
 

@@ -15,4 +15,5 @@ insert into carts (id, product_id, user_id)
 values
 (1, 1, 1),
 (2, 1, 2),
-(3, 2, 1);
+(3, 2, 1),
+(4, 3, 3);

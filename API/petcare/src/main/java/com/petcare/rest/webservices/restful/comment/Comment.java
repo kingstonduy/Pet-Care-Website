@@ -1,5 +1,7 @@
 package com.petcare.rest.webservices.restful.comment;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,21 +9,18 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-@Entity (name="Comment")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Entity
+@Table(name="Comment")
 public class Comment {
     @Id
     @GeneratedValue
-    private Integer commentId;
-    private Integer orderedProductId;
+    private Integer id;
     private String commentDescription;
     private Date commentDate;
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "orderedProductId")
-//    private OrderedProduct orderedProduct;
-
-    protected Comment () {}
-
+    @ManyToOne
+    private OrderedProduct orderedProduct;
 
 }

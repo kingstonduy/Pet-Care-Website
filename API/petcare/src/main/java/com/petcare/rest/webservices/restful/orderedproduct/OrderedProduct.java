@@ -1,5 +1,7 @@
 package com.petcare.rest.webservices.restful.orderedproduct;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.petcare.rest.webservices.restful.comment.Comment;
 import com.petcare.rest.webservices.restful.product.Product;
 import com.petcare.rest.webservices.restful.user.User;
@@ -9,29 +11,26 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 @Data
-@Entity(name= "OrderedProduct")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Entity
+@Table(name= "OrderedProduct")
 public class OrderedProduct {
     @Id
     @GeneratedValue
-    private Integer orderedProductId;
-    private String productId;
+    private Integer id;
     private Integer orderedProductQuantity;
-    private  Integer userId;
     private Date orderedProductDate;
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "productId")
-//    private Product product;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "userId")
-//    private User user;
-//
-//    @OneToMany(mappedBy = "orderedProduct")
-//    List<Comment> commentList;
+    @ManyToOne
+    private Product product;
 
-    protected OrderedProduct() {}
+    @ManyToOne
+    private User user;
+
+    @OneToMany(mappedBy = "orderedProduct", cascade = CascadeType.ALL)
+    List<Comment> commentList;
+
 
 
 }
