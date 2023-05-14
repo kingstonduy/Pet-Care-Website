@@ -2,11 +2,11 @@
 
 insert into userr (id , user_full_name, user_user_name, user_password, user_email, user_role)
 values
-    (1, 'Nguyen van A', 'Nguyen Van A username', 'Nguyen Van A password', 'Nguyen Van A email', 'user'),
-    (2, 'Nguyen van B', 'Nguyen Van B username', 'Nguyen Van B password', 'Nguyen Van B email', 'user'),
-    (3, 'Nguyen van C', 'Nguyen Van C username', 'Nguyen Van C password', 'Nguyen Van C email', 'user'),
-    (4, 'Nguyen van D', 'Nguyen Van D username', 'Nguyen Van D password', 'Nguyen Van D email', 'user'),
-    (5, 'Nguyen van E', 'Nguyen Van E username', 'Nguyen Van E password', 'Nguyen Van E email', 'user');
+    (1001, 'Nguyen van A', 'nghia', 'Zet411632', 'Nguyen Van A email', 'user'),
+    (1002, 'Nguyen van B', 'duy', 'Zet411632', 'Nguyen Van B email', 'user'),
+    (1003, 'Nguyen van C', 'dinh', 'Zet411632', 'Nguyen Van C email', 'user'),
+    (1004, 'Nguyen van D', 'binh', 'Zet411632', 'Nguyen Van D email', 'user'),
+    (1005, 'Nguyen van E', 'zet', 'Zet411632', 'Nguyen Van E email', 'user');
 
 
 insert into Product(id , product_Name, product_Quantity, product_Category, product_Price, product_Description, product_Image_Url)
@@ -26,29 +26,29 @@ values
 
 insert into Cart(id, user_Id,  product_Id, cart_Item_Quantity)
 values
-    (1, 1, 1, 1),
-    (2, 1, 2, 2),
-    (3, 2, 2, 3),
-    (4, 2, 3, 4),
-    (5, 3, 3, 4),
-    (6, 3, 4, 3),
-    (7, 4, 4, 2),
-    (8, 4, 4, 1),
-    (9, 5, 5, 5),
-    (10, 5, 5, 5);
+    (1001, 1001, 1, 1),
+    (1002, 1001, 2, 2),
+    (1003, 1002, 2, 3),
+    (1004, 1002, 3, 4),
+    (1005, 1003, 3, 4),
+    (1006, 1003, 4, 3),
+    (1007, 1004, 4, 2),
+    (1008, 1004, 4, 1),
+    (1009, 1005, 5, 5),
+    (1010, 1005, 5, 5);
 
 
 
 insert into Ordered_Product (id , user_Id, product_Id, ordered_Product_Quantity, ordered_Product_Date )
 values
-    (1, 1, 5, 5, current_date()),
-    (2, 1, 4, 4, current_date()),
-    (3, 2, 4, 3, current_date()),
-    (4, 2, 3, 2, current_date()),
-    (5, 3, 3, 1, current_date()),
-    (6, 3, 2, 2, current_date()),
-    (7, 4, 2, 3, current_date()),
-    (8, 4, 1, 1, current_date());
+    (1, 1001, 5, 5, current_date()),
+    (2, 1001, 4, 4, current_date()),
+    (3, 1002, 4, 3, current_date()),
+    (4, 1002, 3, 2, current_date()),
+    (5, 1003, 3, 1, current_date()),
+    (6, 1003, 2, 2, current_date()),
+    (7, 1004, 2, 3, current_date()),
+    (8, 1004, 1, 1, current_date());
 
 --
 insert into Comment(id  , ORDERED_PRODUCT_ID , COMMENT_DESCRIPTION , comment_Date)
