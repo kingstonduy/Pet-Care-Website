@@ -30,7 +30,7 @@ public class UserService {
 
     public boolean login(@RequestBody User userRequest) {
         User user = userRepository.findByUserUserNameAndUserPassword(userRequest.getUserUserName(), userRequest.getUserPassword());
-        return user == null;
+        return user != null;
 
     }
 
