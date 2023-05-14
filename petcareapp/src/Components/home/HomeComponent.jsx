@@ -166,11 +166,15 @@ const  HomeComponent= () => {
                     src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE0fHxhdmF0YXJ8ZW58MHx8fHwxNjgyOTYzMzc5&amp;ixlib=rb-4.0.3&amp;w=200"
                     alt="Ellipse571190"
                     class="home-ellipse57"
+                    
                 />
+                
                 </div>
             </div>
+
             </div>
 
+        
 
         </div>
     )

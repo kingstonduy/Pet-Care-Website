@@ -12,6 +12,21 @@
     /* background-color: black; */
     grid-row: 1;
     grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-logout{
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 15px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,91,46);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .grid-column-left{

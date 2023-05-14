@@ -13,33 +13,39 @@ import Register from './Components/Body/Login/Register'
 import Footer from './Components/Footer/Footer';
 import About from './Components/Body/about/About';
 import HiddenMenu from './Components/HiddenMenu';
+import AuthProvider from './Components/security/AuthContext';
+import ProductDetail from './Components/Body/Products/ProductDetail';
+import CartProvider from './Components/CartControl/CartProvider';
 
 export default function MainApp(){
     return (
         <div>
-            <BrowserRouter>
-                <Header/>
-                <Routes>
-                    <Route path='/' element={<Home/>}/>
-                    <Route path='/Home' element={<Home/>}/>
-                    <Route path='/Service' element={<Service/>}/>
-                    <Route path='/Cat' element={<Cat/>}/>
-                    <Route path='/Dog' element={<Dog/>}/>
-                    <Route path='/Bird' element={<Bird/>}/>
-                    <Route path='/Hamster' element={<Hamster/>}/>
-                    <Route path='/Account' element={<Account/>}/>
-                    <Route path='/Products' element={<ProductShop/>}/>
-                    <Route path='/Login' element={<Login/>}/>
-                    <Route path='/Register' element={<Register/>}/>
-                    <Route path='/login' element={<Login/>}/>
-                    <Route path='/About' element={<About/>}/>
-                    <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
+            <AuthProvider>
+                <CartProvider>
+                    <BrowserRouter>
+                            <Header/>
+                            <Routes>
+                                <Route path='/' element={<Home/>}/>
+                                <Route path='/Home' element={<Home/>}/>
+                                <Route path='/Service' element={<Service/>}/>
+                                <Route path='/Cat' element={<Cat/>}/>
+                                <Route path='/Dog' element={<Dog/>}/>
+                                <Route path='/Bird' element={<Bird/>}/>
+                                <Route path='/Hamster' element={<Hamster/>}/>
+                                <Route path='/Account' element={<Account/>}/>
+                                <Route path='/Products' element={<ProductShop/>}/>
+                                <Route path='/Login' element={<Login/>}/>
+                                <Route path='/Register' element={<Register/>}/>
+                                <Route path='/login' element={<Login/>}/>
+                                <Route path='/About' element={<About/>}/>
+                                <Route path='/Product/:id' element={<ProductDetail/>}/>
+                                <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
                 </Routes>
-                <Footer/>
+                            <Footer/>
+                        </BrowserRouter>
+                </CartProvider>
 
-
-
-            </BrowserRouter>
+            </AuthProvider>
         </div>    
     );
 }

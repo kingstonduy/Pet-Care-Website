@@ -1,63 +1,37 @@
 import cs from './product.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {Switch} from "antd"
 import {Link} from 'react-router-dom'
 import Product from './Product';
+import { checkLogin, getUsers } from '../../apiClient/UserApi';
+import { useAuth } from '../../security/AuthContext';
+import { getProducts } from '../../apiClient/ProductApi';
 
 export default function ProductShop(){
 
-    const products =[
-        {
-            id: 1,
-            Name: 'Iams Proactive' ,
-            Category: 'food',
-            Price: '100',
-            url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        {
-            id: 2,
-            Name: 'Iams Proactive aaaaa boitjasdjk biaset asdasdv asdbasdqweasd dasdasdcasd' ,
-            Category: 'food',
-            Price: '100',
-            url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        {
-            id: 3,
-            Name: 'Iams Proactive' ,
-            Category: 'food',
-            Price: '100',
-            url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        {
-            id: 4,
-            Name: 'Iams Proactive' ,
-            Category: 'food',
-            Price: '100',
-            url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        {
-            id: 5,
-            Name: 'Iams Proactive' ,
-            Category: 'food',
-            Price: '100',
-            url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        {
-            id: 6,
-            Name: 'Iams Proactive' ,
-            Category: 'food',
-            Price: '100',
-            url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        {
-            id: 7,
-            Name: 'Iams Proactive' ,
-            Category: 'food',
-            Price: '100',
-            url: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-    ]
+    
+
+    const [products,setProducts] = useState([])
+
+
+    const authContext = useAuth();
+
+    
+    useEffect(()=> retrieveProducts(),[])
+
+    function retrieveProducts(){
+        getProducts()
+            .then(response => successfully(response))
+            .catch(error => console.log(error))
+    }
+    
+    function successfully(response){
+        setProducts(response.data);
+    }
+
+    
+
 
     function handleChangeSelect(e){
 
@@ -120,7 +94,7 @@ export default function ProductShop(){
                 </div>
             </div>
             
-
+            
 
         </div>
     )
