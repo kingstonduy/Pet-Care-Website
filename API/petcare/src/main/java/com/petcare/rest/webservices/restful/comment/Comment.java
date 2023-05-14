@@ -1,59 +1,26 @@
 package com.petcare.rest.webservices.restful.comment;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.Date;
+
+@Data
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Entity
+@Table(name="Comment")
 public class Comment {
-    private Integer commentId;
-    private Integer userId;
-    private Integer orderedProductId;
-    private Integer commentDescription;
+    @Id
+    @GeneratedValue
+    private Integer id;
+    private String commentDescription;
+    private Date commentDate;
 
-    protected Comment () {}
 
-    public Comment(Integer commentId, Integer userId, Integer orderedProductId, Integer commentDescription) {
-        this.commentId = commentId;
-        this.userId = userId;
-        this.orderedProductId = orderedProductId;
-        this.commentDescription = commentDescription;
-    }
+    @ManyToOne
+    private OrderedProduct orderedProduct;
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "commentId=" + commentId +
-                ", userId=" + userId +
-                ", orderedProductId=" + orderedProductId +
-                ", commentDescription=" + commentDescription +
-                '}';
-    }
-
-    public Integer getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(Integer commentId) {
-        this.commentId = commentId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getOrderedProductId() {
-        return orderedProductId;
-    }
-
-    public void setOrderedProductId(Integer orderedProductId) {
-        this.orderedProductId = orderedProductId;
-    }
-
-    public Integer getCommentDescription() {
-        return commentDescription;
-    }
-
-    public void setCommentDescription(Integer commentDescription) {
-        this.commentDescription = commentDescription;
-    }
 }

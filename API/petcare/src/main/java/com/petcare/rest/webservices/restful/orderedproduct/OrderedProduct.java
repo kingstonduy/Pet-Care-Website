@@ -1,48 +1,36 @@
 package com.petcare.rest.webservices.restful.orderedproduct;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.petcare.rest.webservices.restful.comment.Comment;
+import com.petcare.rest.webservices.restful.product.Product;
+import com.petcare.rest.webservices.restful.user.User;
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.Date;
+import java.util.List;
+@Data
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Entity
+@Table(name= "OrderedProduct")
 public class OrderedProduct {
-    private Integer orderedProductId;
-    private String productId;
+    @Id
+    @GeneratedValue
+    private Integer id;
     private Integer orderedProductQuantity;
+    private Date orderedProductDate;
 
-    protected OrderedProduct() {}
 
-    public OrderedProduct(Integer orderedProductId, String productId, Integer orderedProductQuantity) {
-        this.orderedProductId = orderedProductId;
-        this.productId = productId;
-        this.orderedProductQuantity = orderedProductQuantity;
-    }
+    @ManyToOne
+    private Product product;
 
-    @Override
-    public String toString() {
-        return "OrderedProduct{" +
-                "orderedProductId=" + orderedProductId +
-                ", productId='" + productId + '\'' +
-                ", orderedProductQuantity=" + orderedProductQuantity +
-                '}';
-    }
+    @ManyToOne
+    private User user;
 
-    public Integer getOrderedProductId() {
-        return orderedProductId;
-    }
+    @OneToMany(mappedBy = "orderedProduct", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Comment> commentList;
 
-    public void setOrderedProductId(Integer orderedProductId) {
-        this.orderedProductId = orderedProductId;
-    }
 
-    public String getProductId() {
-        return productId;
-    }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public Integer getOrderedProductQuantity() {
-        return orderedProductQuantity;
-    }
-
-    public void setOrderedProductQuantity(Integer orderedProductQuantity) {
-        this.orderedProductQuantity = orderedProductQuantity;
-    }
 }

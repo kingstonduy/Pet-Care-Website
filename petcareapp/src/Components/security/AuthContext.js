@@ -41,7 +41,9 @@ export default function AuthProvider({children}){
                     setUsername(user.userUserName)
                     return true;
                 }
-            }catch(error){
+            }
+            catch(error){
+                console.log('error o day')
                 console.log(error)
                 return false;
             }

@@ -39,7 +39,8 @@ export default function MainApp(){
                                 <Route path='/login' element={<Login/>}/>
                                 <Route path='/About' element={<About/>}/>
                                 <Route path='/Product/:id' element={<ProductDetail/>}/>
-                            </Routes>
+                                <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
+                </Routes>
                             <Footer/>
                         </BrowserRouter>
                 </CartProvider>
