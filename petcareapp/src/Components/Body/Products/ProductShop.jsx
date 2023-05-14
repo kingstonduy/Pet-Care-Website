@@ -1,20 +1,36 @@
 import cs from './product.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {Switch} from "antd"
 import {Link} from 'react-router-dom'
 import Product from './Product';
 import { checkLogin, getUsers } from '../../apiClient/UserApi';
 import { useAuth } from '../../security/AuthContext';
+import { getProducts } from '../../apiClient/ProductApi';
 
 export default function ProductShop(){
+
+    
+
+    const [products,setProducts] = useState([])
 
 
     const authContext = useAuth();
 
     
+    useEffect(()=> retrieveProducts(),[])
 
-    const products = authContext.Products   
+    function retrieveProducts(){
+        getProducts()
+            .then(response => successfully(response))
+            .catch(error => console.log(error))
+    }
+    
+    function successfully(response){
+        setProducts(response.data);
+    }
+
+    
 
 
     function handleChangeSelect(e){

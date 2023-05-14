@@ -1,38 +1,55 @@
 import cs from './productDetail.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../security/AuthContext';
+import { getProductDetail } from '../../apiClient/ProductApi';
+import { getUserByUsername } from '../../apiClient/UserApi';
 
 export default function ProductDetail(){
 
+    const [quantityValue,setQuantityValue] = useState()
+    const [product,setProduct] = useState({})
     const authContext = useAuth()
-
-    const [quantityValue,setQuantityValue] = useState();
 
     const {id} = useParams();
     
-    
-    const products = authContext.Products
-    var product = {}
-    for(var i=0;i< 5;i++){
-        if(products[i].id === id){
-            product = products[i]
-        }
-    }
-    console.log(product)
-    
+    useEffect(() => retrieveDataProduct(),[])
 
+    function retrieveDataProduct(){
+        getProductDetail(id)
+            .then(response => Successfully(response))
+            .catch(error => console.log(error))
+    }
+    
+    function Successfully(response){
+        setProduct(response.data);
+    }
+    
 
     function handleOnchange(e){
         setQuantityValue(e.target.value)
     }
 
 
-    // const linkStyle = {
-    //     backgroundImage: `url(${productDetail.url})`,
+    const linkStyle = {
+        backgroundImage: `url(${product.productImageUrl})`,
     
-    // };
+    };
     
+    // function HanndleFetchAPi(){
+    //     getUserByUsername(authContext.username)
+    //         .then(response => getCartListSuccess(response))
+    //         .catch(error => console.log(error))
+    // }
+
+    // function getCartListSuccess(response){
+    //     console.log(authContext.username)
+    //     console.log(response.data.cartList)
+    //     // setCartItems(response.data.cartList)
+    // }
+
+
+
     return(
         <div className={cs['body']}>
             <div className="grid">
@@ -42,16 +59,16 @@ export default function ProductDetail(){
                         <div className="column2">
                            <div className={cs['img_justify']}>
                                 <div className={cs['product_img_wrap']}>
-                                        {/* <div style={linkStyle} className={cs['product_img']}  ></div> */}
+                                        <div style={linkStyle} className={cs['product_img']}  ></div>
                                 </div>
                            </div>
                         </div>
 
                         <div className="column2">
                             <div className={cs['top_wrap']}>
-                                {/* <h2 className={cs['product_name']}>{productDetail.Name}</h2> */}
+                                <h2 className={cs['product_name']}>{product.productName}</h2>    
 
-                                {/* <span className={cs['product_price']}>{productDetail.Price}$</span> */}
+                                <span className={cs['product_price']}>{product.productPrice}$</span>
                                 <h3>Details</h3>
                                 <p className={cs['product_description']}>The perfect kitchen companion 
                                     for any home cook.Our bestselling cooking combo that 
@@ -75,6 +92,8 @@ export default function ProductDetail(){
                     </div>
                 </div>
             </div>
+
+            {/* <button onClick={HanndleFetchAPi}>Click me!</button> */}
         </div>
     )
 }

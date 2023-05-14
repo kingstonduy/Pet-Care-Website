@@ -32,8 +32,8 @@ export default function Login(){
             ],
             onSubmit: async function (data) {
                 const user={
-                    'id': 1,
-                    'name': data.username
+                    'userUserName': data.username,
+                    'userPassword': data.password
                 }
                 console.log(user)
                 if(await authContext.login(user)){

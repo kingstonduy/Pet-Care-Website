@@ -50,6 +50,8 @@ html{
   margin-right: -12px;
 }
 
+
+
 .column4{
   width: 25%;
   padding-left: 12px;
@@ -193,4 +195,6 @@ body{
   border: 1px solid red;
   animation: vibrate 0.3s ease-in-out;
 }
+
+
 

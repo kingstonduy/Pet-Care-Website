@@ -41,7 +41,8 @@
 }
 
 .top_wrap{
-    padding: 40px 0 80px 0;
+    padding: 20px 0 80px 0;
+    height: 400px;
     border-bottom: 1px solid #000;
 }
 
@@ -51,7 +52,7 @@
     font-size: 25px;
 
     /* or 56% */
-    margin: 50px 0;
+    margin: 25px 0 50px 0;
     color: #090909;
     
     
