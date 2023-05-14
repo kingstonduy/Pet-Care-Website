@@ -23,10 +23,10 @@ public class User {
     private  String userEmail;
     private String userRole;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Cart> cartList;
 
-    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderedProduct> orderedProductsList;
 
 }

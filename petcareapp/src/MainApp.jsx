@@ -33,6 +33,7 @@ export default function MainApp(){
                     <Route path='/Register' element={<Register/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/About' element={<About/>}/>
+                    <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
                 </Routes>
                 <Footer/>
 

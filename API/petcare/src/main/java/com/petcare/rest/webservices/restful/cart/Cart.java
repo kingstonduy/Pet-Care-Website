@@ -13,15 +13,17 @@ import lombok.Data;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Cart {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer cartItemQuantity;
 
     @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
 
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
 

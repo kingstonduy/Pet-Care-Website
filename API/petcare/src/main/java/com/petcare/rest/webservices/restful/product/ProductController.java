@@ -4,62 +4,47 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.*;
 import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+
 
 @RestController
 public class ProductController {
-    ProductRepository repository;
+    ProductService service;
 
-    public ProductController(ProductRepository repository){
-        this.repository= repository;
+    public ProductController(ProductService service) {
+        this.service = service;
     }
 
     @GetMapping("/products")
     public List<Product> getAllProduct(){
-        return repository.findAll();
+        return service.getAllProduct();
     }
 
     @GetMapping("/product/{id}")
     public Optional<Product> getProductById(@PathVariable int id){
-        return repository.findById(id);
+        return service.getProductById(id);
     }
 
     @GetMapping("products/{type}")
     public List<Product> getProductByType(@PathVariable String type) {
-        Predicate<? super Product> predicate = product -> product.getProductCategory().equalsIgnoreCase(type);
-        List<Product> products = repository.findAll();
-
-        List<Product> filteredProducts = products.stream()
-                                                 .filter(predicate)
-                                                 .collect(Collectors.toList());
-        return filteredProducts;
+        return service.getProductByType(type);
     }
 
     @GetMapping("products/inStock")
     public List<Product> getProductInStock(){
-        Predicate<? super Product> predicate = product -> product.getProductQuantity() > 0;
-        List<Product> products = repository.findAll();
-
-        List<Product> filteredProducts = products.stream()
-                .filter(predicate)
-                .collect(Collectors.toList());
-        return filteredProducts;
+        return service.getProductInStock();
     }
 
     @GetMapping("products/outStock")
     public List<Product> getProductOutStock(){
-        Predicate<? super Product> predicate = product -> product.getProductQuantity() == 0;
-        List<Product> products = repository.findAll();
-
-        List<Product> filteredProducts = products.stream()
-                .filter(predicate)
-                .collect(Collectors.toList());
-        return filteredProducts;
+        return service.getProductOutStock();
     }
 
+    @GetMapping("products/sorted/asc/name")
+    public List<Product> getSortedAscProductByName() {
+        return  service.getSortedAscProductByName();
+    }
 
 
 }

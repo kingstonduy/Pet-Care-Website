@@ -28,11 +28,11 @@ public class Product {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<Cart> cartList;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<OrderedProduct> orderedProductList;
 
 
