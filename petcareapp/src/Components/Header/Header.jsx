@@ -3,11 +3,15 @@ import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link, Navigate } from "react-router-dom"
 import CartComponent from '../Body/sidebar.cart/CartComponent'
 import { useState } from 'react'
+import { useAuth } from '../security/AuthContext'
 export default function Header(){
 
+    const authContext = useAuth()
 
     const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -15,6 +19,8 @@ export default function Header(){
         setIsCartOpen(true);
     }
 
+
+    
 
     
 
@@ -67,7 +73,11 @@ export default function Header(){
                         </li>
                         <li className="nav_right_item">
                             <div className="signUp_wrap">
-                                <Link to='/login' className='login_btn'>Sign up</Link>
+                               {authContext.isAuthenticated ?  <Link to='/Account' className='avaUser'>
+                               <FontAwesomeIcon icon={faUser} className="faArrowDown"/>  
+                               </Link>: 
+                                <Link to='/login' className='login_btn'>Sign up</Link>}
+                               
                             </div>
                         </li>
                     </ul>

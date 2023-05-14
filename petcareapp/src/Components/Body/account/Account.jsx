@@ -1,6 +1,16 @@
+import { useAuth } from '../../security/AuthContext'
 import cs from './Account.module.css'
+import { useNavigate } from 'react-router-dom'
 
 const Account= () => {
+
+    const authContext = useAuth()
+    const navigate = useNavigate()
+
+    function handleLogout(){
+        authContext.logout();
+        navigate('/login')
+    }
 
     const products = [
         {
@@ -89,6 +99,7 @@ const Account= () => {
 
             <div className={cs['grid-header']}>
                 <h1>Online shopping history</h1>
+                <button onClick={handleLogout} className={cs['btn-logout']}>Logout</button>
             </div>
 
             <div className={cs['grid-column-right']}>

@@ -44,6 +44,9 @@ header{
     position: relative;
     height: 100%;
     width: 100px;
+    display: flex;
+    margin: 0;
+
 }
 
 .nav_left_link{
@@ -70,13 +73,16 @@ header{
 .nav_right_list{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    
     list-style: none;
-    margin-right: 10%;
+    margin-right: 50px;
+
 }
 
 .nav_right_item{
     margin: 0 15px;
+    display: flex;
+    align-items: center;
 }
 
 .nav_logo_find{
@@ -85,7 +91,7 @@ header{
 
 .nav_logo_cart{
     font-size: 200%;
-    color: #181817; 
+    color: rgba(0, 9, 88, 1);
 }
 
 
@@ -182,4 +188,12 @@ header{
     background-color: var(--header-color);
     border: none;
     cursor: pointer;
+    font-size: 15px;
+    color: var(--text-color--bold);
+}
+
+.avaUser{
+    font-size: 25px;
+    color: rgba(0, 9, 88, 1);
+    font-weight: 700;
 }
