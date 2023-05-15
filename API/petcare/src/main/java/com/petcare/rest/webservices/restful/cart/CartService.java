@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -45,12 +46,18 @@ public class CartService {
         return ResponseEntity.status(HttpStatus.CREATED).body("Item added to cart successfully");
     }
 
-    public ResponseEntity<String> UpdateQuantityCart(AddToCartRequest request) {
-        Product product = productRepository.findById(request.getProductId()).get();
-        User user = userRepository.findById(request.getUserId()).get();
-        Cart cart = cartRepository.findByProductAndUser(product,user);
-        cart.setCartItemQuantity(request.getCartItemQuantity());
+    public ResponseEntity<String> UpdateQuantityCart(CartDTO request) {
+//        Product product = productRepository.findById(request.getProductId()).get();
+//        User user = userRepository.findById(request.getUserId()).get();
+//        Cart cart = cartRepository.findByProductAndUser(product,user);
+//        cart.setCartItemQuantity(request.getCartItemQuantity());
+//        cartRepository.save(cart);
+        Cart cart = cartRepository.findById(request.getCartDTOId()).get();
+        cart.setCartItemQuantity(request.getCartDTOQuantity());
+        if(cart != null)    System.out.println(cart.getId());
+        else System.out.println("null o day ne ");
         cartRepository.save(cart);
+
         return ResponseEntity.status(HttpStatus.CREATED).body("Item update quantity to cart successfully");
     }
 
@@ -59,5 +66,22 @@ public class CartService {
         Product product = productRepository.findById(productId).get();
         Cart cart = cartRepository.findByProductAndUser(product,user);
         return cart;
+    }
+
+    public List<CartDTO> getItemOnCart(String username)    {
+        User user = userRepository.findByUserUserName(username);
+        List<Cart> carts = user.getCartList();
+        List<CartDTO> res= new ArrayList<>();
+        for(Cart cart: carts){
+            CartDTO cartDTO = new CartDTO();
+            cartDTO.setCartDTOId(cart.getId());
+            cartDTO.setCartDTOName(cart.getProduct().getProductName());
+            cartDTO.setCartDTOQuantity(cart.getCartItemQuantity());
+            cartDTO.setCartDTOCategory(cart.getProduct().getProductCategory());
+            cartDTO.setCartDTOPrice(cart.getProduct().getProductPrice());
+            cartDTO.setCartDTOImageUrl(cart.getProduct().getProductImageUrl());
+            res.add(cartDTO);
+        }
+        return res;
     }
 }
