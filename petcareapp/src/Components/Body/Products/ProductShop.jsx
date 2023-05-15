@@ -6,14 +6,14 @@ import {Link} from 'react-router-dom'
 import Product from './Product';
 import { checkLogin, getUsers } from '../../apiClient/UserApi';
 import { useAuth } from '../../security/AuthContext';
-import { getProducts } from '../../apiClient/ProductApi';
+import { getProductByConstraint, getProductByInStock, getProducts } from '../../apiClient/ProductApi';
 
 export default function ProductShop(){
 
     
 
     const [products,setProducts] = useState([])
-
+    
 
     const authContext = useAuth();
 
@@ -33,13 +33,44 @@ export default function ProductShop(){
     
 
 
-    function handleChangeSelect(e){
-
+    async function handleChangeSelect(e){
+        console.log(e.target.value)
+       try{
+            const response = await getProductByConstraint(e.target.value)
+            console.log(response.data)
+            if(response.status == 200){
+                
+                setProducts(response.data)
+            }       
+        }
+        catch(error){
+            console.log(error)
+        }
     }
 
 
-    function handleChangeToggle(e){
-        console.log(e)
+    async function handleChangeToggle(e){
+        if(e == true){
+           try{
+               const response = await getProductByInStock()
+               if(response.status == 200){
+                    setProducts(response.data);
+               }
+           }catch(error){
+                console.log(error)
+           }
+            
+        }else{
+            try{
+                const response = await getProducts();
+                if(response.status == 200){
+                    setProducts(response.data)
+                }
+            }catch(error){
+                console.log(error)
+            }
+            
+        }
     }
 
     return(
@@ -56,8 +87,8 @@ export default function ProductShop(){
                             <label htmlFor="selectSort">Sort By:</label>
                             <select name="" id="selectSort" onChange={handleChangeSelect}>
                                 <option value="">Select</option>
-                                <option value="Ascending">Ascendingly</option>
-                                <option value="Descending">Descendingly</option>
+                                <option value="ascending">Ascendingly</option>
+                                <option value="descending">Descendingly</option>
                             </select>
                         </div>
                     </div>
@@ -65,17 +96,18 @@ export default function ProductShop(){
                     <div className={cs['body_sort_right']}>
                         <div className={cs['sortGroup']}>
                             <label htmlFor="selectSort">Filter By:</label>
-                            <select name="" id="selectSort" >
+                            <select name="" id="selectSort" onChange={handleChangeSelect} >
                                 <option value="">Select</option>
-                                
-                                <option value="Ascending">Ascendingly</option>
-                                <option value="Descending">Descendingly</option>
+                                <option value="all">All</option>
+                                <option value="food">Food</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="toy">Toy</option>
                             </select>
                         </div>
 
                         <div className={cs['sortGroup']}>
                             <label htmlFor="selectSort">In Stock</label>
-                            <Switch onChange={handleChangeToggle} className={cs['switchToggle']}/>
+                            <Switch  onChange={handleChangeToggle} className={cs['switchToggle']}/>
                         </div>
                     </div>
                 </div>
