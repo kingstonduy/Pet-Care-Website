@@ -46,7 +46,7 @@ export default function Product({data}){
 
             </Link>
             
-            <div onClick={handleAddToCart}> blalbalblalbla</div>
+
         </div>
     );
 }

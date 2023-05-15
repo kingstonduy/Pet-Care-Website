@@ -59,8 +59,8 @@ export default function Login(){
             ],
             onSubmit: function (data) {
                 const user= {
-                    'userUserName': data.fullname,
-                    'userFullName': data.username,
+                    'userUserName': data.username,
+                    'userFullName': data.fullname,
                     'userPassword': data.password,
                     'userEmail': data.email,
                     'userRole': 'user'
