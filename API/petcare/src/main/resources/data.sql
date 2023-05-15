@@ -3,7 +3,7 @@
 insert into userr (id , user_full_name, user_user_name, user_password, user_email, user_role)
 values
     (1001, 'Nguyen van A', 'nghia', 'Zet411632', 'Nguyen Van A email', 'user'),
-    (1002, 'Nguyen van B', 'duy', 'Zet411632', 'Nguyen Van B email', 'user'),
+    (1002, 'Nguyen van B', 'duy', 'Duy03032002', 'Nguyen Van B email', 'user'),
     (1003, 'Nguyen van C', 'dinh', 'Zet411632', 'Nguyen Van C email', 'user'),
     (1004, 'Nguyen van D', 'binh', 'Zet411632', 'Nguyen Van D email', 'user'),
     (1005, 'Nguyen van E', 'zet', 'Zet411632', 'Nguyen Van E email', 'user');
