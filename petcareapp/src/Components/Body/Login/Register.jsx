@@ -1,5 +1,5 @@
 import cs from './login.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Dog from '../../../assests/loginpage/doglogo.png'
 import DogBackGround from '../../../assests/loginpage/backgroundDog.png'
@@ -7,6 +7,7 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Validator } from '../../Validator/Validator';
+import { checkRegister } from '../../apiClient/UserApi';
 
 export default function Login(){
     
@@ -16,8 +17,23 @@ export default function Login(){
     const [email,setEmail] = useState('');
     const [fullname,setFullname] = useState('');
     const [confirmPassword,setConfirmPassword] = useState('');
+    const navigate= useNavigate();
 
-
+    async function register(user){
+        try{
+            console.log(user)
+            const response = await checkRegister(user)
+            if(response.status == 200){
+                alert('Register successfully')
+                navigate('/login')
+            }
+        }
+        catch(error){
+            console.log(error)
+            alert('Register failed')
+            navigate('/register')
+        }
+    }
 
 
 
@@ -42,20 +58,23 @@ export default function Login(){
     
             ],
             onSubmit: function (data) {
-                // Call API
-                console.log(data)
+                const user= {
+                    'userUserName': data.fullname,
+                    'userFullName': data.username,
+                    'userPassword': data.password,
+                    'userEmail': data.email,
+                    'userRole': 'user'
+                }
+                console.log(user)
+                register(user)
+                
             }
         },setUsername,setPassword);
 
         
     },[])
 
-    // useEffect(() => {
-    //     const a = document.querySelector('#username')
-    //     a.onblur = function(){
-    //         a.classList.add('input-error')
-    //     }
-    // })
+    
 
     function handleOnchangeUsername(e){
         setUsername(e.target.value)
