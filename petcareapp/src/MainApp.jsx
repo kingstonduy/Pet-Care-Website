@@ -40,7 +40,7 @@ export default function MainApp(){
                                 <Route path='/About' element={<About/>}/>
                                 <Route path='/Product/:id' element={<ProductDetail/>}/>
                                 <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
-                </Routes>
+                            </Routes>
                             <Footer/>
                         </BrowserRouter>
                 </CartProvider>
