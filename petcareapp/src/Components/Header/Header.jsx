@@ -65,12 +65,13 @@ export default function Header(){
 
                 <div className="nav_wrap_right">
                     <ul className="nav_right_list">
-                    
+                        {authContext.isAuthenticated &&
                         <li className="nav_right_item">
                             <button className='btn-cart' onClick={handleCartClick}>
                                 <FontAwesomeIcon icon={faCartShopping} className="nav_logo_cart"/>
                             </button>
                         </li>
+                        }
                         <li className="nav_right_item">
                             <div className="signUp_wrap">
                                {authContext.isAuthenticated ?  <Link to='/Account' className='avaUser'>
@@ -85,8 +86,7 @@ export default function Header(){
                 </div>
                
             </nav>
-            {console.log(isCartOpen)}
-            <CartComponent isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+            { authContext.isAuthenticated && <CartComponent isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />}
         </header>
     )
 }

@@ -2,137 +2,116 @@ import React, { useEffect, useState } from 'react';
 import cs from './CartComponent.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { getProductOnCart, updateQuantityCartItem } from '../../apiClient/CartApi';
+import { useAuth } from '../../security/AuthContext';
 
 
 
-const CartComponent = ({isCartOpen, setIsCartOpen}) => {
-    const [isOpen, setIsOpen]= useState(false)
-    const [quantity,setQuantity] = useState(1)
-    const toggleMenu = () => {
-        setIsCartOpen(false);
-        setIsOpen(isCartOpen)
-        if (!isCartOpen) {
-            document.documentElement.style.overflow = 'hidden';
-        } 
-        else {
-            document.documentElement.style.overflow = 'auto';
-        }
-        
-    }
+const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [quantity, setQuantity] = useState(1);
+    const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
 
-    const products = [
-        {
-            productId: 1,
-            productName: 'Iams Proactive Health Smart Puppy Large Breed Dry Puppy Foo',
-            productQuantity: 1,
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/iams-proactive-health-smart-puppy-large-breed-dry-puppy-food-15-lbs/019014610945-2.jpg'
-        },
-    
-        {
-            productId: 2,
-            productName: 'Vital Essentials Freeze Dried Vital Treats Bully Sticks',
-            productQuantity: 1,
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        
-        {
-            productId: 3,
-            productName: 'Elanco Seresto Flea and Tick Collar for Dogs Small Gray',
-            productQuantity: 1,
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-    
-        },
-    
-        {
-            productId: 4 ,
-            productName: 'Elanco Seresto Flea and Tick Collar for Dogs Small Gray',
-            productQuantity: 1,
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-    
-        },
-        {
-            productId: 5,
-            productName: 'Iams Proactive Health Smart Puppy Large Breed Dry Puppy Foo',
-            productQuantity: 1,
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/iams-proactive-health-smart-puppy-large-breed-dry-puppy-food-15-lbs/019014610945-2.jpg'
-    
-        },
-        {
-            productId: 6,
-            productName: 'Iams Proactive Health Smart Puppy Large Breed Dry Puppy Foo',
-            productQuantity: 1,
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/iams-proactive-health-smart-puppy-large-breed-dry-puppy-food-15-lbs/019014610945-2.jpg'
-    
-        }
-    ]
-
-    const [cart, setCart]= useState(products)
-
-
-    // function handleOnchangeQuantity(e){
-    //     setQuantity(e.target.value)
-    // }
-
-    const handlePlusClick = (product) => {
-        setCart(prev =>{
-            const temp= cart.map(
-                (item) => {
-                    if(item.productId === product.productId){
-                        return{
-                            ...item,
-                            productQuantity: item.productQuantity + 1
-                        }
-                    }
-                    return item
-                })
-            return temp
-        })
-    }
-
-    const handleMinusClick = (product) => {
-        setCart(prev =>{
-            const temp= cart.map(
-                (item) => {
-                    if(item.productId === product.productId){
-                        return{
-                            ...item,
-                            productQuantity: Math.max(item.productQuantity - 1, 0)
-                        }
-                    }
-                    return item
-                })
-            return temp
-        })
-
-    }
-
+    const authContext= useAuth();
   
-
+    const toggleMenu = () => {
+      setIsCartOpen(false);
+      setIsOpen(isCartOpen);
+      if (!isCartOpen) {
+        document.documentElement.style.overflow = 'hidden';
+      } else {
+        document.documentElement.style.overflow = 'auto';
+      }
+    };
+  
     useEffect(() => {
-        setIsOpen(isCartOpen);
+        retriveProductOnCart();
+        const interval = setInterval(retriveProductOnCart, 500);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+  
+    async function retriveProductOnCart() {
+      try {
+        const response = await getProductOnCart(authContext.username);
+        console.log('success')
+        setProducts(response.data);
+      } 
+      catch (error) {
+        console.log(error);
+      }
+    }
+  
+    const handlePlusClick = (product) => {
+    //   setCart((prev) => {
+    //     const temp = prev.map((item) => {
+    //       if (item.cartDTOId === product.cartDTOId) {
+    //         return {
+    //           ...item,
+    //           cartDTOQuantity: item.cartDTOQuantity + 1,
+    //         };
+    //       }
+    //       return item;
+    //     });
+    //     return temp;
+    //   });
+        try{
+            const cartDTO = {
+                'cartDTOId': product.cartDTOId,
+                'cartDTOQuantity': product.cartDTOQuantity + 1,
+            }
+            const response = updateQuantityCartItem(cartDTO)
+            if(response.status == 200){
+                alert('Register successfully')
+            }
+        }
+        catch(error){
+            console.log(error)
+            alert('error while update quantity')
+        }
+    };
+  
+    const handleMinusClick = (product) => {
+    //   setCart((prev) => {
+    //     const temp = prev.map((item) => {
+    //       if (item.cartDTOId === product.cartDTOId) {
+    //         return {
+    //           ...item,
+    //           cartDTOQuantity: Math.max(item.cartDTOQuantity - 1, 0),
+    //         };
+    //       }
+    //       return item;
+    //     });
+    //     return temp;
+    //   });
+        try{
+            const cartDTO = {
+                'cartDTOId': product.cartDTOId,
+                'cartDTOQuantity':Math.max(0, product.cartDTOQuantity -1) ,
+            }
+            const response = updateQuantityCartItem(cartDTO)
+            if(response.status == 200){
+                alert('Register successfully')
+            }
+        }
+        catch(error){
+            console.log(error)
+            alert('error while update quantity')
+        }
+    };
+  
+    useEffect(() => {
+      setIsOpen(isCartOpen);
     }, [isCartOpen]);
+  
+    useEffect(() => {
+      setCart(products);
+    }, [products]);
 
     return (
         
-
         <div className={cs.container}>
         <div className={`${cs['hidden-menu']} ${isOpen ? cs.open : ''}`}>
             <div className={cs['header']}>
@@ -146,54 +125,65 @@ const CartComponent = ({isCartOpen, setIsCartOpen}) => {
 
             <div className={cs['product-table']}>
                 {
+                    cart.length > 0 ?
                     cart.map(
-                        product => {
-                            return (
-                                <>
-                                    <div className={cs['table-row']} key={product.id}>
-                                        <div className={cs['product-img']}>
-                                            <img src={product.urlImageProduct} alt=""  />
-                                        </div>
-
-                                        <div className={cs['product-main-group']}>
-                                            <div className={cs['product-name']}>
-                                                { product.productName.length > 30 ? `${product.productName.slice(0,30)}...` : product.productName }
+                        v => {
+                            if(v){
+                                return (
+                                    <>
+                                        <div className={cs['table-row']} key={v.id}>
+                                            <div className={cs['product-img']}>
+                                                <img src={v.cartDTOImageUrl} alt=""  />
                                             </div>
-
-                                            <div className={cs['product-action']}>
-                                                <div className={cs['add-minus-btn']}>
-                                                    <button className={cs['hidden-menu-btn']} onClick={() => handlePlusClick(product)}>
-                                                        <FontAwesomeIcon icon={faPlus} />
-                                                    </button>
-
-                                                    <input  className={cs['input-quantity']} autocomplete="off"  value={product.productQuantity} type="number" inputmode="numeric" name="updates[]" data-line="1" size="2" aria-label="Change quantity"></input>    
-
-                                                    <button className={cs['hidden-menu-btn']} onClick={() => handleMinusClick(product)}>
-                                                        <FontAwesomeIcon icon={faMinus} />
+    
+                                            <div className={cs['product-main-group']}>
+                                                <div className={cs['product-name']}>
+                                                    { v.cartDTOName > 30 ? `${v.cartDTOName.slice(0,30)}...` : v.cartDTOName }
+                                                </div>
+    
+                                                <div className={cs['product-action']}>
+                                                    <div className={cs['add-minus-btn']}>
+                                                        <button className={cs['hidden-menu-btn']} onClick={() => handlePlusClick(v)}>
+                                                            <FontAwesomeIcon icon={faPlus} />
+                                                        </button>
+    
+                                                        <input  className={cs['input-quantity']} autocomplete="off"  value={v.cartDTOQuantity} type="number" inputmode="numeric" name="updates[]" data-line="1" size="2" aria-label="Change quantity"></input>    
+    
+                                                        <button className={cs['hidden-menu-btn']} onClick={() => handleMinusClick(v)}>
+                                                            <FontAwesomeIcon icon={faMinus} />
+                                                        </button>
+                                                    </div>
+                                                    <button className={cs['remove-btn']}>
+                                                        remove
                                                     </button>
                                                 </div>
-                                                <button className={cs['remove-btn']}>
-                                                    remove
-                                                </button>
+                                            </div>
+    
+                                            <div className={`${cs['product-price']}  ${cs['centered-text']}`}>
+                                                {v.cartDTOPrice}$
                                             </div>
                                         </div>
-
-                                        <div className={`${cs['product-price']}  ${cs['centered-text']}`}>
-                                            {product.productPrice}$
-                                        </div>
-                                    </div>
-                                </>
-                            )
+                                    </>
+                                )
+                            }
+                            else return null;
+                            
                         }
                     )
+                    :
+                    <>
+
+                    </>
+
                 }
             </div>
-
-            <div className={cs['checkout-div']}>
-                <button className={cs['checkout-btn']}>
-                    Check out
-                </button>
-            </div>
+            { cart.length > 0 &&
+                <div className={cs['checkout-div']}>
+                    <button className={cs['checkout-btn']}>
+                        Check out
+                    </button>
+                </div>
+            }
         </div>
         </div>
     );
