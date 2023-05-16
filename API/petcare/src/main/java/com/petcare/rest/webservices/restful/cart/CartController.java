@@ -24,12 +24,17 @@ public class CartController {
     }
 
     @PutMapping("/cart/update/quantity")
-    public ResponseEntity<String> UpdateQuantityCart(@RequestBody AddToCartRequest request) {
+    public ResponseEntity<String> UpdateQuantityCart(@RequestBody CartDTO request) {
         return service.UpdateQuantityCart(request);
     }
 
     @GetMapping("/cart/{userId}/{productId}")
     public Cart getCartSpecific(@PathVariable Integer userId, @PathVariable Integer productId)    {
         return service.getCartSpecific(userId,productId);
+    }
+
+    @GetMapping("/cart/getItemOnCart/{username}")
+    public List<CartDTO> getItemOnCart(@PathVariable String username)    {
+        return service.getItemOnCart(username);
     }
 }
