@@ -3,6 +3,8 @@ package com.petcare.rest.webservices.restful.comment;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
+import com.petcare.rest.webservices.restful.product.Product;
+import com.petcare.rest.webservices.restful.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,6 +23,19 @@ public class Comment {
 
 
     @ManyToOne
-    private OrderedProduct orderedProduct;
+    private Product product;
 
+    @ManyToOne
+    private User user;
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", commentDescription='" + commentDescription + '\'' +
+                ", commentDate=" + commentDate +
+                ", product=" + product +
+                ", user=" + user +
+                '}';
+    }
 }

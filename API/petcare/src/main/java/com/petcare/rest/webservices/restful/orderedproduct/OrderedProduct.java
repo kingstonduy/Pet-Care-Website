@@ -28,8 +28,6 @@ public class OrderedProduct {
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "orderedProduct", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    List<Comment> commentList;
 
 
 

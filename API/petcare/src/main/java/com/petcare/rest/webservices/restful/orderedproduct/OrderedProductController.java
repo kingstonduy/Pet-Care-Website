@@ -7,20 +7,24 @@ import java.util.Optional;
 
 @RestController
 public class OrderedProductController {
-    OrderedProductRepository repository;
+    OrderedProductService orderedProductService;
 
-    public OrderedProductController(OrderedProductRepository repository) {
-        this.repository = repository;
+    public OrderedProductController(OrderedProductService orderedProductService) {
+        this.orderedProductService = orderedProductService;
     }
 
     @GetMapping("/orderedproducts")
     public List<OrderedProduct> getAllOrderedProduct(){
-        return repository.findAll();
+        return orderedProductService.getOrderedProducts();
     }
 
     @GetMapping("/orderedproduct/{id}")
-    public Optional<OrderedProduct> getOrderedProduct(@PathVariable int id){
-        return repository.findById(id);
+    public OrderedProduct getOrderedProduct(@PathVariable Integer id){
+        return orderedProductService.getOrderedProduct(id);
     }
+
+
+
+
 
 }

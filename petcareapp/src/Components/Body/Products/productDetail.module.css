@@ -2,11 +2,13 @@
     background-color: #FFF4EA;
 
     padding: 30px 0;
-    height: 1000px;
+    
 }
 
 .body_product{
     margin-top: 30px;
+    padding-bottom: 200px;
+    
 }
 
 .img_justify{
@@ -117,4 +119,69 @@ color: #000000;
     box-shadow: 0px 13px 26px -8px rgba(255, 91, 46, 0.42);
     border-radius: 10px;
     cursor: pointer;
-  }
+}
+
+.Review_titleWrap{
+    padding: 25px 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #000;
+}
+
+.Review_title{
+    font-family: 'Poppins';
+ 
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 14px;
+    /* or 39% */
+
+    color: #000000;
+}
+
+.select_inputFilter{
+    width: 300px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+
+.comment_wrap:nth-child(1){
+    border: 0;
+}
+
+.comment_wrap{
+    width: 800px;
+    padding: 50px;
+    margin-left: 50px;
+    border-top: 1px solid #000;
+}
+
+.avaImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.userDetail_top{
+    margin-top: 5px;
+}
+
+.comment_date{
+    display: block;
+    margin-top: 4px;
+}
+
+.comment_wrap{
+    display: flex;
+}
+
+.userDetail_wrap{
+
+    margin-left: 15px;
+}
+
+.userDetail_DescriptionWrap{
+    margin-top: 30px;
+}
+
