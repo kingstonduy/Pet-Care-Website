@@ -51,15 +51,21 @@ values
     (8, 1004, 1, 1, current_date());
 
 --
-insert into Comment(id  , ORDERED_PRODUCT_ID , COMMENT_DESCRIPTION , comment_Date)
+insert into Comment(id  , product_Id , user_Id , COMMENT_DESCRIPTION , comment_Date)
 values
-    (1, 1, 'it''s ok', current_date),
-    (2, 2, 'it''s fine', current_date),
-    (3, 3, 'it''s wonderful', current_date),
-    (4, 4, 'it''s amazing', current_date),
-    (5, 5, 'it''s intersting', current_date),
-    (6, 6, 'it''s boring', current_date),
-    (7, 7, 'it''s broken', current_date),
-    (8, 8, 'it''s good ', current_date);
+    (1, 1, 1001, 'it''s ok', current_date),
+    (2, 2, 1001,  'it''s fine', current_date),
+    (3, 3, 1002,  'it''s wonderful', current_date),
+    (4, 4, 1002,  'it''s amazing', current_date),
+    (5, 5, 1003,  'it''s intersting', current_date),
+    (6, 6, 1003, 'it''s boring', current_date),
+    (7, 7, 1004,  'it''s broken', current_date),
+    (8, 8, 1004,  'it''s good ', current_date),
+    (9, 4, 1004,  'it''s good ', current_date),
+    (10, 4, 1001,  'it''s good ', current_date),
+    (11, 1, 1002,  'it''s good ', current_date),
+    (12, 2, 1001,  'it''s good ', current_date),
+    (13, 5, 1002,  'it''s good ', current_date);
+
 
 
