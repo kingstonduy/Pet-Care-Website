@@ -3,6 +3,7 @@ package com.petcare.rest.webservices.restful.product;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -27,13 +28,11 @@ public class ProductService {
     }
 
     public List<Product> getProductByType(String type) {
-        Predicate<? super Product> predicate = product -> product.getProductCategory().equalsIgnoreCase(type);
-        List<Product> products = repository.findAll();
 
-        List<Product> filteredProducts = products.stream()
-                .filter(predicate)
-                .collect(Collectors.toList());
-        return filteredProducts;
+        List<Product> products = repository.findProductsByProductCategory(type);
+
+        return products;
+
     }
 
     public List<Product> getProductInStock(){
@@ -65,5 +64,53 @@ public class ProductService {
                 .collect(Collectors.toList());
 
         return sortedProducts;
+    }
+
+    public List<Product> getSortedAscProductByPrice() {
+        List<Product> products = repository.findAll();
+
+        // Sort the products list in ascending order by name
+        List<Product> sortedProducts = products.stream()
+                .sorted(Comparator.comparing(Product::getProductPrice))
+                .collect(Collectors.toList());
+
+        return sortedProducts;
+    }
+
+
+    public List<Product> getSortedDesProductByPrice() {
+        List<Product> products = repository.findAll();
+
+        // Sort the products list in ascending order by name
+        List<Product> sortedProducts = products.stream()
+                .sorted(Comparator.comparing(Product::getProductPrice).reversed())
+                .collect(Collectors.toList());
+
+        return sortedProducts;
+    }
+
+    public List<Product> getProductByConstraint(String Constraint){
+        List<Product> products = new ArrayList<>();
+        System.out.println(Constraint);
+        if(Constraint.equals("ascending")){
+            products = getSortedAscProductByPrice();
+            return products;
+        }else if( Constraint.equals("descending") ){
+            products = getSortedDesProductByPrice();
+            return products ;
+        }else if(Constraint.equals("food")  ){
+            products = getProductByType(Constraint);
+            return products;
+        }else if(Constraint.equals("fashion")  ){
+            products = getProductByType(Constraint);
+            return products;
+        }else if(Constraint.equals("toy")){
+            products = getProductByType(Constraint);
+            return products;
+        }else if(Constraint.equals("all")){
+            products = getAllProduct();
+            return products;
+        }
+        return products;
     }
 }

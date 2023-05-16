@@ -1,5 +1,7 @@
 package com.petcare.rest.webservices.restful.product;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,10 +43,20 @@ public class ProductController {
         return service.getProductOutStock();
     }
 
-    @GetMapping("products/sorted/asc/name")
-    public List<Product> getSortedAscProductByName() {
-        return  service.getSortedAscProductByName();
-    }
 
+
+
+
+
+    @GetMapping("/products/constraints/{constraint}")
+    public ResponseEntity<List<Product>> getProductsByConstraint(@PathVariable String constraint) {
+        List<Product> products = service.getProductByConstraint(constraint);
+
+        if (products.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+
+        return ResponseEntity.ok(products);
+    }
 
 }
