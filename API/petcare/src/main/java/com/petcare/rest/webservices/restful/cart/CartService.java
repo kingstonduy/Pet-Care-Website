@@ -30,32 +30,32 @@ public class CartService {
     }
 
     public ResponseEntity<String> addToCart(AddToCartRequest request) {
-
-        Cart cart = new Cart();
-        cart.setCartItemQuantity(request.getCartItemQuantity());
-
-
         Product product = productRepository.findById(request.getProductId()).get();
-        User user = userRepository.findById(request.getUserId()).get();
+        User user = userRepository.findByUserUserName(request.getUsername());
+
+        Cart cart = cartRepository.findByProductAndUser(product,user);
+        if(cart != null)
+        {
+            cartRepository.deleteById(cart.getId());
+            cart.setCartItemQuantity(cart.getCartItemQuantity() + request.getCartItemQuantity());
+            cartRepository.save(cart);
+        }
+        else{
+            cart= new Cart();
+            cart.setCartItemQuantity(request.getCartItemQuantity());
+            cart.setProduct(product);
+            cart.setUser(user);
+
+            cartRepository.save(cart);
+        }
 
 
-        cart.setProduct(product);
-        cart.setUser(user);
-
-        cartRepository.save(cart);
         return ResponseEntity.status(HttpStatus.CREATED).body("Item added to cart successfully");
     }
 
     public ResponseEntity<String> UpdateQuantityCart(CartDTO request) {
-//        Product product = productRepository.findById(request.getProductId()).get();
-//        User user = userRepository.findById(request.getUserId()).get();
-//        Cart cart = cartRepository.findByProductAndUser(product,user);
-//        cart.setCartItemQuantity(request.getCartItemQuantity());
-//        cartRepository.save(cart);
         Cart cart = cartRepository.findById(request.getCartDTOId()).get();
         cart.setCartItemQuantity(request.getCartDTOQuantity());
-        if(cart != null)    System.out.println(cart.getId());
-        else System.out.println("null o day ne ");
         cartRepository.save(cart);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Item update quantity to cart successfully");
@@ -83,5 +83,11 @@ public class CartService {
             res.add(cartDTO);
         }
         return res;
+    }
+
+    public ResponseEntity<String> deleteItemOnCart(Integer cartDTOId){
+        cartRepository.deleteById(cartDTOId);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("Delete product on cart successfully");
+
     }
 }
