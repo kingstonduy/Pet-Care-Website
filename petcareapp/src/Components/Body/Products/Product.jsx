@@ -13,7 +13,7 @@ export default function Product({data}){
 
    
 
-    function handleAddToCart(e){
+    async function  handleAddToCart(e){
         e.preventDefault();
         if(authContext.isAuthenticated){
             const addToCartRequest = {
@@ -22,7 +22,7 @@ export default function Product({data}){
                 username: authContext.username
             }
             try{
-                const  response = addProductOnCart(addToCartRequest)
+                const  response =  await addProductOnCart(addToCartRequest)
                 alert('add to cart successfully')
             }
             catch(error){
