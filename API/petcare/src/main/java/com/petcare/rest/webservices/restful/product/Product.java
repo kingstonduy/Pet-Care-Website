@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.petcare.rest.webservices.restful.cart.Cart;
+import com.petcare.rest.webservices.restful.comment.Comment;
 import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -36,4 +37,24 @@ public class Product {
     List<OrderedProduct> orderedProductList;
 
 
+    @JsonIgnore
+
+    @OneToMany(mappedBy = "product",  cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Comment> comments;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", productQuantity=" + productQuantity +
+                ", productCategory='" + productCategory + '\'' +
+                ", productPrice=" + productPrice +
+                ", productDescription='" + productDescription + '\'' +
+                ", productImageUrl='" + productImageUrl + '\'' +
+                ", cartList=" + cartList +
+                ", orderedProductList=" + orderedProductList +
+                ", comments=" + comments +
+                '}';
+    }
 }
