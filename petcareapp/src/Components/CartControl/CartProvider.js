@@ -1,8 +1,6 @@
 import { createContext, useContext, useEffect } from "react";
-import { useState } from "react";
-import { getUser, getUserByUsername } from "../apiClient/UserApi";
-import { useAuth } from "../security/AuthContext";
-import { deleteCartItem, getProductOnCart, updateQuantityCartItem } from "../apiClient/CartApi";
+import { useState } from "react";import { useAuth } from "../security/AuthContext";
+import { addProductOnCart, deleteCartItem, getProductOnCart, updateQuantityCartItem } from "../apiClient/CartApi";
 
 
 export const CartContext = createContext()
@@ -86,6 +84,22 @@ export default function CartProvider({children}){
         }
         setAction(action+1)
     }
+
+    async function addFromProductToCart(id){
+        const addToCartRequest = {
+            cartItemQuantity: 1,
+            productId: id,
+            username: AuthContext.username
+        }
+        try{
+            const  response =  await addProductOnCart(addToCartRequest)
+            alert('add to cart successfully')
+        }
+        catch(error){
+            console.log(error)
+        }
+        setAction(action+1)
+    }
     
 
     
@@ -94,7 +108,7 @@ export default function CartProvider({children}){
    
     
     return(
-        <CartContext.Provider value={{cart, setCart, getProduct, updagePlusQuantityItemOnCart, updateMinusQuantityItemOnCart, deleteItemOnCart}}>
+        <CartContext.Provider value={{cart, setCart, getProduct, updagePlusQuantityItemOnCart, updateMinusQuantityItemOnCart, deleteItemOnCart, addFromProductToCart}}>
             {children}
         </CartContext.Provider>
     )
