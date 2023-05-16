@@ -41,7 +41,7 @@ export default function MainApp(){
                                 <Route path='/About' element={<About/>}/>
                                 <Route path='/Product/:id' element={<ProductDetail/>}/>
                                 <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
-                                <Route path='Checkout' element={<Checkout/>}/>
+                                <Route path='/Checkout' element={<Checkout/>}/>
                             </Routes>
                             <Footer/>
                         </BrowserRouter>

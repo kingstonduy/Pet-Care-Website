@@ -9,9 +9,11 @@ import { Link, Navigate } from "react-router-dom"
 import CartComponent from '../Body/sidebar.cart/CartComponent'
 import { useState } from 'react'
 import { useAuth } from '../security/AuthContext'
+import { useCart } from '../CartControl/CartProvider'
 export default function Header(){
 
     const authContext = useAuth()
+    const cartContext = useCart()
 
     const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -69,15 +71,19 @@ export default function Header(){
                         <li className="nav_right_item">
                             <button className='btn-cart' onClick={handleCartClick}>
                                 <FontAwesomeIcon icon={faCartShopping} className="nav_logo_cart"/>
+                                <span className='cnt-item'>{cartContext.cart.length}</span>
                             </button>
                         </li>
                         }
                         <li className="nav_right_item">
                             <div className="signUp_wrap">
-                               {authContext.isAuthenticated ?  <Link to='/Account' className='avaUser'>
-                               <FontAwesomeIcon icon={faUser} className="faArrowDown"/>  
-                               </Link>: 
-                                <Link to='/login' className='login_btn'>Sign up</Link>}
+                               {
+                                    authContext.isAuthenticated 
+                                    ?   <Link to='/Account' className='avaUser'>
+                                            <FontAwesomeIcon icon={faUser} className="faArrowDown"/>  
+                                        </Link>
+                                    : <Link to='/login' className='login_btn'>Sign up</Link>
+                                }
                                
                             </div>
                         </li>

@@ -4,11 +4,13 @@ import {Link} from 'react-router-dom'
 import { useAuth } from '../../security/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { addProductOnCart } from '../../apiClient/CartApi';
+import { useCart } from '../../CartControl/CartProvider';
 
 export default function Product({data}){
     const navigate = useNavigate()
 
     const authContext = useAuth();
+    const cartContext = useCart();
     const{id,productName,productQuantity,productCategory,productPrice,productImageUrl} = data;
 
    
@@ -16,18 +18,7 @@ export default function Product({data}){
     async function  handleAddToCart(e){
         e.preventDefault();
         if(authContext.isAuthenticated){
-            const addToCartRequest = {
-                cartItemQuantity: 1,
-                productId: id,
-                username: authContext.username
-            }
-            try{
-                const  response =  await addProductOnCart(addToCartRequest)
-                alert('add to cart successfully')
-            }
-            catch(error){
-                console.log(error)
-            }
+            cartContext.addFromProductToCart(id)
 
         }else{
             navigate('/login')
