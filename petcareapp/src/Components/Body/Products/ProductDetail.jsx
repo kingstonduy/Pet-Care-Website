@@ -4,13 +4,15 @@ import { useParams } from 'react-router-dom';
 import { useAuth } from '../../security/AuthContext';
 import { getProductDetail } from '../../apiClient/ProductApi';
 import { getUserByUsername } from '../../apiClient/UserApi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default function ProductDetail(){
 
-    const [quantityValue,setQuantityValue] = useState()
+    const [quantityValue,setQuantityValue] = useState(1)
     const [product,setProduct] = useState({})
     const authContext = useAuth()
-
+    console.log(quantityValue)
     const {id} = useParams();
     
     useEffect(() => retrieveDataProduct(),[])
@@ -27,7 +29,16 @@ export default function ProductDetail(){
     
 
     function handleOnchange(e){
+        console.log(e)
         setQuantityValue(e.target.value)
+    }
+
+    function handlePlusAddToCart(){
+        setQuantityValue(Math.min(product.productQuantity , quantityValue+1))
+    }
+
+    function handleMinusAddToCart(){
+        setQuantityValue(Math.max(0, quantityValue-1))
     }
 
 
@@ -53,7 +64,13 @@ export default function ProductDetail(){
     return(
         <div className={cs['body']}>
             <div className="grid">
-                <p>kaka ~ lala ~ baba</p>
+                <div className="">
+                    <a href="/Home">Home</a>
+                    /
+                    <a href="/Home">Home</a>
+                    /
+                    <a href="/Home">Home</a>
+                </div>
                 <div className={cs['body_product']}>
                     <div className="row">
                         <div className="column2">
@@ -70,22 +87,27 @@ export default function ProductDetail(){
 
                                 <span className={cs['product_price']}>{product.productPrice}$</span>
                                 <h3>Details</h3>
-                                <p className={cs['product_description']}>The perfect kitchen companion 
-                                    for any home cook.Our bestselling cooking combo that 
-                                    covers the kitchen essentials for any cuisine. Whether it’s searing, 
-                                    simmering, slow cooking, and everything in between — 
-                                    this set has you covered from your stove to the sink.</p>
+                                <p className={cs['product_description']}>{product.productDescription}</p>
                             </div>
                             <div className={cs['bot_wrap']}>
                                 <span>Quantity:</span>
                                 <div className={cs['input_wrap']}>
-                                    <button className={cs['btn-cal']}>-</button>
+                                    <button className={cs['btn-cal']} onClick={handleMinusAddToCart}>
+                                        <FontAwesomeIcon icon={faMinus} />
+                                    </button>
                                     <input type="number" id={cs['input-quantity']} onChange={handleOnchange} value={quantityValue} 
                                     
                                     />
-                                    <button className={cs['btn-cal']}>+</button>
+                                    <button className={cs['btn-cal']} onClick={handlePlusAddToCart}>
+                                        <FontAwesomeIcon icon={faPlus} />
+                                    </button>
                                 </div>
-                                <span className={cs['currentQuantity']}>(235 left)</span>
+                                <span className={cs['currentQuantity']}>({product.productQuantity} left)</span>
+                            </div>
+                            <div className={cs['checkout-div']}>
+                                <button className={cs['checkout-btn']}>
+                                    Add to cart
+                                </button>
                             </div>
                         </div>
 

@@ -3,18 +3,32 @@ import { useState } from 'react';
 import {Link} from 'react-router-dom'
 import { useAuth } from '../../security/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { addProductOnCart } from '../../apiClient/CartApi';
 
 export default function Product({data}){
     const navigate = useNavigate()
 
     const authContext = useAuth();
+    const{id,productName,productQuantity,productCategory,productPrice,productImageUrl} = data;
 
    
 
     function handleAddToCart(e){
         e.preventDefault();
         if(authContext.isAuthenticated){
-           
+            const addToCartRequest = {
+                cartItemQuantity: 1,
+                productId: id,
+                username: authContext.username
+            }
+            try{
+                const  response = addProductOnCart(addToCartRequest)
+                alert('add to cart successfully')
+            }
+            catch(error){
+                console.log(error)
+            }
+
         }else{
             navigate('/login')
     
@@ -23,7 +37,6 @@ export default function Product({data}){
       
     }
 
-    const{id,productName,productQuantity,productCategory,productPrice,productImageUrl} = data;
 
     const linkStyle = {
         backgroundImage: `url(${productImageUrl})`,

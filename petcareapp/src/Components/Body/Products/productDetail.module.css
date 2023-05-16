@@ -41,8 +41,8 @@
 }
 
 .top_wrap{
-    padding: 20px 0 80px 0;
-    height: 400px;
+    padding: 20px 0 50px 0;
+    height: auto;
     border-bottom: 1px solid #000;
 }
 
@@ -107,3 +107,14 @@ color: #000000;
     display: block;
     margin-top: 20px;
 }
+
+
+.checkout-btn{
+    margin-top: 50px;
+    width: 200px;
+    height: 40px;
+    background: #FF5B2E;
+    box-shadow: 0px 13px 26px -8px rgba(255, 91, 46, 0.42);
+    border-radius: 10px;
+    cursor: pointer;
+  }
