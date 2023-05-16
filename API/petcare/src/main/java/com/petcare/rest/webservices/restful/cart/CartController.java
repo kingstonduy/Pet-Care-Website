@@ -37,4 +37,10 @@ public class CartController {
     public List<CartDTO> getItemOnCart(@PathVariable String username)    {
         return service.getItemOnCart(username);
     }
+
+    @DeleteMapping("/cart/{cartDTOId}")
+    public ResponseEntity<String> deleteItemOnCart( @PathVariable Integer cartDTOId)
+    {
+        return service.deleteItemOnCart(cartDTOId);
+    }
 }
