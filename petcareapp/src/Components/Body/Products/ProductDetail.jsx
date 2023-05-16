@@ -7,12 +7,14 @@ import { getUserByUsername } from '../../apiClient/UserApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import CommentForm from './CommentForm';
+
+
 export default function ProductDetail(){
 
     const [quantityValue,setQuantityValue] = useState(1)
     const [product,setProduct] = useState({})
     const authContext = useAuth()
-    console.log(quantityValue)
     const {id} = useParams();
     
     useEffect(() => retrieveDataProduct(),[])
@@ -29,7 +31,6 @@ export default function ProductDetail(){
     
 
     function handleOnchange(e){
-        console.log(e)
         setQuantityValue(e.target.value)
     }
 
@@ -113,7 +114,16 @@ export default function ProductDetail(){
 
                     </div>
                 </div>
+
+
+               
+
+
+                <CommentForm id={id} />
+
             </div>
+
+           
 
             {/* <button onClick={HanndleFetchAPi}>Click me!</button> */}
         </div>
