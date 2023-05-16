@@ -16,6 +16,7 @@ import HiddenMenu from './Components/HiddenMenu';
 import AuthProvider from './Components/security/AuthContext';
 import ProductDetail from './Components/Body/Products/ProductDetail';
 import CartProvider from './Components/CartControl/CartProvider';
+import Checkout from './Components/Body/checkout/Checkout';
 
 export default function MainApp(){
     return (
@@ -40,11 +41,11 @@ export default function MainApp(){
                                 <Route path='/About' element={<About/>}/>
                                 <Route path='/Product/:id' element={<ProductDetail/>}/>
                                 <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
+                                <Route path='Checkout' element={<Checkout/>}/>
                             </Routes>
                             <Footer/>
                         </BrowserRouter>
                 </CartProvider>
-
             </AuthProvider>
         </div>    
     );

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { deleteCartItem, getProductOnCart, updateQuantityCartItem } from '../../apiClient/CartApi';
 import { useAuth } from '../../security/AuthContext';
+import { useCart } from '../../CartControl/CartProvider';
 
 
 
@@ -15,7 +16,9 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
     const [clicked, setClicked]= useState(1)
 
     const authContext= useAuth();
-  
+    const cartContext= useCart();
+
+
     const toggleMenu = () => {
       setIsCartOpen(false);
       setIsOpen(isCartOpen);
@@ -29,67 +32,35 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
     console.log(clicked)
     useEffect(() => {
         setIsOpen(isCartOpen);
-        retriveProductOnCart();
-    }, [isCartOpen, clicked]);
-  
+        cartContext.getProduct()
+        setCart(cartContext.cart)
+    }, [isCartOpen]);
+
+    
     useEffect(() => {
-        setCart(products);
-    }, [products]);
+        setCart(cartContext.cart)
+    }, [cartContext.cart]);
+    
+    
   
   
     async function retriveProductOnCart() {
-      try {
-        const response = await getProductOnCart(authContext.username);
-        console.log('retrieve product on cart successfully')
-        setProducts(response.data);
-      } 
-      catch (error) {
-        console.log(error);
-      }
+        cartContext.getProduct()
     }
   
-    const handlePlusClick = (product) => {
-        setClicked(clicked+1)
-        try{
-            const cartDTO = {
-                'cartDTOId': product.cartDTOId,
-                'cartDTOQuantity': product.cartDTOQuantity + 1,
-            }
-            const response = updateQuantityCartItem(cartDTO)
-        }
-        catch(error){
-            console.log(error)
-            alert('error while update quantity')
-        }
+    const handlePlusClick = async (product) => {
+        alert('plus')
+        await cartContext.updagePlusQuantityItemOnCart(product)
     };
   
-    const handleMinusClick = (product) => {
-        setClicked(clicked+1)
-        try{
-            const cartDTO = {
-                'cartDTOId': product.cartDTOId,
-                'cartDTOQuantity':Math.max(0, product.cartDTOQuantity -1) ,
-            }
-            const response = updateQuantityCartItem(cartDTO)
-        }
-        catch(error){
-            console.log(error)
-            alert('error while update quantity')
-        }
+    const handleMinusClick = async (product) => {
+        await cartContext.updateMinusQuantityItemOnCart(product)
+
     };
 
-    const handleDelteClick = (product) => {
-        console.log('click r ne')
-        setClicked(clicked+1)
-        try{
-            console.log('id cua cart: ' + product.cartDTOId)
-            const response= deleteCartItem(product.cartDTOId)
-        }
-        catch(error){
-            console.log(error)
-            alert('error while delete item on cart')
-        }
-    }
+    const  handleDelteClick = async (product) => {
+        await cartContext.deleteItemOnCart(product)
+    };
 
 
     return (
