@@ -14,8 +14,8 @@ export default function Login(){
     
     const authContext = useAuth();
 
-    const [username,setUsername] = useState('');
-    const [password,setPassword] = useState('');
+    const [username,setUsername] = useState('duy');
+    const [password,setPassword] = useState('Duy03032002');
 
     const [checkInput,setCheckInput]= useState('')
     

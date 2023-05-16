@@ -185,6 +185,7 @@ header{
 }
 
 .btn-cart{
+    position: relative;
     background-color: var(--header-color);
     border: none;
     cursor: pointer;
@@ -197,3 +198,15 @@ header{
     color: rgba(0, 9, 88, 1);
     font-weight: 700;
 }
+
+.cnt-item{
+    position: absolute;
+    top: -10px;
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    background-color: red;
+}
+

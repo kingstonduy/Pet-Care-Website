@@ -5,17 +5,14 @@ import { faMinus, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { deleteCartItem, getProductOnCart, updateQuantityCartItem } from '../../apiClient/CartApi';
 import { useAuth } from '../../security/AuthContext';
 import { useCart } from '../../CartControl/CartProvider';
+import { Link } from 'react-router-dom';
 
 
 
 const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [quantity, setQuantity] = useState(1);
-    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    const [clicked, setClicked]= useState(1)
 
-    const authContext= useAuth();
     const cartContext= useCart();
 
 
@@ -29,7 +26,6 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
       }
     };
 
-    console.log(clicked)
     useEffect(() => {
         setIsOpen(isCartOpen);
         cartContext.getProduct()
@@ -49,7 +45,6 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
     }
   
     const handlePlusClick = async (product) => {
-        alert('plus')
         await cartContext.updagePlusQuantityItemOnCart(product)
     };
   
@@ -132,11 +127,14 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
 
                 }
             </div>
-            { cart.length > 0 &&
+            {  cart.length > 0 &&
                 <div className={cs['checkout-div']}>
-                    <button className={cs['checkout-btn']}>
-                        Check out
-                    </button>
+                    
+                    <Link to='/Checkout'  className={cs['checkout-btn']} >
+                        <span className={cs['check-out-link']}>
+                            Check out
+                        </span>
+                    </Link>
                 </div>
             }
         </div>
