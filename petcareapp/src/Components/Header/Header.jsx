@@ -5,21 +5,20 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { Link, Navigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import CartComponent from '../Body/sidebar.cart/CartComponent'
 import { useState } from 'react'
 import { useAuth } from '../security/AuthContext'
 import { useCart } from '../CartControl/CartProvider'
-import { useNavigate } from 'react-router-dom'
+
 export default function Header(){
-    const navigate = useNavigate();
+
     const authContext = useAuth()
     const cartContext = useCart()
 
-    const [isCartOpen, setIsCartOpen] = useState(false);
 
     function handleCartClick() {
-        setIsCartOpen(true);
+        cartContext.setIsCartOpen(true)
     }
 
 
@@ -92,7 +91,7 @@ export default function Header(){
                 </div>
                
             </nav>
-            { authContext.isAuthenticated && <CartComponent isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />}
+            { authContext.isAuthenticated && <CartComponent/>}
           
         </header>
     )

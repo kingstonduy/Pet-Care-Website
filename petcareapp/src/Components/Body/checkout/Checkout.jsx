@@ -1,11 +1,21 @@
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../CartControl/CartProvider';
 import { useAuth } from '../../security/AuthContext';
 import cs from './Checkout.module.css'
+import { flushCartItemToOrderedProduct } from '../../apiClient/CartApi';
 
 
 export default function  Checkout() {
     const CartContext= useCart();
     const products= CartContext.cart;
+
+    const navigation= useNavigate()
+
+    const CompleteBuy = () => {
+        CartContext.AddFromCartToOrderedProduct()
+        alert('Buy successfully. Thank you for your purchase')
+        navigation('/Home')
+    }
     
     return (
         <div className={cs['body']}>
@@ -40,10 +50,9 @@ export default function  Checkout() {
                         products.length > 0 && 
                         products.map(
                             (item, index) => {
-                                console.log(item)
                                 return(
                                     <>
-                                        <div className={cs["table-row"]}>
+                                        <div className={`${cs["table-row"]} ${cs['black-line']}`}>
                                             <div className={cs["product-main-group"]}>
                                                 <div className={cs["avatar-img"]}>
                                                     <img src={item.cartDTOImageUrl} alt=""  />
@@ -88,10 +97,19 @@ export default function  Checkout() {
                             }
                         )
                     }
+                    <div className={cs["table-row"]}>
+                        <div className={`${cs['col-3']}  ${cs['centered-text']}`}>
+                            Total
+                        </div>
+
+                        <div className={`${cs['col-4']}  ${cs['centered-text']}`}>
+                            {products.reduce((total, item) => total + parseFloat(item.cartDTOPrice) * parseFloat(item.cartDTOQuantity), 0)}
+                        </div>
+                    </div>
                 </div>
 
                 <div className={cs['checkout-div']}>
-                    <button className={cs['checkout-btn']}>
+                    <button className={cs['checkout-btn']} onClick={CompleteBuy}>
                         Buy
                     </button>
                 </div>

@@ -8,7 +8,7 @@
 }
 
 .products-table{
-    padding: 100px 200px 50px 200px;
+    padding: 100px 200px 0px 200px;
 }
 
 .table-header{
@@ -32,7 +32,6 @@
     /* background-color: #FF5B2E; */
     padding-bottom: 30px;
     /* border-top: 2px solid black; */
-    border-bottom: 2px solid black;
 }
 
 .product-main-group{
@@ -152,7 +151,7 @@
 .checkout-div{
     display: flex;
     justify-content: center;
-    padding: 100px;
+    padding: 0 100px 200px  100px;
 }
 
 .checkout-btn{
@@ -162,4 +161,28 @@
     box-shadow: 0px 13px 26px -8px rgba(255, 91, 46, 0.42);
     border-radius: 10px;
     cursor: pointer;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.col-3 {
+    grid-column: 3;
+}
+.col-4 {
+    grid-columns: 4;
+}
+
+.centered-text {
+    display: flex;
+    justify-content: center;
+}
+
+
+.black-line{
+    border-bottom: 2px solid black;
+    height: auto;
+    width: auto;
 }
