@@ -41,14 +41,14 @@ values
 
 insert into Ordered_Product (id , user_Id, product_Id, ordered_Product_Quantity, ordered_Product_Date )
 values
-    (1, 1001, 5, 5, current_date()),
-    (2, 1001, 4, 4, current_date()),
-    (3, 1002, 4, 3, current_date()),
-    (4, 1002, 3, 2, current_date()),
-    (5, 1003, 3, 1, current_date()),
-    (6, 1003, 2, 2, current_date()),
-    (7, 1004, 2, 3, current_date()),
-    (8, 1004, 1, 1, current_date());
+    (1001, 1001, 5, 5, current_date()),
+    (1002, 1001, 4, 4, current_date()),
+    (1003, 1002, 4, 3, current_date()),
+    (1004, 1002, 3, 2, current_date()),
+    (1005, 1003, 3, 1, current_date()),
+    (1006, 1003, 2, 2, current_date()),
+    (1007, 1004, 2, 3, current_date()),
+    (1008, 1004, 1, 1, current_date());
 
 --
 insert into Comment(id  , product_Id , user_Id , COMMENT_DESCRIPTION , comment_Date)

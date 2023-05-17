@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";import { useAuth } from "../security/AuthContext";
-import { addProductOnCart, deleteCartItem, getProductOnCart, updateQuantityCartItem } from "../apiClient/CartApi";
+import { addProductOnCart, deleteCartItem, flushCartItemToOrderedProduct, getProductOnCart, updateQuantityCartItem } from "../apiClient/CartApi";
 
 
 export const CartContext = createContext()
@@ -11,14 +11,12 @@ export default function CartProvider({children}){
 
     const [cart,setCart] = useState([]);
     const [action, setAction] = useState(1);
+    const [isCartOpen, setIsCartOpen]= useState(false);
+
+
     const AuthContext  = useAuth();
 
-    console.log(cart)
-    useEffect(
-        () => {
-            getProduct();
-        }, [action]
-    )
+    
 
     useEffect(() => {
         if(AuthContext.isAuthenticated == true){
@@ -27,13 +25,12 @@ export default function CartProvider({children}){
         else{
             setCart([])
         }
-    },[AuthContext.isAuthenticated])
+    },[AuthContext.isAuthenticated, action, isCartOpen])
     
    
     async function getProduct() {
         try {
             const response = await getProductOnCart(AuthContext.username);
-            console.log(getProduct)
             setCart(response.data);
         } 
         catch (error) {
@@ -75,7 +72,6 @@ export default function CartProvider({children}){
     async function deleteItemOnCart(product) {
         console.log('click r ne')
         try{
-            // console.log('id cua cart: ' + product.cartDTOId)
              const  response= await deleteCartItem(product.cartDTOId) // api
         }
         catch(error){
@@ -93,11 +89,25 @@ export default function CartProvider({children}){
         }
         try{
             const  response =  await addProductOnCart(addToCartRequest)
-            alert('add to cart successfully')
+            alert('add to cart success')
+            setIsCartOpen(false)
         }
         catch(error){
             console.log(error)
         }
+        setAction(action+1)
+    }
+
+    async function AddFromCartToOrderedProduct(){
+        try{
+            const response= await flushCartItemToOrderedProduct(cart)
+        }
+        catch(error)
+        {
+            console.log(error)
+            console.log('Error when flush cart item to ordered product')
+        }
+        setIsCartOpen(false)
         setAction(action+1)
     }
     
@@ -108,7 +118,7 @@ export default function CartProvider({children}){
    
     
     return(
-        <CartContext.Provider value={{cart, setCart, getProduct, updagePlusQuantityItemOnCart, updateMinusQuantityItemOnCart, deleteItemOnCart, addFromProductToCart}}>
+        <CartContext.Provider value={{cart, setCart, isCartOpen, setIsCartOpen , getProduct, updagePlusQuantityItemOnCart, updateMinusQuantityItemOnCart, deleteItemOnCart, addFromProductToCart, AddFromCartToOrderedProduct}}>
             {children}
         </CartContext.Provider>
     )

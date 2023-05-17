@@ -152,3 +152,7 @@ input.input-quantity::-webkit-outer-spin-button {
   text-decoration: none;
   color: white;
 }
+
+.checkout-div{
+  border: none;
+}

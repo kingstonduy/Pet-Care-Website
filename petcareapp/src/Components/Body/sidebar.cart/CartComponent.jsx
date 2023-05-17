@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import cs from './CartComponent.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { deleteCartItem, getProductOnCart, updateQuantityCartItem } from '../../apiClient/CartApi';
-import { useAuth } from '../../security/AuthContext';
 import { useCart } from '../../CartControl/CartProvider';
 import { Link } from 'react-router-dom';
 
 
 
-const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
+const CartComponent = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [cart, setCart] = useState([]);
 
@@ -17,20 +15,20 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
 
 
     const toggleMenu = () => {
-      setIsCartOpen(false);
-      setIsOpen(isCartOpen);
-      if (!isCartOpen) {
-        document.documentElement.style.overflow = 'hidden';
-      } else {
-        document.documentElement.style.overflow = 'auto';
-      }
+        cartContext.setIsCartOpen(false);
+        setIsOpen(cartContext.isCartOpen);
+        if (!cartContext.isCartOpen) {
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.documentElement.style.overflow = 'auto';
+        }
     };
 
     useEffect(() => {
-        setIsOpen(isCartOpen);
+        setIsOpen(cartContext.isCartOpen);
         cartContext.getProduct()
         setCart(cartContext.cart)
-    }, [isCartOpen]);
+    }, [cartContext.isCartOpen]);
 
     
     useEffect(() => {
@@ -39,10 +37,7 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
     
     
   
-  
-    async function retriveProductOnCart() {
-        cartContext.getProduct()
-    }
+
   
     const handlePlusClick = async (product) => {
         await cartContext.updagePlusQuantityItemOnCart(product)
@@ -56,6 +51,10 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
     const  handleDelteClick = async (product) => {
         await cartContext.deleteItemOnCart(product)
     };
+
+    const moveToCheckout = () =>{
+        cartContext.setIsCartOpen(false);
+    }
 
 
     return (
@@ -128,14 +127,16 @@ const CartComponent = ({ isCartOpen, setIsCartOpen }) => {
                 }
             </div>
             {  cart.length > 0 &&
-                <div className={cs['checkout-div']}>
-                    
-                    <Link to='/Checkout'  className={cs['checkout-btn']} >
-                        <span className={cs['check-out-link']}>
-                            Check out
-                        </span>
-                    </Link>
-                </div>
+                <center>
+                    <button className={cs['checkout-div']} onClick={moveToCheckout}>
+                        <Link to='/Checkout'  className={cs['checkout-btn']} >
+                            <span className={cs['check-out-link']}>
+                                Check out
+                            </span>
+                        </Link>
+                    </button>
+                </center>
+                
             }
         </div>
         </div>
