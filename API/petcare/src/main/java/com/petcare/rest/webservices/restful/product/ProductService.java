@@ -92,13 +92,7 @@ public class ProductService {
     public List<Product> getProductByConstraint(String Constraint){
         List<Product> products = new ArrayList<>();
         System.out.println(Constraint);
-        if(Constraint.equals("ascending")){
-            products = getSortedAscProductByPrice();
-            return products;
-        }else if( Constraint.equals("descending") ){
-            products = getSortedDesProductByPrice();
-            return products ;
-        }else if(Constraint.equals("food")  ){
+        if(Constraint.equals("food")  ){
             products = getProductByType(Constraint);
             return products;
         }else if(Constraint.equals("fashion")  ){
