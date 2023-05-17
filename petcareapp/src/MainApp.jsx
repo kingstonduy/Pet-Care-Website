@@ -34,12 +34,12 @@ export default function MainApp(){
                                 <Route path='/Bird' element={<Bird/>}/>
                                 <Route path='/Hamster' element={<Hamster/>}/>
                                 <Route path='/Account' element={<Account/>}/>
-                                <Route path='/Products' element={<ProductShop/>}/>
+                                <Route path='/Products/:type' element={<ProductShop />} />
                                 <Route path='/Login' element={<Login/>}/>
                                 <Route path='/Register' element={<Register/>}/>
                                 <Route path='/login' element={<Login/>}/>
                                 <Route path='/About' element={<About/>}/>
-                                <Route path='/Product/:id' element={<ProductDetail/>}/>
+                                <Route path='/Product/Detail/:id' element={<ProductDetail/>}/>
                                 <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
                                 <Route path='/Checkout' element={<Checkout/>}/>
                             </Routes>

@@ -10,8 +10,9 @@ import CartComponent from '../Body/sidebar.cart/CartComponent'
 import { useState } from 'react'
 import { useAuth } from '../security/AuthContext'
 import { useCart } from '../CartControl/CartProvider'
+import { useNavigate } from 'react-router-dom'
 export default function Header(){
-
+    const navigate = useNavigate();
     const authContext = useAuth()
     const cartContext = useCart()
 
@@ -22,8 +23,7 @@ export default function Header(){
     }
 
 
-    
-
+   
     
 
     return(
@@ -42,7 +42,7 @@ export default function Header(){
                         <li className="nav_left_item"> <Link className='nav_left_link' to='/'>Home</Link> </li>
                         <li className="nav_left_item"> <Link className='nav_left_link' to='/About'>About</Link> </li>
                         <li className="nav_left_item"> <Link className='nav_left_link' to='/Service'>Services</Link> </li>
-                        <li className="nav_left_item"> <Link className='nav_left_link' to='/Products'>Products</Link> </li>
+                        <li className="nav_left_item"> <Link className='nav_left_link' to='Products/all'>Products</Link> </li>
                         <li className="nav_left_item nav_left_item-bridge">
                              <Link className='nav_left_link' to='/'>
                                 Information
@@ -93,6 +93,7 @@ export default function Header(){
                
             </nav>
             { authContext.isAuthenticated && <CartComponent isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />}
+          
         </header>
     )
 }

@@ -38,7 +38,7 @@ export default function Product({data}){
 
     return(
         <div className="column4">
-            <Link to={`/Product/${id}`}  className={cs['product_item']}>
+            <Link to={`/Product/Detail/${id}`}  className={cs['product_item']}>
                 
                 <div  className={cs['product_img_wrap']} >
                     <div style={linkStyle} className={cs['product_item_img']}></div>

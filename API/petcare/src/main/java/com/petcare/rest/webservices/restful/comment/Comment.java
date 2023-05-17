@@ -8,6 +8,7 @@ import com.petcare.rest.webservices.restful.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -19,8 +20,12 @@ public class Comment {
     @GeneratedValue
     private Integer id;
     private String commentDescription;
-    private Date commentDate;
+    private LocalDate commentDate;
 
+
+    public LocalDate getCommentDate() {
+        return commentDate;
+    }
 
     @ManyToOne
     private Product product;

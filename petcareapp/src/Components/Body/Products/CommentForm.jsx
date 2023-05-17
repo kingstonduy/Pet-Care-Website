@@ -23,6 +23,16 @@ export default function CommentForm({id}){
         setComments(response.data)
     }
 
+    function handleOnChangeSortComment(e) {
+        if (e.target.value === 'newest') {
+          const newComments = comments.sort((a, b) => new Date(b.commentDate).getTime() - new Date(a.commentDate).getTime());
+          setComments([...newComments]);
+        } else if (e.target.value === 'oldest') {
+          const newComments = comments.sort((a, b) => new Date(a.commentDate).getTime() - new Date(b.commentDate).getTime());
+          setComments([...newComments]);
+        }
+      }
+
     return (
         <>
             {comments.length > 0 &&
@@ -32,10 +42,10 @@ export default function CommentForm({id}){
 
                 <div className={cs['Select_filterWrap']}>
                     <p>Filter by</p>
-                    <select name="" id="" className={cs['select_inputFilter']}>
-                        <option value="">Select</option>
-                        <option value="">Newest</option>
-                        <option value="">Oldest</option>
+                    <select onChange={handleOnChangeSortComment} className={cs['select_inputFilter']}>
+                    
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
                     </select>
                 </div>
             </div>
