@@ -6,7 +6,7 @@ import { getProductDetail } from '../../apiClient/ProductApi';
 import { getUserByUsername } from '../../apiClient/UserApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
 
 
@@ -19,6 +19,9 @@ export default function ProductDetail(){
     
     useEffect(() => retrieveDataProduct(),[])
 
+
+    
+
     function retrieveDataProduct(){
         getProductDetail(id)
             .then(response => Successfully(response))
@@ -29,6 +32,7 @@ export default function ProductDetail(){
         setProduct(response.data);
     }
     
+
 
     function handleOnchange(e){
         setQuantityValue(e.target.value)
@@ -60,17 +64,15 @@ export default function ProductDetail(){
     //     // setCartItems(response.data.cartList)
     // }
 
-
+    
 
     return(
         <div className={cs['body']}>
             <div className="grid">
-                <div className="">
-                    <a href="/Home">Home</a>
-                    /
-                    <a href="/Home">Home</a>
-                    /
-                    <a href="/Home">Home</a>
+                <div >
+                   <Link className={cs['Link_Product_Category']} to="/Products/all">Product</Link> /
+                   <Link className={cs['Link_Product_Category']} to={`/Products/${product.productCategory}`}>{product.productCategory}</Link> /
+                   <Link className={cs['Link_Product_Category']} to={`/Product/Detail/${id}`}>current</Link>
                 </div>
                 <div className={cs['body_product']}>
                     <div className="row">
