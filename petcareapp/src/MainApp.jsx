@@ -18,12 +18,14 @@ import ProductDetail from './Components/Body/Products/ProductDetail';
 import CartProvider from './Components/CartControl/CartProvider';
 import Checkout from './Components/Body/checkout/Checkout';
 
+
 export default function MainApp(){
     return (
         <div>
             <AuthProvider>
                 <CartProvider>
                     <BrowserRouter>
+                            
                             <Header/>
                             <Routes>
                                 <Route path='/' element={<Home/>}/>
