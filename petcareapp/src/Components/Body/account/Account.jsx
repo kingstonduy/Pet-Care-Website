@@ -5,12 +5,8 @@ import cs from './Account.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { Avatar, Button, List, Skeleton,  } from 'antd';
-
-
-
-
-const count = 3;
+import { CommentRating } from '../../HiddenWrapContainer/CommentRating'
+import { OrderItem } from './OrderItem'
 
 
 
@@ -22,6 +18,13 @@ const Account = () => {
     const authContext = useAuth()
     const navigate = useNavigate()
     const [user, setUser] = useState('')
+
+   
+
+    function handleLogout() {
+        authContext.logout()
+        navigate('/login')
+    }
 
 
     useEffect(() => {
@@ -52,53 +55,13 @@ const Account = () => {
         }
     }
 
-    const onLoadMore = () => {
-        setLoading(true);
-        const nextItems = data.slice(list.length, list.length + 3); // Get the next three items
-        setList((prevList) => [...prevList, ...nextItems]); // Append the next items to the current list
-        setLoading(false);
-        // if (list.length + count >= data.length) {
-        //     // Check if all items have been loaded
-        //     setList((prevList) => [...prevList, ...nextItems]);
-        //     setLoading(false);
-        // }
-    };
-    const loadMore =
-    !initLoading && !loading && list.length < data.length ? (
-        <div
-            style={{
-                textAlign: 'center',
-                marginTop: 12,
-                height: 32,
-                lineHeight: '32px',
-            }}
-        >
-            <Button onClick={onLoadMore}>Load More</Button>
-        </div>
-    ) : null;
 
-    
-
-
-    function handleLogout() {
-        authContext.logout()
-        navigate('/login')
-    }
-
-    
-
-    function handleRatting() {
-        alert('clicked rating')
-    }
 
     function handleSearching() {
         alert('clicked searching')
     }
 
-    function handleBuyAgain(id) {
-        navigate(`/Product/Detail/${id}`)
     
-    }
 
     function handleChangeInformation() {
         alert('clicked change information')
@@ -108,7 +71,8 @@ const Account = () => {
 
         
     return(
-        <>
+        <div>
+
             <div className={cs['body']}>
                 <div className={cs['grid-column-left']}>
                     <div className={cs['avatar-image']}>
@@ -116,7 +80,8 @@ const Account = () => {
                     </div>
 
                     <div className={cs['avatar-name']}>
-                        {user.userFullName}
+                        Duong Khanh Duy
+
                     </div>
 
                     <div className={cs['change-information-icon']}>
@@ -177,79 +142,26 @@ const Account = () => {
                         </div>
                         
                         {
-                            <List
-                                loading={initLoading}
-                                itemLayout="horizontal"
-                                loadMore={loadMore}
-                                dataSource={list}
-                                renderItem={(item, index) => {  
-                                    return (
-                                        <List.Item style={{borderBlockEnd: 'none'}}>
-                                            <div className={`${cs["table-row"]} ${cs['black-line']}`}>
-                                                <div className={cs["product-main-group"]}>
-                                                    <div className={cs["avatar-img"]}>
-                                                        <img src= {item.orderedProductDTOImageUrl} alt=""  />
-                                                    </div>
-                            
-                                                    <div className={cs['name-type']}>
-                                                        <div className={cs["product-name"]}>
-                                                            {item.orderedProductDTOProductName}
-                                                        </div>
-                            
-                                                        <div className={cs["product-type"]}>
-                                                            {item.orderedProductDTOCategory}
-                                                        </div>
-                                                    </div>
-                                                
-                                                    
-                                                </div>
-                            
-                                                <div className={cs["table-col"]}>
-                                                    <div className={cs["product-price"]}>
-                                                        {item.orderedProductDTOPrice}
-                                                    </div>
+                            products.length > 0 &&
+                            products.map(
+                                (item, index) => {
+                                    return(
+                                       <OrderItem item={item} />
+                                    )
+                                }
+                            )
 
-                                                    <div className={cs["btn-div"]}>
-                                                        <button onClick={handleRatting}>
-                                                            RATING
-                                                        </button>
-                                                    </div>
-                                                    
-                                                </div>
-                            
-                                                <div className={cs["table-col"]}>
-                                                    <div className={cs["product-quantity"]}>
-                                                        {item.orderedProductDTOQuantity}
-                                                    </div>
-                                                    
-                                                    
-                                                </div>
-                                                
-                            
-                                                <div className={cs["table-col"]}>
-                                                    <div className={cs["product-price"]}>
-                                                        {parseFloat(item.orderedProductDTOPrice) * parseFloat(item.orderedProductDTOQuantity)}
-                                                    </div>
-
-                                                    <div className={cs["btn-div"]}>
-                                                        <button onClick={() => {handleBuyAgain(item.productId)}}>
-                                                            BUY AGAIN
-                                                        </button>
-                                                    </div>
-                                                </div>
-
-                                                
-                                            </div>
-                                        </List.Item>
-                                    );
-                                }}
-                            />
                         }
                     </div>
 
                 </div>
+
+           
             </div>
-        </>
+           
+           
+        </div>
+
     )
 }
 

@@ -1,9 +1,10 @@
 package com.petcare.rest.webservices.restful.comment;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +29,18 @@ public class CommentController {
         return commentService.comments();
     }
 
+
+    @PostMapping("comment/user/product")
+    public ResponseEntity<Comment> addCommentByUserToProduct(@RequestBody CommentAdd commentAdd){
+        System.out.println(commentAdd);
+        Comment comment = commentService.postCommentByUserAndProduct
+                (commentAdd.getUsername(),commentAdd.getProductId(),commentAdd.getCommentDescription());
+
+        if(comment != null){
+            commentService.addComment(comment);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    }
 
 }

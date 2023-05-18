@@ -1,4 +1,5 @@
 
+import { CommentRating } from "./HiddenWrapContainer/CommentRating";
 import HomeComponent from "./home/HomeComponent";
 
 export default function main(){

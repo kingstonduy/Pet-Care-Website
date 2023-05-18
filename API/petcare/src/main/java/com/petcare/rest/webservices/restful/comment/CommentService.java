@@ -4,8 +4,11 @@ import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
 import com.petcare.rest.webservices.restful.orderedproduct.OrderedProductRepository;
 import com.petcare.rest.webservices.restful.product.Product;
 import com.petcare.rest.webservices.restful.product.ProductRepository;
+import com.petcare.rest.webservices.restful.user.User;
+import com.petcare.rest.webservices.restful.user.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +20,13 @@ public class CommentService {
 
     CommentRepository commentRepository;
 
-    public CommentService(ProductRepository productRepository,CommentRepository commentRepository) {
+    UserRepository userRepository;
+
+    public CommentService(ProductRepository productRepository,CommentRepository commentRepository
+    ,UserRepository userRepository) {
         this.productRepository = productRepository;
         this.commentRepository = commentRepository;
+        this.userRepository = userRepository;
     }
 
 
@@ -27,6 +34,9 @@ public class CommentService {
         return commentRepository.findAll();
     }
 
+    public void addComment(Comment comment){
+        commentRepository.save(comment);
+    }
 
 
     public List<CommentView> getCommentsByProductId(Integer productId) {
@@ -47,6 +57,30 @@ public class CommentService {
 
         return commentViews;
     }
+
+
+    public Comment postCommentByUserAndProduct(String username, Integer id, String commentContent){
+
+        Product product = productRepository.findById(id).get();
+
+        User user = userRepository.findByUserUserName(username);
+
+
+
+        if(product != null && user != null){
+
+            Comment comment = new Comment();
+
+            comment.setUser(user);
+            comment.setProduct(product);
+            comment.setCommentDate(LocalDate.now());
+            comment.setCommentDescription(commentContent);
+            return comment;
+        }
+
+        return null;
+    }
+
 
 
 
