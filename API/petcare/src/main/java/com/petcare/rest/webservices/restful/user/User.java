@@ -33,4 +33,18 @@ public class User {
     @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> comments;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userUserName='" + userUserName + '\'' +
+                ", userFullName='" + userFullName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userRole='" + userRole + '\'' +
+                ", cartList=" + cartList +
+                ", orderedProductsList=" + orderedProductsList +
+                ", comments=" + comments +
+                '}';
+    }
 }
