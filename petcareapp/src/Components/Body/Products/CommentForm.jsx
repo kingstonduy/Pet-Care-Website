@@ -19,8 +19,8 @@ export default function CommentForm({id}){
     }
 
     function getCommentSuccessfully(response){
-        console.log(response.data)
-        setComments(response.data)
+        const newComments = response.data.sort((a, b) => new Date(b.commentDate).getTime() - new Date(a.commentDate).getTime());
+        setComments(newComments)
     }
 
     function handleOnChangeSortComment(e) {
