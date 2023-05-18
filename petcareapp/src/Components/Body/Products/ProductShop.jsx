@@ -172,11 +172,11 @@ export default function ProductShop(){
             </div>
 
             {loading ? (
-                    <div className={cs['spinner-overlay']}>
-                    <div className={cs['spinner-container']}>
-                        <div className={cs['spinner']}></div>
-                    </div>
-                    </div>
+                        <div className={cs['spinner-overlay']}>
+                            <div className={cs['spinner-container']}>
+                                <div className={cs['spinner']}></div>
+                            </div>
+                        </div>
                 ) : (
                     <div>
                     {/* Render your data when not loading */}

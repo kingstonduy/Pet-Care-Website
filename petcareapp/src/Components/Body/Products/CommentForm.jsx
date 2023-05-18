@@ -5,7 +5,7 @@ import cs from './productDetail.module.css'
 import { Button, List } from 'antd';
 
 
-const count =3
+const count =3;
 
 export default function CommentForm({id}){
 
@@ -14,6 +14,7 @@ export default function CommentForm({id}){
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
+    console.log(comments)
 
     const idProduct = id;
     
@@ -29,9 +30,14 @@ export default function CommentForm({id}){
 
     function getCommentSuccessfully(response){
         const newComments = response.data.sort((a, b) => new Date(b.commentDate).getTime() - new Date(a.commentDate).getTime());
-        setData(response.data);
         setInitLoading(false);
-        setComments(newComments.data.slice(0, count)); // Initialize the list with the first three items
+        setData(response.data);
+        if (newComments.length > 0) {
+            setComments(newComments.slice(0, count)); // Initialize the list with the first three items
+        } 
+        else {
+        setComments([]);
+        }
     }
 
     function handleOnChangeSortComment(e) {
@@ -47,7 +53,7 @@ export default function CommentForm({id}){
     const onLoadMore = () => {
         setLoading(true);
         const nextItems = data.slice(comments.length, comments.length + 3); // Get the next three items
-        setComments((prevList) => [...prevList, ...nextItems]); // Append the next items to the current list
+        setComments((prev) => [...prev, ...nextItems]); // Append the next items to the current list
         setLoading(false);
     };
 
@@ -100,7 +106,6 @@ export default function CommentForm({id}){
                     />
                 }
 
-                {/* <Comment/> */}
                     
             </div>
         </>
