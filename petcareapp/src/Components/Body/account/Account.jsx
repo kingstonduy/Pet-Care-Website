@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { CommentRating } from '../../HiddenWrapContainer/CommentRating'
 import { OrderItem } from './OrderItem'
+import {  Button, List } from 'antd';
 
 
 const count =3;
@@ -48,14 +49,34 @@ const Account = () => {
             const response = await getOrderedProduct(authContext.username)
             setInitLoading(false);
             setData(response.data);
-            setList(response.data);
-            // setList(response.data.slice(0, count)); // Initialize the list with the first three items
+            setList(response.data.slice(0, count)); // Initialize the list with the first three items
         } 
         catch (error) {
             console.error('Failed to retrieve order history:', error)
         }
     }
 
+    const onLoadMore = () => {
+        setLoading(true);
+        const nextItems = data.slice(list.length, list.length + 3); // Get the next three items
+        setList((prevList) => [...prevList, ...nextItems]); // Append the next items to the current list
+        setLoading(false);
+    };
+
+
+    const loadMore =
+    !initLoading && !loading && list.length < data.length ? (
+        <div
+            style={{
+                textAlign: 'center',
+                marginTop: 12,
+                height: 32,
+                lineHeight: '32px',
+            }}
+        >
+            <Button onClick={onLoadMore}>Load More</Button>
+        </div>
+    ) : null;
 
 
     function handleSearching() {
@@ -81,7 +102,7 @@ const Account = () => {
                     </div>
 
                     <div className={cs['avatar-name']}>
-                        Duong Khanh Duy
+                        {user.userFullName} 
 
                     </div>
 
@@ -143,14 +164,20 @@ const Account = () => {
                         </div>
                         
                         {
-                            list.length > 0 &&
-                            list.map(
-                                (item, index) => {
+                            <List 
+                                loading={initLoading}
+                                itemLayout="horizontal"
+                                loadMore={loadMore}
+                                dataSource={list}
+                                renderItem={(item, index) =>{
                                     return(
-                                       <OrderItem item={item} />
+                                        <List.Item style={{borderBlockEnd: 'none'}}>
+                                            <OrderItem item={item} />
+                                        </List.Item>
                                     )
-                                }
-                            )
+                                    }}
+
+                            />
 
                         }
                     </div>

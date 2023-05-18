@@ -53,19 +53,7 @@ export default function ProductDetail(){
     
     };
     
-    // function HanndleFetchAPi(){
-    //     getUserByUsername(authContext.username)
-    //         .then(response => getCartListSuccess(response))
-    //         .catch(error => console.log(error))
-    // }
 
-    // function getCartListSuccess(response){
-    //     console.log(authContext.username)
-    //     console.log(response.data.cartList)
-    //     // setCartItems(response.data.cartList)
-    // }
-
-    
 
     return(
         <div className={cs['body']}>
@@ -121,14 +109,13 @@ export default function ProductDetail(){
 
                
 
-
+                
                 <CommentForm id={id} />
 
             </div>
 
            
 
-            {/* <button onClick={HanndleFetchAPi}>Click me!</button> */}
         </div>
     )
 }
