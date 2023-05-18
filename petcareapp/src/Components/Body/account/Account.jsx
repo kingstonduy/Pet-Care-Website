@@ -9,7 +9,7 @@ import { CommentRating } from '../../HiddenWrapContainer/CommentRating'
 import { OrderItem } from './OrderItem'
 
 
-
+const count =3;
 const Account = () => {
     const [initLoading, setInitLoading] = useState(true);
     const [loading, setLoading] = useState(false);
@@ -142,8 +142,8 @@ const Account = () => {
                         </div>
                         
                         {
-                            products.length > 0 &&
-                            products.map(
+                            list.length > 0 &&
+                            list.map(
                                 (item, index) => {
                                     return(
                                        <OrderItem item={item} />
