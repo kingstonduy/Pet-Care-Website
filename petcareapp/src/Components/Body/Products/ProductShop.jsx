@@ -20,18 +20,33 @@ export default function ProductShop(){
 
     const authContext = useAuth();
 
+    const [loading, setLoading] = useState(true); // Start with loading set to true
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(16);
+   
     
-    useEffect(()=> retrieveProducts()
+    useEffect(()=> {
+        paginate(1)
+        retrieveProducts()
+    }
     ,[type])
 
-    function retrieveProducts(){
-        console.log('blabla')
-        getProductByConstraint(type)
+    useEffect(() => {
+        
+        setTimeout(() => {
+          setLoading(false); 
+        }, 1500); 
+      }, []);
+
+    async function retrieveProducts(){
+        
+        await getProductByConstraint(type)
             .then(response => successfully(response))
             .catch(error => console.log(error))
     }
     
-    function successfully(response){        
+    function successfully(response){ 
+       
         setProducts(response.data);
     }
 
@@ -82,6 +97,15 @@ export default function ProductShop(){
         }
     }
 
+    
+
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+      };
+
     return(
         <div className={cs['body']}>
             <div className={cs['body_title']}>
@@ -125,7 +149,7 @@ export default function ProductShop(){
                     <div className="row">
                         
                         {   
-                            products.map(
+                            currentProducts.map(
                                 product => (
                                     <Product key={product.id} data={product}/>
                                 )
@@ -136,6 +160,28 @@ export default function ProductShop(){
                 </div>
             </div>
             
+            <div className={cs['pagination']}>
+                <div className={cs['pagination-wrap']}>
+                        {Array.from({ length: Math.ceil(products.length / productsPerPage) }, (_, index) => (
+                        <button className={currentPage === index + 1 ? cs['active'] : ''}  
+                        key={index + 1} onClick={() => paginate(index+1)}>
+                            {index + 1}
+                        </button>
+                        ))}
+                </div>
+            </div>
+
+            {loading ? (
+                    <div className={cs['spinner-overlay']}>
+                    <div className={cs['spinner-container']}>
+                        <div className={cs['spinner']}></div>
+                    </div>
+                    </div>
+                ) : (
+                    <div>
+                    {/* Render your data when not loading */}
+                    </div>
+            )}
             
 
         </div>
