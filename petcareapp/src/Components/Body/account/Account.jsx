@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getOrderedProduct } from '../../apiClient/UserApi'
+import { getOrderedProduct, getUserInformation } from '../../apiClient/UserApi'
 import { useAuth } from '../../security/AuthContext'
 import cs from './Account.module.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -9,10 +9,15 @@ import { CommentRating } from '../../HiddenWrapContainer/CommentRating'
 import { OrderItem } from './OrderItem'
 
 
+
 const Account = () => {
+    const [initLoading, setInitLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+    const [list, setList] = useState([]);
     const authContext = useAuth()
     const navigate = useNavigate()
-    const [products, setProducts] = useState([])
+    const [user, setUser] = useState('')
 
    
 
@@ -21,21 +26,36 @@ const Account = () => {
         navigate('/login')
     }
 
+
     useEffect(() => {
         retrieveOrderHistory()
+        retrieveUserInformation()
     }, []) // Run once on component mount
 
+
+    async function retrieveUserInformation() {
+        try {
+            const response = await getUserInformation(authContext.username)
+            setUser(response.data)
+        } 
+        catch (error) {
+            console.error('Failed to retrieve user information:', error)
+        }
+    }
 
     async function retrieveOrderHistory() {
         try {
             const response = await getOrderedProduct(authContext.username)
-            setProducts(response.data)
-        } catch (error) {
+            setInitLoading(false);
+            setData(response.data);
+            setList(response.data.slice(0, count)); // Initialize the list with the first three items
+        } 
+        catch (error) {
             console.error('Failed to retrieve order history:', error)
         }
     }
 
-   
+
 
     function handleSearching() {
         alert('clicked searching')
@@ -47,8 +67,12 @@ const Account = () => {
         alert('clicked change information')
     }
 
+
+
+        
     return(
         <div>
+
             <div className={cs['body']}>
                 <div className={cs['grid-column-left']}>
                     <div className={cs['avatar-image']}>
@@ -57,6 +81,7 @@ const Account = () => {
 
                     <div className={cs['avatar-name']}>
                         Duong Khanh Duy
+
                     </div>
 
                     <div className={cs['change-information-icon']}>
@@ -125,6 +150,7 @@ const Account = () => {
                                     )
                                 }
                             )
+
                         }
                     </div>
 
@@ -135,7 +161,9 @@ const Account = () => {
            
            
         </div>
+
     )
 }
 
+//sth
 export default Account

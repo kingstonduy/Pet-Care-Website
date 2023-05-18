@@ -25,9 +25,9 @@ public class UserController {
         return userService.retrieveUsers();
     }
 
-    @GetMapping("/users/{id}")
-    public User getUser(@PathVariable Integer id){
-        return  userService.getUser(id);
+    @GetMapping("/users/{username}")
+    public User getUser(@PathVariable String username){
+        return userService.getUserbyUsername(username);
     }
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User userRequest) {

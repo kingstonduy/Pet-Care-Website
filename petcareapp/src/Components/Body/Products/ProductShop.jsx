@@ -21,7 +21,6 @@ export default function ProductShop(){
     const authContext = useAuth();
 
     
-    
     useEffect(()=> retrieveProducts()
     ,[type])
 
@@ -126,7 +125,6 @@ export default function ProductShop(){
                     <div className="row">
                         
                         {   
-                            
                             products.map(
                                 product => (
                                     <Product key={product.id} data={product}/>
