@@ -1,83 +1,58 @@
+import { useEffect, useState } from 'react'
+import { getOrderedProduct } from '../../apiClient/UserApi'
 import { useAuth } from '../../security/AuthContext'
 import cs from './Account.module.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-const Account= () => {
 
+const Account = () => {
     const authContext = useAuth()
     const navigate = useNavigate()
+    const [products, setProducts] = useState([])
 
-    function handleLogout(){
-        authContext.logout();
+    function handleLogout() {
+        authContext.logout()
         navigate('/login')
     }
 
-    const products = [
-        {
-            productId: 1,
-            productName: 'Iams Proactive Health Smart Puppy Large Breed Dry Puppy Foo',
-            productQuantity: '10',
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/iams-proactive-health-smart-puppy-large-breed-dry-puppy-food-15-lbs/019014610945-2.jpg'
-        },
+    useEffect(() => {
+        retrieveOrderHistory()
+    }, []) // Run once on component mount
 
-        {
-            productId: 2,
-            productName: 'Vital Essentials Freeze Dried Vital Treats Bully Sticks',
-            productQuantity: '10',
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-        },
-        
-        {
-            productId: 3,
-            productName: 'Elanco Seresto Flea and Tick Collar for Dogs Small Gray',
-            productQuantity: '10',
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
 
-        },
-
-        {
-            productId: 3,
-            productName: 'Elanco Seresto Flea and Tick Collar for Dogs Small Gray',
-            productQuantity: '10',
-            productDescription: 'Iams Smart Puppy Large Breed promotes optimal growth with balanced nutrition specifically designed for large-breed puppies and essential DHA for healthy brain development and the best start possible.',
-            productCategory: 'food',
-            productPrice: '100',
-            urlImageProduct: 'https://www.petproducts.com/static/upload/products/vital-essentials2/-vital-essentials-freeze-dried-vital-treats-bully-sticks-5-pcs/033211005090_Vital%20Essentials_Freeze-Dried%20Vital%20Treats_Bully%20Sticks_5%20pieces.png'
-
+    async function retrieveOrderHistory() {
+        try {
+            const response = await getOrderedProduct(authContext.username)
+            setProducts(response.data)
+        } catch (error) {
+            console.error('Failed to retrieve order history:', error)
         }
-    ]
-
-
-    function  handleRatting() {
-        alert("clicked rating")
     }
 
-    function handleSearching(){
-        alert("clicked searching")
+    function handleRatting() {
+        alert('clicked rating')
     }
 
-    function handleBuyAgain(){
-        alert("clicked buy again")
+    function handleSearching() {
+        alert('clicked searching')
     }
 
-    function handleChangeInformation(){
-        alert("clicked change information")
+    function handleBuyAgain(id) {
+        navigate(`/Product/Detail/${id}`)
+    
+    }
+
+    function handleChangeInformation() {
+        alert('clicked change information')
     }
 
     return(
         <div className={cs['body']}>
             <div className={cs['grid-column-left']}>
                 <div className={cs['avatar-image']}>
-                    <img src="/static/media/ava_duy.aa652af44379c0bd251d.jpg" alt="" />
+                    <FontAwesomeIcon icon={faUser}  className={cs['user-icon']}/>
                 </div>
 
                 <div className={cs['avatar-name']}>
@@ -142,6 +117,7 @@ const Account= () => {
                     </div>
                     
                     {
+                        products.length > 0 &&
                         products.map(
                             (item, index) => {
                                 return(
@@ -149,21 +125,21 @@ const Account= () => {
                                         <div className={cs["table-row"]}>
                                             <div className={cs["product-main-group"]}>
                                                 <div className={cs["avatar-img"]}>
-                                                    <img src={item.urlImageProduct} alt=""  />
+                                                    <img src={item.orderedProductDTOImageUrl} alt=""  />
                                                 </div>
 
                                                 <div className={cs["product-name"]}>
-                                                    {item.productName}
+                                                    {item.orderedProductDTOProductName}
                                                 </div>
 
                                                 <div className={cs["product-type"]}>
-                                                    {item.productCategory}
+                                                    {item.orderedProductDTOCategory}
                                                 </div>
                                             </div>
 
                                             <div className={cs["table-col"]}>
                                                 <div className={cs["product-price"]}>
-                                                    {item.productPrice}
+                                                    {item.orderedProductDTOPrice}
                                                 </div>
 
                                                 <div className={cs["btn-div"]}>
@@ -176,7 +152,7 @@ const Account= () => {
 
                                             <div className={cs["table-col"]}>
                                                 <div className={cs["product-quantity"]}>
-                                                    {item.productQuantity}
+                                                    {item.orderedProductDTOQuantity}
                                                 </div>
                                                 
                                             </div>
@@ -184,13 +160,13 @@ const Account= () => {
 
                                             <div className={cs["table-col"]}>
                                                 <div className={cs["product-price"]}>
-                                                    {item.productPrice}
+                                                    {item.orderedProductDTOPrice * item.orderedProductDTOQuantity}
                                                 </div>
 
                                                 <div className={cs["btn-div"]}>
-                                                <button onClick={handleBuyAgain}>
-                                                    BUY AGAIN
-                                                </button>
+                                                    <button onClick={() => {handleBuyAgain(item.productId)}}>
+                                                        BUY AGAIN
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

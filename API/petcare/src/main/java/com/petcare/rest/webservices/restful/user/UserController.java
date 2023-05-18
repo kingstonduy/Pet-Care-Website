@@ -1,5 +1,7 @@
 package com.petcare.rest.webservices.restful.user;
 
+import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
+import com.petcare.rest.webservices.restful.orderedproduct.OrderedProductDTO;
 import com.petcare.rest.webservices.restful.product.Product;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
@@ -46,6 +48,12 @@ public class UserController {
     public ResponseEntity<User> Register(@RequestBody User userRegister){
         userService.register(userRegister);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/users/{username}/orederedProducts")
+    public List<OrderedProductDTO> getOrderedProductEachUser(@PathVariable  String username){
+        return  userService.getOrderedProductEachUser(username);
+
     }
 
 }

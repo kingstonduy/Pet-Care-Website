@@ -20,11 +20,15 @@ public class CartService {
     ProductRepository productRepository;
 
 
+    //Constructor
     public CartService(UserRepository userRepository,CartRepository cartRepository,ProductRepository productRepository){
         this.userRepository = userRepository;
         this.cartRepository = cartRepository;
         this.productRepository = productRepository;
     }
+
+
+
     public List<Cart> retrieveCartItems(){
         return cartRepository.findAll();
     }
