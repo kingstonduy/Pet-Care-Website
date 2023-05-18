@@ -72,7 +72,7 @@ export function OrderItem({item}){
                     </div>
                 </div>
             </div>
-            {open && <CommentRating   handleOpenRatingFalse={handleOpenRatingFalse} />}
+            {open && <CommentRating  id={item.productId} handleOpenRatingFalse={handleOpenRatingFalse} />}
     </>
     )
 }

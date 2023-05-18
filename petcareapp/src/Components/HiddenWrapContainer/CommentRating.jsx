@@ -1,12 +1,28 @@
 import { useState } from 'react'
+import { postComment } from '../apiClient/CommentApi';
+import { useAuth } from '../security/AuthContext';
 import cs from './CommentRating.module.css'
 
-export function CommentRating(){
+export function CommentRating({handleOpenRatingFalse,id}){
     
     const [commentValue,setCommentValue] = useState('');
+    const AuthContext = useAuth();
 
+    function handleClickCancel(){
+        handleOpenRatingFalse()
+    }
+    
     function handlePostComment(){
-
+        const comment = 
+            {	
+                "productId": id,
+                "username" : AuthContext.username,
+                "commentDescription": commentValue
+            }
+        console.log(comment)
+        postComment(comment)
+            .then(() => handleClickCancel())
+            .catch(error => console.log(error))
     }
 
     return(
@@ -18,7 +34,7 @@ export function CommentRating(){
                 
 
                 <div className={cs['btn_wrap']}>
-                    <button  className={cs['btn_cancel']}>Cancel</button>
+                    <button onClick={handleClickCancel}  className={cs['btn_cancel']}>Cancel</button>
                     <button className={cs['btn_addCmt']} onClick={handlePostComment}>Add Comment</button>
                 </div>
 

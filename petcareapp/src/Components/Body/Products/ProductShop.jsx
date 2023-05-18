@@ -26,13 +26,13 @@ export default function ProductShop(){
     ,[type])
 
     function retrieveProducts(){
+        console.log('blabla')
         getProductByConstraint(type)
             .then(response => successfully(response))
             .catch(error => console.log(error))
     }
     
-    function successfully(response){
-        
+    function successfully(response){        
         setProducts(response.data);
     }
 

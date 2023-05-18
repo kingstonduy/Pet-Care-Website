@@ -23,6 +23,7 @@ export default function ProductDetail(){
     
 
     function retrieveDataProduct(){
+
         getProductDetail(id)
             .then(response => Successfully(response))
             .catch(error => console.log(error))
