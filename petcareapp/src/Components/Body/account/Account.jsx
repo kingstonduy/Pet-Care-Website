@@ -48,7 +48,8 @@ const Account = () => {
             const response = await getOrderedProduct(authContext.username)
             setInitLoading(false);
             setData(response.data);
-            setList(response.data.slice(0, count)); // Initialize the list with the first three items
+            setList(response.data);
+            // setList(response.data.slice(0, count)); // Initialize the list with the first three items
         } 
         catch (error) {
             console.error('Failed to retrieve order history:', error)
