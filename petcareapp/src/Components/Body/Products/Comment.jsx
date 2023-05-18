@@ -1,5 +1,7 @@
 import cs from './productDetail.module.css'
 import avaUser from '../../../assests/ava/userCommentAva.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function Comment({data}){
 
@@ -8,7 +10,7 @@ export default function Comment({data}){
     return(
         <div className={cs['comment_wrap']}>
             <div className={cs['avaUser_wrap']}>
-                <img  className={cs['avaImg']} src={avaUser} alt="" />
+                <FontAwesomeIcon icon={faUser}  className={cs['avaImg']}/>
             </div>
             <div className={cs['userDetail_wrap']}>
                 <div className={cs['userDetail_top']}>
