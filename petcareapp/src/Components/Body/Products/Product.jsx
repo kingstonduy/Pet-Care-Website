@@ -22,10 +22,7 @@ export default function Product({data}){
 
         }else{
             navigate('/login')
-    
         }
-        
-      
     }
 
 

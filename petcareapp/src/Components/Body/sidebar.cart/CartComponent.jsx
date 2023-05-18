@@ -109,7 +109,7 @@ const CartComponent = () => {
                                             </div>
     
                                             <div className={`${cs['product-price']}  ${cs['centered-text']}`}>
-                                                {v.cartDTOPrice}$
+                                                {v.cartDTOPrice * v.cartDTOQuantity}$
                                             </div>
                                         </div>
                                     </>

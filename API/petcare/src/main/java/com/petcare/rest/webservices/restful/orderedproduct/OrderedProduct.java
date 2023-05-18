@@ -1,6 +1,8 @@
 package com.petcare.rest.webservices.restful.orderedproduct;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.petcare.rest.webservices.restful.comment.Comment;
 import com.petcare.rest.webservices.restful.product.Product;
@@ -21,11 +23,23 @@ public class OrderedProduct {
     private Integer orderedProductQuantity;
     private Date orderedProductDate;
 
+    @Override
+    public String toString() {
+        return "OrderedProduct{" +
+                "id=" + id +
+                ", orderedProductQuantity=" + orderedProductQuantity +
+                ", orderedProductDate=" + orderedProductDate +
+                ", product=" + product.getId() +
+                ", user=" + user.getId() +
+                '}';
+    }
 
     @ManyToOne
+    @JsonIgnoreProperties({""})
     private Product product;
 
     @ManyToOne
+    @JsonIgnoreProperties({"id"})
     private User user;
 
 
