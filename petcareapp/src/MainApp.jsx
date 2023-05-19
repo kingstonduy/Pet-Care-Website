@@ -12,11 +12,12 @@ import Login from './Components/Body/Login/Login';
 import Register from './Components/Body/Login/Register'
 import Footer from './Components/Footer/Footer';
 import About from './Components/Body/about/About';
-import HiddenMenu from './Components/HiddenMenu';
 import AuthProvider from './Components/security/AuthContext';
 import ProductDetail from './Components/Body/Products/ProductDetail';
 import CartProvider from './Components/CartControl/CartProvider';
 import Checkout from './Components/Body/checkout/Checkout';
+import HiddenMenu from './Components/test/HiddenMenu';
+
 
 
 export default function MainApp(){
