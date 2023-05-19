@@ -6,14 +6,23 @@ import injector from '../../../assests/service/injector.png'
 import cat from '../../../assests/service/cat.png'
 import doctor from '../../../assests/service/doctor.png'
 import gloves from '../../../assests/service/gloves.png'
-
+import BookingForm from '../../HiddenWrapContainer/BookingForm'
+import { useState } from 'react'
 export default function Service(){
     
 
     const background2 = cs['body_service_item_background'] + ' ' + 'background2'
     const background3 = cs['body_service_item_background'] + ' ' + 'background3'
     const background4 = cs['body_service_item_background'] + ' ' + 'background4'
+    const [open,isOpen] = useState(false);
 
+    function handleOpenBookingTrue(){
+        isOpen(true);
+    }
+
+    function handleOpenBookingFalse(){
+        isOpen(false);
+    }
     
     return(
         <div className={cs['body']}>
@@ -74,8 +83,11 @@ export default function Service(){
             </div>
 
             <div className={cs['body_btn_book']}>
-                <Link to="/" className='btn-normal'>Book Now</Link>
+                <Link onClick={handleOpenBookingTrue} className='btn-normal'>Book Now</Link>
+                
             </div>
+
+            {open && <BookingForm  handleOpenBookingFalse={handleOpenBookingFalse} />}
         </div>
     )
 }
