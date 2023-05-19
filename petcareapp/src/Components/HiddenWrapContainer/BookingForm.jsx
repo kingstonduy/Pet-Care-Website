@@ -16,7 +16,7 @@ export default function({handleOpenBookingFalse}){
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
-                Validator.isRequired('#fullName-Booking', 'It can not be empty'),
+                
                 Validator.isRequired('#phone-number', 'It can not be empty'),
                 Validator.isRequired('#booking-date', 'It can not be empty'),
                 Validator.isRequired('#type-pet', 'It can not be empty'),
@@ -53,12 +53,7 @@ export default function({handleOpenBookingFalse}){
             <div className={cs['form_Comment']}>
                 <h2>Booking Service</h2>
                 <form   id='form_booking' className='form'>
-                    <div className='form-group form-group_fullWidth'>
-                        <input onChange={(e) => setFullname(e.target.value)}  type="text" placeholder='Your Full-Name' name="fullname" 
-                        className='form-control' id="fullName-Booking" 
-                        />
-                        <span className='form-message'></span>
-                    </div>
+                   
                     <div className='form-group form-group_fullWidth'>
                         <input onChange={(e) => setPhoneNumber(e.target.value)}  type="text" 
                         placeholder='Your Phone Number' name="phoneNumber" className='form-control' id="phone-number" />

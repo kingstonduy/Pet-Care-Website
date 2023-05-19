@@ -9,6 +9,7 @@ import { CommentRating } from '../../HiddenWrapContainer/CommentRating'
 import { OrderItem } from './OrderItem'
 import {  Button, List } from 'antd';
 import { SearchBar } from './SearchBar'
+import BookingHistory from '../../HiddenWrapContainer/BookingHistory'
 
 
 const count =3;
@@ -21,10 +22,17 @@ const Account = () => {
     const navigate = useNavigate()
     const [user, setUser] = useState('')
     const [wordEntered, setWordEntered] = useState("");
+    const [open,isOpen] = useState(false)
 
 
+    function handleOpenBookingTrue(){           
+        isOpen(true);
+        
+    }
 
-   
+    function handleOpenBookingFalse(){
+        isOpen(false);
+    }
 
     function handleLogout() {
         authContext.logout()
@@ -101,7 +109,9 @@ const Account = () => {
         <div>
 
             <div className={cs['body']}>
+                
                 <div className={cs['grid-column-left']}>
+                
                     <div className={cs['avatar-image']}>
                         <FontAwesomeIcon icon={faUser}  className={cs['user-icon']}/>
                     </div>
@@ -122,11 +132,16 @@ const Account = () => {
                             Change information
                         </button>
                     </div>
+                    
+                    
                 </div>
 
                 <div className={cs['grid-header']}>
+                   
                     <h1>Online shopping history</h1>
+                    <div onClick={handleOpenBookingTrue} className={cs['btn-logout']}>Booking History</div>
                     <button onClick={handleLogout} className={cs['btn-logout']}>Logout</button>
+                    
                 </div>
 
                 <div className={cs['grid-column-right']}>
@@ -187,14 +202,15 @@ const Account = () => {
 
                         }
                     </div>
-
+                    {open && <BookingHistory  handleOpenBookingFalse={handleOpenBookingFalse} />}
                 </div>
 
-           
+                 
             </div>
            
-           
+            
         </div>
+        
 
     )
 }
