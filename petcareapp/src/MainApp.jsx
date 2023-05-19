@@ -12,7 +12,6 @@ import Login from './Components/Body/Login/Login';
 import Register from './Components/Body/Login/Register'
 import Footer from './Components/Footer/Footer';
 import About from './Components/Body/about/About';
-import HiddenMenu from './Components/HiddenMenu';
 import AuthProvider from './Components/security/AuthContext';
 import ProductDetail from './Components/Body/Products/ProductDetail';
 import CartProvider from './Components/CartControl/CartProvider';
@@ -42,7 +41,6 @@ export default function MainApp(){
                                 <Route path='/login' element={<Login/>}/>
                                 <Route path='/About' element={<About/>}/>
                                 <Route path='/Product/Detail/:id' element={<ProductDetail/>}/>
-                                <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
                                 <Route path='/Checkout' element={<Checkout/>}/>
                             </Routes>
                             <Footer/>
