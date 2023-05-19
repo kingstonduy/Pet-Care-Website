@@ -79,6 +79,7 @@ body{
     line-height: 16px;
     color: white;
     background-color: rgba(255,91,46);
+    cursor: pointer;
 }
 
 .btn-large{
