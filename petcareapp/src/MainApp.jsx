@@ -42,7 +42,7 @@ export default function MainApp(){
                                 <Route path='/login' element={<Login/>}/>
                                 <Route path='/About' element={<About/>}/>
                                 <Route path='/Product/Detail/:id' element={<ProductDetail/>}/>
-                                <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
+                            
                                 <Route path='/Checkout' element={<Checkout/>}/>
                             </Routes>
                             <Footer/>
