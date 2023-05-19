@@ -2,6 +2,7 @@ package com.petcare.rest.webservices.restful.user;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.petcare.rest.webservices.restful.Booking.BookingDate;
 import com.petcare.rest.webservices.restful.cart.Cart;
 import com.petcare.rest.webservices.restful.comment.Comment;
 import com.petcare.rest.webservices.restful.orderedproduct.OrderedProduct;
@@ -32,6 +33,9 @@ public class User {
 
     @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> comments;
+
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BookingDate> bookingDates;
 
     @Override
     public String toString() {

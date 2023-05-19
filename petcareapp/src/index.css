@@ -138,7 +138,7 @@ body{
   line-height: 20px;
   /* identical to box height, or 143% */
   
-  padding: 15px 15px 15px 15px;
+  padding: 0 15px 0 15px;
   color: #000000;
   border: 1px solid #000000;
   border-radius: 4px;
@@ -170,6 +170,10 @@ body{
 .form-group{
   display: flex;
   flex-direction: column;
+}
+
+.form-group.form-group_fullWidth{
+  width: 100%;
 }
 
 .form-label{

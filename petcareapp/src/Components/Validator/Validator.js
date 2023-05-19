@@ -60,7 +60,7 @@ export function Validator(options,setUsername,setPassword) {
 				// Trường hợp submit với javascript
 				if (typeof options.onSubmit === 'function') {
 					// Lấy ra tất cả input có Atribute là name
-					var enableInputs = formElement.querySelectorAll('input[name]:not([name="confirmPassword"])');
+					var enableInputs = formElement.querySelectorAll('[name]:not([name="confirmPassword"])');
                     
 					// vÌ enableInputs là một NodeList mà NodeList lại không sử dụng được reduce
 					// Chuyển nó thành Array để sử dụng được reduce
