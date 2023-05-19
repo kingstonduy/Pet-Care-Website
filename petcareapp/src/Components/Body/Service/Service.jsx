@@ -8,16 +8,25 @@ import doctor from '../../../assests/service/doctor.png'
 import gloves from '../../../assests/service/gloves.png'
 import BookingForm from '../../HiddenWrapContainer/BookingForm'
 import { useState } from 'react'
+import { useAuth } from '../../security/AuthContext'
+import {useNavigate} from 'react-router-dom'
 export default function Service(){
-    
+    const navigate = useNavigate()
 
     const background2 = cs['body_service_item_background'] + ' ' + 'background2'
     const background3 = cs['body_service_item_background'] + ' ' + 'background3'
     const background4 = cs['body_service_item_background'] + ' ' + 'background4'
     const [open,isOpen] = useState(false);
+    const AuthContext = useAuth();
 
-    function handleOpenBookingTrue(){
-        isOpen(true);
+    function handleOpenBookingTrue(e){
+        if(AuthContext.isAuthenticated){
+            
+            isOpen(true);
+        }else{
+            navigate('/login')
+        }
+        
     }
 
     function handleOpenBookingFalse(){
@@ -83,7 +92,7 @@ export default function Service(){
             </div>
 
             <div className={cs['body_btn_book']}>
-                <Link onClick={handleOpenBookingTrue} className='btn-normal'>Book Now</Link>
+                <div  onClick={handleOpenBookingTrue} className='btn-normal'>Book Now</div>
                 
             </div>
 
