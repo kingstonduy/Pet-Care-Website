@@ -8,6 +8,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { CommentRating } from '../../HiddenWrapContainer/CommentRating'
 import { OrderItem } from './OrderItem'
 import {  Button, List } from 'antd';
+import { SearchBar } from './SearchBar'
 
 
 const count =3;
@@ -19,6 +20,9 @@ const Account = () => {
     const authContext = useAuth()
     const navigate = useNavigate()
     const [user, setUser] = useState('')
+    const [wordEntered, setWordEntered] = useState("");
+
+
 
    
 
@@ -64,8 +68,9 @@ const Account = () => {
     };
 
 
+    console.log(list.length)
     const loadMore =
-    !initLoading && !loading && list.length < data.length ? (
+    !initLoading && !loading && list.length > 0 && wordEntered==="" &&list.length < data.length ?  (
         <div
             style={{
                 textAlign: 'center',
@@ -125,7 +130,7 @@ const Account = () => {
                 </div>
 
                 <div className={cs['grid-column-right']}>
-                    <div className={cs["searching-bar"]}>
+                    {/* <div className={cs["searching-bar"]}>
                         <div className={cs["input-searching"]}>
                             <input type="text" name="" id="" placeholder='search' />
 
@@ -138,7 +143,8 @@ const Account = () => {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+                    <SearchBar setData= {setList} originalData={data} wordEntered={wordEntered} setWordEntered={setWordEntered} />
 
 
 

@@ -16,7 +16,6 @@ import AuthProvider from './Components/security/AuthContext';
 import ProductDetail from './Components/Body/Products/ProductDetail';
 import CartProvider from './Components/CartControl/CartProvider';
 import Checkout from './Components/Body/checkout/Checkout';
-import HiddenMenu from './Components/test/HiddenMenu';
 
 
 
@@ -43,7 +42,6 @@ export default function MainApp(){
                                 <Route path='/login' element={<Login/>}/>
                                 <Route path='/About' element={<About/>}/>
                                 <Route path='/Product/Detail/:id' element={<ProductDetail/>}/>
-                                <Route path='/HiddenMenu' element={<HiddenMenu/>}/>
                                 <Route path='/Checkout' element={<Checkout/>}/>
                             </Routes>
                             <Footer/>
