@@ -12,7 +12,10 @@ import avaDinh from '../../../assests/ava/ava_dinh.jpg'
 import avapetcare from '../../../assests/ava/doctorava.png'
 export default function Home(){
 
-
+     function handleClickEmergencyCall(){
+         window.scrollTo(0,100000);
+        alert("Enter Phone Number In Our Contact Info")
+    }
     
     return(
        <div className={cs['body']}>
@@ -29,7 +32,7 @@ export default function Home(){
                             <p>Best pets are waiting for adoption. Find out the the perfect one you will like it. It’s our promise.</p>
 
                             <div className={cs['body_intro_title_contact']} >
-                                <a href="" className='btn-normal'>Contact us</a>
+                                <a href="https://www.facebook.com/zetnguyen172/" className='btn-normal'>Contact us</a>
                                 <div className={cs['intro-contact_ava_wrap']}>
                                     <a href="https://www.facebook.com/zetnguyen172/"><img src={avaNghia} alt="" className={cs['contact_ava']} /></a>
                                     <a href="https://www.facebook.com/kduyyy"><img src={avaDuy} alt="" className={cs['contact_ava']} /></a>
@@ -89,10 +92,11 @@ export default function Home(){
                             Ut enim ad minim  velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
                         <div className={cs['body_contact_wrap_left_item2']} >
-                        <Link to='/' className='btn-large' >Book Now</Link>
+                        <Link to='/Service' className='btn-large' >Book Now</Link>
                             <div>
                                 <FontAwesomeIcon icon={faPhone} className={cs['faPhone']} /> 
-                            <a href="">Emergency Call</a>
+                            <Link onClick={handleClickEmergencyCall}>Emergency Call</Link>
+                            
                             </div>
                         </div>
                     </div>
