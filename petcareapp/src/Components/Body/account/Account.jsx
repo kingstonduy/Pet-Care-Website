@@ -208,7 +208,7 @@ const Account = () => {
                                 renderItem={(item, index) =>{
                                     return(
                                         <List.Item style={{borderBlockEnd: 'none'}}>
-                                            <OrderItem item={item} />
+                                            <OrderItem  item={item} />
                                         </List.Item>
                                     )
                                     }}
