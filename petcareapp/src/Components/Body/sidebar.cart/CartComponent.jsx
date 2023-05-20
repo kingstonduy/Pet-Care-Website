@@ -40,6 +40,7 @@ const CartComponent = () => {
 
   
     const handlePlusClick = async (product) => {
+        console.log(product)
         await cartContext.updagePlusQuantityItemOnCart(product)
     };
   
@@ -49,6 +50,7 @@ const CartComponent = () => {
     };
 
     const  handleDelteClick = async (product) => {
+        
         await cartContext.deleteItemOnCart(product)
     };
 

@@ -31,6 +31,7 @@ export default function CartProvider({children}){
     async function getProduct() {
         try {
             const response = await getProductOnCart(AuthContext.username);
+            console.log(response.data)
             setCart(response.data);
         } 
         catch (error) {
@@ -98,6 +99,23 @@ export default function CartProvider({children}){
         setAction(action+1)
     }
 
+    async function addFromProductToCartInProductDetail(id,quantity){
+        const addToCartRequest = {
+            cartItemQuantity: quantity,
+            productId: id,
+            username: AuthContext.username
+        }
+        try{
+            const  response =  await addProductOnCart(addToCartRequest)
+            alert('add to cart success')
+            setIsCartOpen(false)
+        }
+        catch(error){
+            console.log(error)
+        }
+        setAction(action+1)
+    }
+
     async function AddFromCartToOrderedProduct(){
         try{
             const response= await flushCartItemToOrderedProduct(cart)
@@ -118,7 +136,9 @@ export default function CartProvider({children}){
    
     
     return(
-        <CartContext.Provider value={{cart, setCart, isCartOpen, setIsCartOpen , getProduct, updagePlusQuantityItemOnCart, updateMinusQuantityItemOnCart, deleteItemOnCart, addFromProductToCart, AddFromCartToOrderedProduct}}>
+        <CartContext.Provider value={{cart, setCart, isCartOpen, setIsCartOpen , 
+        getProduct, updagePlusQuantityItemOnCart, updateMinusQuantityItemOnCart, 
+        deleteItemOnCart, addFromProductToCart, AddFromCartToOrderedProduct,addFromProductToCartInProductDetail}}>
             {children}
         </CartContext.Provider>
     )

@@ -1,6 +1,15 @@
+import { useEffect } from 'react'
 import BookingHistory from '../../HiddenWrapContainer/BookingHistory'
 import cs from './About.module.css'
 const About = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    },[])
     return (
         <>
             <div className={cs["body"]}>

@@ -47,15 +47,13 @@ export default function Header(){
                                 Information
                                 <FontAwesomeIcon icon={faCaretDown} className="faArrowDown"/>    
                             </Link> 
-                            <ul class="nav__list-pet">
-                               
-                                
+                            <ul class="nav__list-pet">                            
                                 
                                 
                                 <li class="nav__item-pet"> <Link to='/Cat' class="nav__item-pet-link">Cat</Link> </li>
                                 <li class="nav__item-pet"><Link to='/Dog' class="nav__item-pet-link">Dog</Link> </li>
                                 <li class="nav__item-pet"><Link to='/Bird' class="nav__item-pet-link">Bird</Link> </li>
-                                <li class="nav__item-pet"><Link to='/Hamster' class="nav__item-pet-link">Hamster</Link></li>
+                             
                             </ul>
                         </li>
                     </ul>

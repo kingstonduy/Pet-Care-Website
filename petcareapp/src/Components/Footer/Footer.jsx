@@ -51,11 +51,13 @@ const Footer = () => {
                             <div className={cs["body-explore"]}>
                                 
                                 <li>
-                                    <a className={cs['link']} href="/About">About us</a>
+                                    <Link  className={cs['link']} to="/About">About us</Link>
+                                    
                                 </li>
 
                                 <li>
-                                    <a className={cs['link']} href="/Service">Services</a>
+                                <Link  className={cs['link']} to="/Service">Services</Link>
+                                    
                                 </li>
 
                                 <li>
@@ -63,7 +65,8 @@ const Footer = () => {
                                 </li>
 
                                 <li>
-                                    <a className={cs['link']} href="/Products">Products</a>
+                                    <Link  className={cs['link']} to="/Products/all">Products</Link>
+                                    
                                 </li>
                             </div>
 
