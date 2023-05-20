@@ -46,8 +46,11 @@ public class UserController {
     }
     @PostMapping("/register")
     public ResponseEntity<User> Register(@RequestBody User userRegister){
-        userService.register(userRegister);
-        return ResponseEntity.ok().build();
+       User user = userService.register(userRegister);
+        if(user != null){
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/users/{username}/orederedProducts")

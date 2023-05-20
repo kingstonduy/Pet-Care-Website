@@ -95,7 +95,10 @@ public class ProductService {
         if(Constraint.equals("food")  ){
             products = getProductByType(Constraint);
             return products;
-        }else if(Constraint.equals("fashion")  ){
+        }else if(Constraint.equals("fashion")  ) {
+            products = getProductByType(Constraint);
+            return products;
+        }else if(Constraint.equals("grooming")  ){
             products = getProductByType(Constraint);
             return products;
         }else if(Constraint.equals("toy")){
