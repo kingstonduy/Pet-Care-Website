@@ -19,7 +19,12 @@ public class User {
     @Id
     @GeneratedValue
     private Integer id;
+
+
+    @Column(unique = true)
     private String  userUserName;
+
+
     private  String userFullName;
     private String userPassword;
     private  String userEmail;

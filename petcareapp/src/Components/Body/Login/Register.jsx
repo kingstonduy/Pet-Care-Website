@@ -18,10 +18,11 @@ export default function Login(){
     const [fullname,setFullname] = useState('');
     const [confirmPassword,setConfirmPassword] = useState('');
     const navigate= useNavigate();
+    const [errorMessage, setErrorMessage] = useState(false)
 
     async function register(user){
         try{
-            console.log(user)
+            
             const response = await checkRegister(user)
             if(response.status == 200){
                 alert('Register successfully')
@@ -29,9 +30,8 @@ export default function Login(){
             }
         }
         catch(error){
-            console.log(error)
-            alert('Register failed')
-            navigate('/register')
+            
+           setErrorMessage(true)
         }
     }
 
@@ -65,7 +65,7 @@ export default function Login(){
                     'userEmail': data.email,
                     'userRole': 'user'
                 }
-                console.log(user)
+                
                 register(user)
                 
             }
@@ -143,6 +143,11 @@ export default function Login(){
                                         <input value={username}  type="text" placeholder='Ex: sakurahaha123' name="username" className='form-control' id="username" 
                                         onChange={handleOnchangeUsername}/>
                                         <span className='form-message'></span>
+                                        {errorMessage && <span style={{
+                                            color: 'red',
+                                            'margin-top': '15px',
+                                            'alignSelf': 'center'
+                                        }} className='form-message'>Your username has already used!</span>}
                                     </div>
                                     <div className='form-group'>
                                         <label htmlFor="password" className="form-label">Password</label>

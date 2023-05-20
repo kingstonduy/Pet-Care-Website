@@ -52,7 +52,10 @@ public class UserService {
     }
 
     public void register(@RequestBody User userRegister){
-        User saveUser = userRepository.save(userRegister);
+        User saveUser = userRepository.findByUserUserName(userRegister.getUserUserName());
+        if(saveUser == null){
+            userRepository.save(userRegister);
+        }
         return;
     }
 
@@ -83,5 +86,38 @@ public class UserService {
         User user = userRepository.findByUserUserName(username);
         return user;
     }
+
+    public UserChangeInformation getUserChangeInformation(String username){
+        User user = getUserbyUsername(username);
+        if(user != null){
+            UserChangeInformation userChangeInformation = new UserChangeInformation();
+            userChangeInformation.setUserId(user.getId());
+            userChangeInformation.setUsername(user.getUserUserName());
+            userChangeInformation.setEmail(user.getUserEmail());
+            userChangeInformation.setFullName(user.getUserFullName());
+
+            return userChangeInformation;
+        }
+        return null;
+
+    }
+
+    public User ChangeUserInformation(UserChangeInformation userChangeInformation){
+
+        User user = userRepository.findByUserUserName(userChangeInformation.getUsername());
+        System.out.println(user.getId());
+        if( user != null && user.getUserPassword().equals(userChangeInformation.getCurrentPassword())){
+            System.out.println("VO DUOC DAY NE!!!!!");
+            user.setUserFullName(userChangeInformation.getFullName());
+            user.setUserPassword(userChangeInformation.getPassword());
+            user.setUserEmail(userChangeInformation.getEmail());
+            userRepository.save(user);
+            return user;
+        }
+        System.out.println("LOI~ ROI!!!!!!!");
+        return null;
+    }
+
+
 
 }

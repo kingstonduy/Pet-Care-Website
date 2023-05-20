@@ -19,6 +19,7 @@ export default function Login(){
 
     const [checkInput,setCheckInput]= useState('')
     
+    const [errorMessage, setErrorMessage] = useState(false)
 
     useEffect(() => {
         Validator({
@@ -35,11 +36,11 @@ export default function Login(){
                     'userUserName': data.username,
                     'userPassword': data.password
                 }
-                console.log(user)
+                
                 if(await authContext.login(user)){
                     navigate('/Home')
                 }else{
-                    
+                    setErrorMessage(true)
                 }
         }
         });        
@@ -91,7 +92,11 @@ export default function Login(){
                                 </div>
 
                                 
-
+                                {errorMessage && <span style={{
+                                    color: 'red',
+                                    'margin': '15px',
+                                    'alignSelf': 'center'
+                                }} className='form-message'>Your Username or Password is incorrect!</span>}
                                 <form   id='form_login' className='form'>
                                     <div className='form-group'>
                                         <input value={username}  type="text" placeholder='USERNAME' name="username" className='form-control' id="username" 

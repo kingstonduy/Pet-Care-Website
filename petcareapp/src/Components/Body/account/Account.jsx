@@ -10,6 +10,7 @@ import { OrderItem } from './OrderItem'
 import {  Button, List } from 'antd';
 import { SearchBar } from './SearchBar'
 import BookingHistory from '../../HiddenWrapContainer/BookingHistory'
+import UserChangeInformation from '../../HiddenWrapContainer/UserChangeInformation'
 
 
 const count =3;
@@ -23,7 +24,7 @@ const Account = () => {
     const [user, setUser] = useState('')
     const [wordEntered, setWordEntered] = useState("");
     const [open,isOpen] = useState(false)
-
+    const [openChange,isOpenChange] = useState(false);
 
     function handleOpenBookingTrue(){           
         isOpen(true);
@@ -32,6 +33,15 @@ const Account = () => {
 
     function handleOpenBookingFalse(){
         isOpen(false);
+    }
+
+    function handleOpenChangeTrue(){           
+        isOpenChange(true);
+        
+    }
+
+    function handleOpenChangeFalse(){
+        isOpenChange(false);
     }
 
     function handleLogout() {
@@ -82,7 +92,6 @@ const Account = () => {
     };
 
 
-    console.log(list.length)
     const loadMore =
     !initLoading && !loading && list.length > 0 && wordEntered==="" &&list.length < data.length ?  (
         <div
@@ -134,7 +143,7 @@ const Account = () => {
                     </div>
 
                     <div className={cs['change-information-label']}>
-                        <button onClick={handleChangeInformation}>
+                        <button onClick={handleOpenChangeTrue}>
                             Change information
                         </button>
                     </div>
@@ -215,6 +224,7 @@ const Account = () => {
             </div>
            
             
+           { openChange && <UserChangeInformation retrieveUserInformation={retrieveUserInformation} handleOpenChangeFalse={handleOpenChangeFalse}/>}
         </div>
         
 

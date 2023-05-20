@@ -56,6 +56,27 @@ public class UserController {
 
     }
 
+    @GetMapping("/user/userChangeInformation/{username}")
+    public UserChangeInformation getUserChangeInformation(@PathVariable String username){
+        return userService.getUserChangeInformation(username);
+
+    }
+
+    @PutMapping("user/userChangeInformation/update")
+    public ResponseEntity<User> ChangeUserInformation(@RequestBody UserChangeInformation
+            userChangeInformation)
+
+    {
+        System.out.println(userChangeInformation);
+        User user = userService.ChangeUserInformation(userChangeInformation);
+        System.out.println("KO CÓ LỖI NÈEEEEE" + user.getUserFullName());
+        if(user != null){
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+
 }
 
 
