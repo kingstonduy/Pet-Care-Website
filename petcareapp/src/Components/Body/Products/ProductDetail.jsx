@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
+import { useCart } from '../../CartControl/CartProvider';
 
 
 export default function ProductDetail(){
@@ -16,8 +17,19 @@ export default function ProductDetail(){
     const [product,setProduct] = useState({})
     const authContext = useAuth()
     const {id} = useParams();
+
+    const CartContext = useCart();
     
-    useEffect(() => retrieveDataProduct(),[])
+    useEffect(() => {
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+        retrieveDataProduct()
+        
+    },[])
 
 
     
@@ -35,16 +47,14 @@ export default function ProductDetail(){
     
 
 
-    function handleOnchange(e){
-        setQuantityValue(e.target.value)
-    }
+    
 
     function handlePlusAddToCart(){
         setQuantityValue(Math.min(product.productQuantity , quantityValue+1))
     }
 
     function handleMinusAddToCart(){
-        setQuantityValue(Math.max(0, quantityValue-1))
+        setQuantityValue(Math.max(1, quantityValue-1))
     }
 
 
@@ -53,6 +63,9 @@ export default function ProductDetail(){
     
     };
     
+    function handleAddToCart(){
+        CartContext.addFromProductToCartInProductDetail(id,quantityValue)
+    }
 
 
     return(
@@ -87,7 +100,7 @@ export default function ProductDetail(){
                                     <button className={cs['btn-cal']} onClick={handleMinusAddToCart}>
                                         <FontAwesomeIcon icon={faMinus} />
                                     </button>
-                                    <input type="number" id={cs['input-quantity']} onChange={handleOnchange} value={quantityValue} 
+                                    <input type="text" id={cs['input-quantity']}  value={quantityValue} 
                                     
                                     />
                                     <button className={cs['btn-cal']} onClick={handlePlusAddToCart}>
@@ -97,7 +110,7 @@ export default function ProductDetail(){
                                 <span className={cs['currentQuantity']}>({product.productQuantity} left)</span>
                             </div>
                             <div className={cs['checkout-div']}>
-                                <button className={cs['checkout-btn']}>
+                                <button onClick={handleAddToCart} className={cs['checkout-btn']}>
                                     Add to cart
                                 </button>
                             </div>

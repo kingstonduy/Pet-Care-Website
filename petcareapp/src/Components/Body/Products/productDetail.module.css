@@ -96,6 +96,7 @@ color: #000000;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 2px;
 }
 
 #input-quantity{

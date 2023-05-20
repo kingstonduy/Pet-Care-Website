@@ -26,17 +26,21 @@ export default function ProductShop(){
    
     
     useEffect(()=> {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+        setLoading(true)
         paginate(1)
         retrieveProducts()
+        setTimeout(() => {
+            setLoading(false); 
+        }, 1000); 
     }
     ,[type])
 
-    useEffect(() => {
-        
-        setTimeout(() => {
-          setLoading(false); 
-        }, 1500); 
-      }, []);
+    
 
     async function retrieveProducts(){
         
@@ -103,6 +107,11 @@ export default function ProductShop(){
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
     const paginate = (pageNumber) => {
+        window.scrollTo({
+            top: 50,
+            left: 0,
+            behavior: 'smooth'
+        })
         setCurrentPage(pageNumber);
       };
 
@@ -117,8 +126,8 @@ export default function ProductShop(){
                 <div className={cs['body_sort']}>
                     <div className={cs['body_sort_left']}>
                         <div className={cs['sortGroup']}>
-                            <label htmlFor="selectSort">Sort By:</label>
-                            <select name="" id="selectSort" onChange={handleSort}>
+                            <label >Sort By:</label>
+                            <select name="" className={cs['select']} id="selectSort" onChange={handleSort}>
                                 
                                 <option value="ascending">Ascendingly</option>
                                 <option value="descending">Descendingly</option>
@@ -128,8 +137,8 @@ export default function ProductShop(){
 
                     <div className={cs['body_sort_right']}>
                         <div className={cs['sortGroup']}>
-                            <label htmlFor="selectSort">Filter By:</label>
-                            <select name="" id="selectSort" onChange={handleChangeSelect} >
+                            <label htmlFor="selectFilter">Filter By:</label>
+                            <select name="" id="selectFilter" onChange={handleChangeSelect} >
                                 
                                 <option value="all">All</option>
                                 <option value="food">Food</option>
@@ -139,7 +148,7 @@ export default function ProductShop(){
                         </div>
 
                         <div className={cs['sortGroup']}>
-                            <label htmlFor="selectSort">In Stock</label>
+                            <label >In Stock</label>
                             <Switch  onChange={handleChangeToggle} className={cs['switchToggle']}/>
                         </div>
                     </div>

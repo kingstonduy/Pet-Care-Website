@@ -22,7 +22,11 @@ export default function BookingHistory({handleOpenBookingFalse}){
 
     async function getBookingHistory(){
         await getBookingHistoryByUsername(AuthContext.username)
-            .then((response) => setListBooking(response.data))
+            .then(response => {
+                console.log(response.data)
+                const newComments = response.data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+                setListBooking(newComments)
+            })
             .catch(error => console.log(error))
     }
     async function getUserFullname(){
@@ -37,36 +41,38 @@ export default function BookingHistory({handleOpenBookingFalse}){
     
     return (
         <div className={cs['hidden_wrap']}>
-        <div className={cs['form_Comment']}>
-        <h2>Booking History</h2>
-        <table>
-            <tr>
-                <th>FullName</th>
-                <th>PhoneNumber</th>
-                <th>Date</th>
-                <th>PetType</th>
-            </tr>
-            {
-              listBooking.length > 0 && fullname != '' ?
-              listBooking.map((bookingItem, index) => (
-                <tr key={index}>
-                  <td>{fullname}</td>
-                  <td>{bookingItem.phoneNumber}</td>
-                  <td>{bookingItem.typePet}</td>
-                  <td>{bookingItem.date.toString()}</td>
-                </tr>
-              ))
-               : <div></div>
-            }
-        </table>
-            
-        <div className={cs['btn_wrap']}>
-            <button onClick={handleCloseBookingHistory}   className={cs['btn_cancel']}>Cancel</button>
+           <div className={cs['form_Comment']}>
+                <div className={cs['overFlow_wrap']} >
+                    <h2>Booking History</h2>
+                    <table>
+                        <tr>
+                            <th>FullName</th>
+                            <th>PhoneNumber</th>
+                            <th>Date</th>
+                            <th>PetType</th>
+                        </tr>
+                        {
+                        listBooking.length > 0 && fullname != '' ?
+                        listBooking.map((bookingItem, index) => (
+                            <tr key={index}>
+                            <td>{fullname}</td>
+                            <td>{bookingItem.phoneNumber}</td>
+                            <td>{bookingItem.date.toString()}</td>
+                            <td>{bookingItem.typePet}</td>
+                            </tr>
+                        ))
+                        : <div></div>
+                        }
+                    </table>
+                    
+                    
+                    
+                </div>
+                <div className={cs['btn_wrap']}>
+                    <button onClick={handleCloseBookingHistory}   className={cs['btn_cancel']}>Cancel</button>
 
+                </div>
+           </div>
         </div>
-            
-
-        </div>
-    </div>
     )
 }

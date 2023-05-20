@@ -7,7 +7,7 @@ import cat from '../../../assests/service/cat.png'
 import doctor from '../../../assests/service/doctor.png'
 import gloves from '../../../assests/service/gloves.png'
 import BookingForm from '../../HiddenWrapContainer/BookingForm'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../../security/AuthContext'
 import {useNavigate} from 'react-router-dom'
 export default function Service(){
@@ -18,6 +18,14 @@ export default function Service(){
     const background4 = cs['body_service_item_background'] + ' ' + 'background4'
     const [open,isOpen] = useState(false);
     const AuthContext = useAuth();
+
+    useEffect(()=> {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    },[])
 
     function handleOpenBookingTrue(e){
         if(AuthContext.isAuthenticated){
