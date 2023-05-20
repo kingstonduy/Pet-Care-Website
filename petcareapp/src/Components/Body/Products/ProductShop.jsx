@@ -144,6 +144,7 @@ export default function ProductShop(){
                                 <option value="food">Food</option>
                                 <option value="fashion">Fashion</option>
                                 <option value="toy">Toy</option>
+                                <option value="grooming">Grooming</option>
                             </select>
                         </div>
 

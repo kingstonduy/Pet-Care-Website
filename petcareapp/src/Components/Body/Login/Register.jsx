@@ -25,6 +25,7 @@ export default function Login(){
             
             const response = await checkRegister(user)
             if(response.status == 200){
+                console.log(response)
                 alert('Register successfully')
                 navigate('/login')
             }
