@@ -87,7 +87,7 @@ const CartComponent = () => {
     
                                             <div className={cs['product-main-group']}>
                                                 <div className={cs['product-name']}>
-                                                    { v.cartDTOName > 30 ? `${v.cartDTOName.slice(0,30)}...` : v.cartDTOName }
+                                                    { v.cartDTOName.length > 30 ? `${v.cartDTOName.slice(0,30)}...` : v.cartDTOName }
                                                 </div>
     
                                                 <div className={cs['product-action']}>
