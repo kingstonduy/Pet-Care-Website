@@ -51,12 +51,13 @@ public class UserService {
 
     }
 
-    public void register(@RequestBody User userRegister){
+    public User register(@RequestBody User userRegister){
         User saveUser = userRepository.findByUserUserName(userRegister.getUserUserName());
         if(saveUser == null){
             userRepository.save(userRegister);
+            return userRegister;
         }
-        return;
+        return null;
     }
 
     public List<OrderedProductDTO> getOrderedProductEachUser(String username){
