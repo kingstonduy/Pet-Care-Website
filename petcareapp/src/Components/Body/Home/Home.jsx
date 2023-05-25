@@ -1,7 +1,7 @@
 import cs from './Home.module.css'
 import meowpicture from '../../../assests/homepicture/meow.png'
 import dogpicture from '../../../assests/homepicture/dog.png'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaw } from '@fortawesome/free-solid-svg-icons'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
@@ -10,12 +10,26 @@ import avaDuy from '../../../assests/ava/ava_duy.jpg'
 import avaNghia from '../../../assests/ava/ava_nghia.jpg'
 import avaDinh from '../../../assests/ava/ava_dinh.jpg'
 import avapetcare from '../../../assests/ava/doctorava.png'
+
+import { useCookies } from 'react-cookie'
+import { useAuth } from '../../security/AuthContext'
+
 export default function Home(){
+
+    const [cookies,setCookie,removeCookie] = useCookies(['username', 'password']);
+    const authContext = useAuth()
+
+    useEffect(() => {
+        if (cookies.username && cookies.password) {
+            authContext.setAuthenticated(true)
+        }
+    },[])
 
      function handleClickEmergencyCall(){
          window.scrollTo(0,100000);
         alert("Enter Phone Number In Our Contact Info")
     }
+
     
     return(
        <div className={cs['body']}>

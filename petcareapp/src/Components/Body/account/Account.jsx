@@ -12,6 +12,7 @@ import { SearchBar } from './SearchBar'
 import BookingHistory from '../../HiddenWrapContainer/BookingHistory'
 import UserChangeInformation from '../../HiddenWrapContainer/UserChangeInformation'
 
+import { useCookies } from 'react-cookie'
 
 const count =3;
 const Account = () => {
@@ -25,6 +26,8 @@ const Account = () => {
     const [wordEntered, setWordEntered] = useState("");
     const [open,isOpen] = useState(false)
     const [openChange,isOpenChange] = useState(false);
+
+    const [cookies, setCookie, removeCookie] = useCookies();
 
     function handleOpenBookingTrue(){           
         isOpen(true);
@@ -45,6 +48,8 @@ const Account = () => {
     }
 
     function handleLogout() {
+        removeCookie('username');
+        removeCookie('password');
         authContext.logout()
         navigate('/login')
     }

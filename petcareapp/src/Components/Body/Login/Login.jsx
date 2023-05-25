@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import { Validator } from '../../Validator/Validator';
 import { useAuth } from '../../security/AuthContext';
 
+import {useCookies} from 'react-cookie'
+
 export default function Login(){
     const navigate = useNavigate()
     
@@ -21,7 +23,11 @@ export default function Login(){
     
     const [errorMessage, setErrorMessage] = useState(false)
 
+    const [cookies,setCookie,removeCookie] = useCookies(['username', 'password']);
+
     useEffect(() => {
+       
+       
         Validator({
             form: '#form_login',
             formGroupSelector: '.form-group',
@@ -39,6 +45,8 @@ export default function Login(){
                 
                 
                 if(await authContext.login(user)){
+                    setCookie('username', data.username);
+                    setCookie('password', data.password);
                     navigate('/Home')
                 }else{
                     setErrorMessage(true)
@@ -48,7 +56,7 @@ export default function Login(){
     },[])
 
     
-
+    
 
     
    
