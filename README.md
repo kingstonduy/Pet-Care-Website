@@ -1,7 +1,7 @@
 # Pet-Care-Website
 <div>
     <img src="https://i.ibb.co/yXKNZKk/Screenshot-2023-05-20-195839.png" width='40%' height='40%'/>
-    <img src="https://www.facebook.com/photo/?fbid=627074732797232&set=a.461476379357069" width='40%' height='40%'/>
+<!--     <img src="https://www.facebook.com/photo/?fbid=627074732797232&set=a.461476379357069" width='40%' height='40%'/> -->
  </div>
 
 
