@@ -1,7 +1,7 @@
 # Pet-Care-Website
 <div>
     <img src="https://i.ibb.co/yXKNZKk/Screenshot-2023-05-20-195839.png" width='40%' height='40%'/>
-<!--     <img src="https://www.facebook.com/photo/?fbid=627074732797232&set=a.461476379357069" width='40%' height='40%'/> -->
+    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/347807339_198108922662341_2166288241714161793_n.png?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=nV2giyyhyKoAX8Wgz4a&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfDvfauvADR2jQaeKEeVClSL0nEF1SxR2rxNQQv2Hj8idg&oe=6483A8FB" width='40%' height='40%'/>
  </div>
 
 
@@ -50,7 +50,7 @@ then in vscode
 -----------------
 
 
-## Một số giao diện của web
+## Some hightlights user interface
 
 - #### HomePage
 ![homepage](https://scontent.fsgn2-8.fna.fbcdn.net/v/t1.15752-9/348359417_1213580666019111_4758279751000111942_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=IiAgJbu_q3UAX-urcLe&_nc_ht=scontent.fsgn2-8.fna&oh=03_AdR948jPT4pVp1QJkJaDVwPBO8mm02J6EHTc299CHEqvuw&oe=64905417)
