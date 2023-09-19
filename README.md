@@ -1,8 +1,10 @@
 # Pet-Care-Website
+
 <div>
-    <img src="https://i.ibb.co/yXKNZKk/Screenshot-2023-05-20-195839.png" width='40%' height='40%'/>
-    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/347807339_198108922662341_2166288241714161793_n.png?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=nV2giyyhyKoAX8Wgz4a&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfDvfauvADR2jQaeKEeVClSL0nEF1SxR2rxNQQv2Hj8idg&oe=6483A8FB" width='40%' height='40%'/>
+    <img src="https://github.com/kingstonduy/images-hosting/blob/main/pet-care-application/Dog-logo.png?raw=true" alt="Alt text" title="Optional title">
+    <img src="https://upload.wikimedia.org/wikipedia/vi/2/29/Logo-HCMIU.svg" width='40%' height='40%'/>
  </div>
+
 
 
 ---------------
