@@ -1,7 +1,7 @@
 # Pet-Care-Website
 <div>
-    <img src="https://i.ibb.co/yXKNZKk/Screenshot-2023-05-20-195839.png" width='40%' height='40%'/>
-    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/347807339_198108922662341_2166288241714161793_n.png?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=rCk0vH3qQPUAX9ziMq4&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfD_x4yqp53MgmNdRyGnJM7ygIyWnFxZvOnC25Qyo7_vOA&oe=646DE83B" width='40%' height='40%'/>
+    <img src="https://github.com/kingstonduy/Pet-Care-Website/blob/main/DATA/images/Dog-logo.png?raw=true" width='40%' height='40%'/>
+    <img src="https://raw.githubusercontent.com/kingstonduy/Pet-Care-Website/84c250c723b7bf84503958a6bf33b01b8074d7d1/DATA/images/Logo-HCMIU.svg" width='40%' height='40%'/>
  </div>
 
 
@@ -45,39 +45,38 @@ then in vscode
 ## Web Architucture
 
 - #### Web Architucture
-![WebArchitucture](https://i.ibb.co/3WxK3Tw/Screenshot-2023-05-20-203702.png)
+![WebArchitucture](https://github.com/kingstonduy/Pet-Care-Website/blob/main/DATA/images/Architecture.png?raw=true)
 
 -----------------
 
 
-## Một số giao diện của web
+## Some hightlights user interface
 
 - #### HomePage
-![homepage](https://scontent.fsgn2-8.fna.fbcdn.net/v/t1.15752-9/348359417_1213580666019111_4758279751000111942_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=IiAgJbu_q3UAX-urcLe&_nc_ht=scontent.fsgn2-8.fna&oh=03_AdR948jPT4pVp1QJkJaDVwPBO8mm02J6EHTc299CHEqvuw&oe=64905417)
-![homepage](https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/348365088_234871145829606_8888786184216942939_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=6bLsVJlPSFEAX-mhXh3&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdRNc4Jf3QPARDaQXnQmykxpM5LWd4RNatOYwL2izrZU4Q&oe=64902EBE)
+![homepage](https://github.com/kingstonduy/Pet-Care-Website/blob/main/DATA/images/Homepage.png?raw=true)
 
 <br/>
 
 - #### Service
-![Service](https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/348362923_240675771940960_979885423465611428_n.png?_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=v70RLrofHcgAX-8rndf&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdTX_alTncdL1R7pKoHuhyTXKLceEREEusVVv21M24-UsA&oe=649059A8)
+![Service](https://github.com/kingstonduy/Pet-Care-Website/blob/main/DATA/images/Service.png?raw=true)
 
 <br/>
 
 - #### Product Shop
-![Product Shop](https://scontent.fsgn2-5.fna.fbcdn.net/v/t1.15752-9/348366461_1655262548264043_5335330752897571878_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=D3nn9qsnN1kAX_YNf6i&_nc_ht=scontent.fsgn2-5.fna&oh=03_AdR9gf2WfC57yEYIw4UK6IvXOxgXm0izgclsiZOPD8pL-w&oe=649049D4)
+![Product Shop](https://github.com/kingstonduy/Pet-Care-Website/blob/main/DATA/images/Products.png?raw=true)
 
 -----------------
 
 
 - #### Cart
-![Cart](https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/346165827_1117135416343419_5707921285902709800_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=bzk_Bmj0FCkAX-00sPJ&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdRD5WaSY49zNztoSnBjrJkKmDl4ahNaS11DgoDusAow0A&oe=64904F12)
+![Cart](https://github.com/kingstonduy/Pet-Care-Website/blob/main/DATA/images/Cart.png?raw=true)
 
 
 -----------------
 
 
-- #### Account
-![Account](https://scontent.fsgn2-9.fna.fbcdn.net/v/t1.15752-9/346137915_235409595851073_5309969716425964116_n.png?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=SzzT20Y-anQAX9zBarS&_nc_ht=scontent.fsgn2-9.fna&oh=03_AdQLypjE6U3uJ4w4ENModh5EQNrCJBzfn7aYMgyYDaN_yw&oe=64903C4E)
+- #### Detailed Product
+![Detailed Product](https://github.com/kingstonduy/Pet-Care-Website/blob/main/DATA/images/Detail-Product.png?raw=true)
 
 
 
