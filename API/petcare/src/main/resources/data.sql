@@ -1,5 +1,12 @@
 --CAUTION h2 se tu dong doi ten column
 
+create table userr;
+create table Product;
+create table Cart;
+create table Ordered_Product;
+create table Comment;
+create table booking;
+
 insert into userr (id , user_full_name, user_user_name, user_password, user_email, user_role)
 values
     (1001, 'Nguyen Trong Nghia', 'nghia', 'Zet411632', 'zetnguyen17@gmail.com', 'user'),
@@ -1002,8 +1009,6 @@ values
     (1998, 'Doan Ngoc Tien', 'Doanngoctien200586200586', 'Tien200586', 'Doanngoctien200586200586@gmail.com', 'user'),
     (1999, 'Ngo Thi Thu Hang', 'ngothithuhang010610010610', 'Hang010610', 'ngothithuhang010610010610@gmail.com', 'user');
 
-
-
 insert into Product(id , product_Name, product_Quantity, product_Category, product_Price, product_Description, product_Image_Url)
 values
     (1, 'Stella & Chewy''s Remarkable Red Meat Recipe Dinner Patties Freeze-Dried Raw Dog Food, 5.5 oz', 32, 'food', 16, 'Give your dog what he naturally craves with Stella & Chewy''s Remarkable Red Meat Recipe Dinner Patties. Each freeze-dried patty is formulated to mirror your dog’s ancestral diet. It’s made with 95% grass-fed meat, organs and bones for a meal that’s rich in protein and essential amino acids. The raw formula also includes a delicious blend of organic fruits and vegetables to give your pal all the vitamins and minerals he needs. The patties are simple to serve—you can feed them as is or rehydrate them with water, no prep or waiting necessary. The red meat recipe is great for those pups with sensitive tummies or on a limited-ingredient diet. Plus, it doesn’t include any artificial preservatives or colorings! Key Benefits Made with a blend of grass-fed beef, goat and lamb raised without hormones or antibiotics and 100% organic-certified fruits and vegetables. Real raw nutrition in the convenience of freeze-dried patties—simply serve as is or rehydrate by adding water. Grain-free, gluten-free and great for weight-control, this recipe is formulated to mimic your canine’s natural diet without artificial preservatives or colors. Complete and balanced nutrition enhanced with probiotics to help support your dog’s healthy digestion—perfect for the pup with a sensitive tummy. Proudly made in the USA with ingredients responsibly sourced from trusted and reputable suppliers. 5.5-oz bag: Contains approximately 11 patties. 14-oz bag: Contains approximately 20 patties.', 'https://www.petproducts.com/static/upload/products/stella--chewys-remarkable-red-meat-recipe-dinner-patties-freeze-dried-raw-dog-food-55-oz/852301008229-2.jpg'),
@@ -1307,8 +1312,6 @@ values
     (299, 'Chuckit! Amphibious Bumper Toy - Large', 37, 'toy', 12, 'On land and in the water Chuckit! Amphibious toys are designed for exceptional visibility and performance.', 'https://www.petproducts.com/static/upload/products/assorted/chuckit--amphibious-bumper-toy-large/jv2tcjh.jpg'),
     (300, 'Cat Dancer Cat Dancer Toy', 26, 'toy', 2, 'Cat Dancer is the original interactive cat toy. Spring steel wire and rolled cardboard create an irresistible lure for cats and great fun for cat lovers.', 'https://www.petproducts.com/static/upload/products/assorted/cat-dancer---toy/b13u0t7.jpg');
 
-
-
 insert into Cart(id, user_Id,  product_Id, cart_Item_Quantity)
 values
     (1001, 1001, 1, 1),
@@ -1322,8 +1325,6 @@ values
     (1009, 1005, 5, 5),
     (1010, 1005, 5, 5);
 
-
-
 insert into Ordered_Product (id , user_Id, product_Id, ordered_Product_Quantity, ordered_Product_Date )
 values
     (1001, 1001, 5, 5, current_date()),
@@ -1335,7 +1336,6 @@ values
     (1007, 1004, 2, 3, current_date()),
     (1008, 1004, 1, 1, current_date());
 
---
 insert into Comment(id  , product_Id , user_Id , COMMENT_DESCRIPTION , comment_Date)
 values
     (10000, 49, 1454, 'This dog toy is perfect for gentle play or cuddling, providing comfort and companionship for my dog during quiet moments.', '2023-04-16'),
@@ -1912,6 +1912,7 @@ values
     (10571, 48, 1392, 'I love how this bird food is carefully tested and formulated by avian nutrition experts, ensuring the highest quality.', '2023-02-24'),
     (10572, 8, 1370, 'I appreciate that this bird food is designed to be easily digestible, ensuring maximum nutrient absorption for my bird.', '2020-11-01'),
     (10573, 8, 1188, 'My bird''s feathers have become softer and more pliable since starting them on this nutrient-rich food.', '2023-04-17');  
+
 insert into booking(id,phone_number,type_pet,date,user_id)
 values
     (1001,'0901830362','dog','2023-05-12',1001),
