@@ -7,8 +7,14 @@
 
 ---------------
 ## How to run
+Config the database port, username, password at 
+[application.properties](/API/petcare/src/main/resources/application.properties)
 
-run the java main at ".\api\petcare\src\main\java\com\petcare\rest\webservices\restful\PetcareApplication
+We havent figue out the way to auto generate schema and tables in springboot for mysql. So please create schema "petcare" then paste the prepared queries at 
+[data.sql](/API/petcare/src/main/resources/data.sql) into query of mysql 
+
+run the java main at 
+[PetcareApplication.java](/API/petcare/src/main/java/com/petcare/rest/webservices/restful/PetcareApplication.java)
 
 then in vscode
 

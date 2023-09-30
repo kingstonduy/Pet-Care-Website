@@ -1,0 +1,171 @@
+.body{
+  background-color: #FFF4EA;
+
+  padding: 30px 0;
+}
+
+.body_title{
+  text-align: center;
+  padding-top: 45px;
+}
+
+
+.body_title > h2{
+ 
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 24px;
+  /* or 80% */
+  
+  color: #000000;
+
+}
+
+.body_sort{
+  display: flex;
+  padding-top: 60px;
+  justify-content: space-around;
+}
+
+.sortGroup{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sortGroup > label{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  /* or 160% */
+
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.sortGroup > select{
+  padding: 8px;
+  
+
+  width: 292px;
+  height: 40px;
+  
+
+  /* color/neutral/00 */
+  background: #FFFFFF;
+  /* color/border/inactived */
+  border: 1px solid rgba(28, 27, 31, 0.65);
+  border-radius: 2px;
+}
+
+
+.body_sort_right{
+  display: flex;
+  
+}
+
+.body_sort_right > .sortGroup:nth-child(2){
+  margin-left: 50px;
+}
+
+.home-product{
+  margin-top: 45px;
+}
+
+
+.product_item{
+  padding: 20px 10px;
+  text-align: left;
+  display: block;
+  text-decoration: none;
+  
+ 
+}
+
+.product_item:hover{
+  
+  box-shadow: -5px 5px 15px -3px #555;
+  
+}
+
+
+.product_item_img{
+  display: block;
+  
+  padding: 50%;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center;
+  border-radius: 45px;
+  
+  border: 1px solid #333;
+}
+
+
+
+.product_item > p{
+  font-family: 'Poppins';
+  line-height: 30px;
+  /* or 188% */
+  color: #656689;
+  margin-left: 15px;
+}
+
+.product_img_wrap{
+  position: relative;
+}
+
+.product_img_wrap:hover > .product_item_add_btn{
+  display: block;
+}
+
+.product_item_add_btn{
+  position: absolute;
+  border-radius: 15px;
+  height: 50px;
+  background-color: #FB901A;
+  bottom: 0;
+  width: 100%;
+  line-height: 50px;
+  animation: SlideFromBot ease 0.5s;
+  display: none;
+  text-align: center;
+  color: #333;
+}
+
+
+.product_item_add_btn:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+@keyframes SlideFromBot {
+  from{
+      height: 0;
+  }to{
+      height: 50px;
+  }
+}
+
+.product_item_name{
+  height: 60px;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.product_item_description{
+  text-align: left;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.product_item_price{
+  text-align: left;
+  
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
